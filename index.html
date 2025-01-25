@@ -33,16 +33,18 @@
                     },
                     colors: {
                         'primary': '#2c3e50', // Azul escuro, sóbrio
-                        'secondary': '#7f8c8d', // Cinza médio, para textos secundários
+                        'secondary': '#606f7b', // Cinza mais escuro para textos secundários (aumentando contraste)
                         'accent': '#c2b280', // Toque de dourado, sofisticado e discreto
                         'background': '#f8f8f8', // Fundo claro e suave
                         'text': '#222222', // Preto para textos principais
-                        'border': '#d9d9d9', // Cinza claro para divisórias
+                        'border': '#d0d0d0', // Cinza mais escuro para bordas (aumentando contraste)
+                        'section-title': '#333333', // Tom mais escuro para titulos de secoes, aumentando contraste com fundo cinza
                     },
                     animation: {
                       'fade-in': 'fadeIn 0.5s ease-in forwards',
                       'slide-up': 'slideUp 0.5s ease-in-out forwards',
                       'pulse-slow': 'pulse 3s linear infinite',
+                      'draw-lines': 'drawLines 5s linear forwards',
                     },
                     keyframes: {
                       fadeIn: {
@@ -56,6 +58,10 @@
                      pulse: {
                         '0%, 100%': { transform: 'scale(1)' },
                         '50%': { transform: 'scale(1.05)' },
+                      },
+                      drawLines: {
+                        '0%': { strokeDashoffset: '1000' },
+                        '100%': { strokeDashoffset: '0' },
                       },
                     },
                 }
@@ -75,12 +81,12 @@
             max-width: 1100px;
             margin-left: auto;
             margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
         .section-spacing {
-            padding-top: 8rem;
-            padding-bottom: 8rem;
+            padding-top: 6rem; /* Diminuído */
+            padding-bottom: 6rem; /* Diminuído */
         }
         .nav-link {
             transition: color 0.2s ease-in-out;
@@ -137,6 +143,59 @@
             background-position: center;
             background-repeat: no-repeat;
             animation: fadeIn 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            margin: auto;
+            width: 90vw;
+        }
+        .line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .line::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 15vh;
+            width: 100%;
+            top: -50%;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+            animation: drop 5s 0s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+        }
+        .line:nth-child(1) {
+            margin-left: -25%;
+        }
+        .line:nth-child(1)::after {
+            animation-delay: 1s;
+        }
+        .line:nth-child(3) {
+            margin-left: 25%;
+        }
+        .line:nth-child(3)::after {
+            animation-delay: 2s;
+        }
+        @keyframes drop {
+            0% {
+              top: -50%;
+            }
+            100% {
+              top: 110%;
+            }
         }
         .bg-radial {
             background: radial-gradient(circle at center, var(--background) 0%, rgba(240, 240, 240, 0.8) 100%);
@@ -162,6 +221,9 @@
         }
         .photo-container {
             animation: slideUp 0.8s ease-out forwards;
+            max-width: 350px; /* Reduzindo o tamanho da foto */
+            margin-left: auto;
+            margin-right: auto;
         }
         .form-bg {
             background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
@@ -171,8 +233,8 @@
         }
         @media (min-width: 768px) {
             .section-spacing {
-                padding-top: 10rem;
-                padding-bottom: 10rem;
+                padding-top: 8rem; /* Diminuído */
+                padding-bottom: 8rem; /* Diminuído */
             }
         }
     </style>
@@ -212,8 +274,13 @@
     </header>
 
     <main id="main">
-        <section class="hero-bg bg-radial section-spacing flex items-center justify-center">
-            <div class="container text-center">
+        <section class="hero-bg bg-radial section-spacing flex items-center justify-center relative">
+            <div class="lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="container text-center relative z-10">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-4 text-primary text-shadow">Dr. Gustavo Mendes e Silva</h1>
                 <p class="text-lg md:text-xl mb-8 text-secondary font-medium">Psiquiatria - Consultas na Vila Olímpia, Itaim Bibi e Online</p>
                 <a href="#contato" class="btn bg-accent hover:bg-primary text-white px-8 py-3 rounded-md inline-flex items-center gap-2 animate-pulse-slow">
@@ -226,7 +293,7 @@
         <section id="sobre" class="section-spacing">
             <div class="container">
                 <div class="md:flex md:items-center md:gap-16">
-                    <div class="md:w-1/2">
+                    <div class="md<div class="md:w-1/2">
                         <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-6 text-primary">Sobre</h2>
                         <p class="mb-4 text-secondary">Com consultório na <strong class="text-primary">Vila Olímpia</strong> e <strong class="text-primary">Itaim Bibi</strong>, e também em <strong class="text-primary">atendimento Online</strong>, sou médico psiquiatra com foco em um cuidado personalizado, humanizado e baseado nas melhores evidências científicas disponíveis.</p>
                         <p class="text-secondary">Busco sempre a melhor abordagem terapêutica, considerando as particularidades e necessidades de cada indivíduo.</p>
@@ -240,7 +307,7 @@
 
         <section id="areas" class="section-spacing bg-gray-100">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Áreas de Atuação</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-section-title">Áreas de Atuação</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-xl font-serif font-medium mb-4 text-primary">Saúde Mental</h3>
@@ -267,7 +334,7 @@
             <div class="container">
                 <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Diferenciais</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="flex flex-col items-center p<div class="flex flex-col items-center p-6 border border-border rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:border-transparent">
+                    <div class="flex flex-col items-center p-6 border border-border rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:border-transparent">
                         <svg class="w-12 h-12 mb-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <h3 class="text-xl font-serif font-medium mb-2 text-center text-primary">Consulta Inicial Detalhada</h3>
                         <p class="text-center text-secondary">Primeiro encontro com duração estendida para avaliação completa e aprofundada.</p>
@@ -288,7 +355,7 @@
 
         <section id="formacao" class="section-spacing bg-gray-100">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Formação e Experiência</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-section-title">Formação e Experiência</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-xl font-serif font-semibold mb-4 text-primary">Formação</h3>
@@ -350,7 +417,7 @@
 
         <section id="contato" class="section-spacing bg-gray-100">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Contato</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-section-title">Contato</h2>
                 <div class="md:flex md:items-center md:gap-16">
                     <div class="md:w-1/2">
                         <p class="mb-4 text-secondary">Entre em contato para agendar sua consulta ou para mais informações. Será um prazer atendê-lo!</p>
