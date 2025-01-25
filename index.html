@@ -28,6 +28,30 @@
             }
         }
     </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1B3C59',    // Azul profissional escuro
+                        secondary: '#456990',  // Azul complementar
+                        accent: '#8EAEBD',     // Azul suave
+                        neutral: {
+                            100: '#F7F9FC',
+                            800: '#2D3748',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    boxShadow: {
+                        'premium': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         /* Adicione estilos personalizados aqui se necessário */
         .faq-answer {
@@ -76,6 +100,30 @@
             </div>
         </div>
     </nav>
+
+    <header class="relative h-screen">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/90 z-10"></div>
+        <img src="hero-bg.jpg" alt="Dr. Gustavo em consultório" class="absolute inset-0 w-full h-full object-cover">
+        
+        <div class="relative z-20 container mx-auto px-4 h-full flex items-center">
+            <div class="max-w-2xl">
+                <h1 class="font-serif text-4xl md:text-6xl text-white mb-6">
+                    Medicina Psiquiátrica Integrativa e Cannabis Medicinal
+                </h1>
+                <p class="font-sans text-lg md:text-xl text-white/90 mb-8">
+                    Tratamento personalizado e inovador para sua saúde mental no coração de São Paulo
+                </p>
+                <div class="space-x-4">
+                    <a href="#consulta" class="bg-white text-primary px-8 py-3 rounded-full hover:shadow-premium transition duration-300">
+                        Agende sua Consulta
+                    </a>
+                    <a href="#sobre" class="border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white/10 transition duration-300">
+                        Conheça mais
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <main id="conteudo-principal" class="pt-16">
         <section class="relative bg-gradient-to-r from-orcann-green to-orcann-lightgreen text-white py-20 px-4 sm:py-24" aria-labelledby="hero-title">
@@ -198,6 +246,47 @@
                             <h3 class="font-semibold text-lg text-gray-800">Plano Terapêutico Personalizado</h3>
                             <p class="text-gray-600">Desenvolvo um plano de tratamento individualizado, considerando suas metas, preferências e estilo de vida.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-neutral-100">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-premium hover:shadow-xl transition duration-300">
+                        <div class="text-primary text-4xl mb-4">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl mb-4">Especialista em Cannabis Medicinal</h3>
+                        <p class="text-neutral-800">Pioneiro em tratamentos inovadores e personalizados com cannabis medicinal.</p>
+                    </div>
+                    <!-- Adicione mais cards similares -->
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-primary py-20">
+            <div class="container mx-auto px-4">
+                <div class="bg-white rounded-xl shadow-premium p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h2 class="font-serif text-3xl mb-6">Agende sua Consulta</h2>
+                            <p class="text-neutral-800 mb-8">
+                                Atendimento exclusivo e personalizado em nossa clínica na Vila Olímpia ou via telemedicina.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-4"></i>
+                                    <span>Vila Olímpia, São Paulo - SP</span>
+                                </div>
+                                <!-- Adicione mais informações de contato -->
+                            </div>
+                        </div>
+                        <form class="space-y-6">
+                            <input type="text" placeholder="Nome completo" class="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20">
+                            <!-- Adicione mais campos do formulário -->
+                        </form>
                     </div>
                 </div>
             </div>
