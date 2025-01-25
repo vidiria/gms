@@ -462,29 +462,35 @@
             <div class="container mx-auto px-4">
                 
                 <!-- 2. Card Principal -->
-                <div class="card-container" data-card="main">
-                    <button class="w-full flex justify-between items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all"
+                <div class="card-container transition-all duration-300 ease-in-out" data-card="main">
+                    <button class="w-full flex justify-between items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                            onclick="toggleCard(this)"
                             aria-expanded="false"
                             aria-controls="card-content-1">
-                        <h3 class="text-xl font-semibold">Serviços</h3>
-                        <svg class="w-5 h-5 transition-transform" viewBox="0 0 20 20">
+                        <h3 class="text-xl font-semibold text-gray-800">Serviços</h3>
+                        <svg class="w-5 h-5 transition-transform duration-300 transform" viewBox="0 0 20 20">
                             <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                     </button>
         
                     <!-- 3. Conteúdo Expansível -->
-                    <div id="card-content-1" class="hidden mt-4">
+                    <div id="card-content-1" 
+                         class="hidden mt-4 transform transition-all duration-300 ease-in-out opacity-0 scale-95">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             <!-- Card Item -->
                             <div class="bg-white rounded-lg p-4 shadow">
-                                <button class="w-full text-left" 
+                                <button class="w-full text-left flex justify-between items-center"
+                                        onclick="toggleSubCard(this)"
                                         aria-expanded="false"
                                         aria-controls="subcard-1">
-                                    <h4 class="text-lg font-medium">Tratamento 1</h4>
+                                    <h4 class="text-lg font-medium text-gray-700">Tratamento 1</h4>
+                                    <svg class="w-4 h-4 transition-transform duration-300 transform" viewBox="0 0 20 20">
+                                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
                                 </button>
-                                <div id="subcard-1" class="hidden mt-4">
-                                    <p>Descrição breve...</p>
-                                    <button class="mt-4 text-blue-600 hover:text-blue-800"
+                                <div id="subcard-1" class="hidden mt-4 transform transition-all duration-300">
+                                    <p class="text-gray-600">Descrição breve...</p>
+                                    <button class="mt-4 text-blue-600 hover:text-blue-800 transition-colors duration-300"
                                             onclick="openModal('modal-1')">
                                         Saiba mais
                                     </button>
@@ -496,39 +502,55 @@
             </div>
         
             <!-- 4. Modal -->
-            <div id="modal-1" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
-                <!-- ... conteúdo do modal ... -->
+            <div id="modal-1" 
+                 class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 transition-opacity duration-300">
+                <div class="bg-white rounded-lg max-w-2xl mx-auto mt-20 p-6 transform transition-all duration-300">
+                    <!-- ... conteúdo do modal ... -->
+                </div>
             </div>
-        </section>
         
-        <!-- 5. Scripts -->
-        <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Lógica dos cards
-            document.querySelectorAll('[data-card="main"] button').forEach(button => {
-                button.addEventListener('click', () => {
+            <script>
+                function toggleCard(button) {
                     const content = document.getElementById(button.getAttribute('aria-controls'));
                     const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                    const icon = button.querySelector('svg');
+                    
+                    button.setAttribute('aria-expanded', !isExpanded);
+                    
+                    if (isExpanded) {
+                        content.classList.add('opacity-0', 'scale-95');
+                        setTimeout(() => content.classList.add('hidden'), 300);
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        content.classList.remove('hidden');
+                        setTimeout(() => content.classList.remove('opacity-0', 'scale-95'), 10);
+                        icon.classList.add('rotate-180');
+                    }
+                }
+        
+                function toggleSubCard(button) {
+                    const content = document.getElementById(button.getAttribute('aria-controls'));
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                    const icon = button.querySelector('svg');
                     
                     button.setAttribute('aria-expanded', !isExpanded);
                     content.classList.toggle('hidden');
-                    button.querySelector('svg').style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-                });
-            });
-        });
+                    icon.classList.toggle('rotate-180');
+                }
         
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
+                function openModal(modalId) {
+                    const modal = document.getElementById(modalId);
+                    modal.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                }
         
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-        </script>
+                function closeModal(modalId) {
+                    const modal = document.getElementById(modalId);
+                    modal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            </script>
+        </section>
     </main>
     <footer class="bg-gray-800 text-white py-12 px-4">
         <div class="max-w-7xl mx-auto">
