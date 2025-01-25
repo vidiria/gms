@@ -28,30 +28,6 @@
             }
         }
     </script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1B3C59',    // Azul profissional escuro
-                        secondary: '#456990',  // Azul complementar
-                        accent: '#8EAEBD',     // Azul suave
-                        neutral: {
-                            100: '#F7F9FC',
-                            800: '#2D3748',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
-                    },
-                    boxShadow: {
-                        'premium': '0 4px 20px rgba(0, 0, 0, 0.08)',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         /* Adicione estilos personalizados aqui se necessário */
         .faq-answer {
@@ -90,6 +66,7 @@
                 </div>
             </div>
         </div>
+
         <div id="mobileMenu" class="hidden md:hidden" aria-labelledby="menuBtn">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#sobre" class="text-gray-600 hover:bg-gray-100 hover:text-orcann-green block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
@@ -99,29 +76,8 @@
             </div>
         </div>
     </nav>
-    <header class="relative h-screen">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/90 z-10"></div>
-        <img src="hero-bg.jpg" alt="Dr. Gustavo em consultório" class="absolute inset-0 w-full h-full object-cover">
-        <div class="relative z-20 container mx-auto px-4 h-full flex items-center">
-            <div class="max-w-2xl">
-                <h1 class="font-serif text-4xl md:text-6xl text-white mb-6">
-                    Medicina Psiquiátrica Integrativa e Cannabis Medicinal
-                </h1>
-                <p class="font-sans text-lg md:text-xl text-white/90 mb-8">
-                    Tratamento personalizado e inovador para sua saúde mental no coração de São Paulo
-                </p>
-                <div class="space-x-4">
-                    <a href="#consulta" class="bg-white text-primary px-8 py-3 rounded-full hover:shadow-premium transition duration-300">
-                        Agende sua Consulta
-                    </a>
-                    <a href="#sobre" class="border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white/10 transition duration-300">
-                        Conheça mais
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main id="conteudo-principal" class="pt-8">
+
+    <main id="conteudo-principal" class="pt-16">
         <section class="relative bg-gradient-to-r from-orcann-green to-orcann-lightgreen text-white py-20 px-4 sm:py-24" aria-labelledby="hero-title">
             <div class="max-w-7xl mx-auto text-center">
                 <h1 id="hero-title" class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
@@ -138,7 +94,8 @@
                 </div>
             </div>
         </section>
-        <section id="sobre" class="py-8 px-4" aria-labelledby="sobre-title">
+
+        <section id="sobre" class="py-16 px-4" aria-labelledby="sobre-title">
             <div class="max-w-7xl mx-auto">
                 <div class="lg:flex lg:items-center lg:justify-between">
                     <div class="flex-1 min-w-0">
@@ -158,6 +115,7 @@
                 </div>
             </div>
         </section>
+
         <section id="areas" class="bg-white py-16 px-4" aria-labelledby="areas-title">
             <div class="max-w-7xl mx-auto">
                 <h2 id="areas-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">Áreas de Atuação</h2>
@@ -194,6 +152,7 @@
                 </div>
             </div>
         </section>
+
         <section id="diferenciais" class="py-16 px-4" aria-labelledby="diferenciais-title">
             <div class="max-w-7xl mx-auto">
                 <h2 id="diferenciais-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">Diferenciais do meu Atendimento</h2>
@@ -229,8 +188,8 @@
                         <div>
                             <h3 class="font-semibold text-lg text-gray-800">Atendimento Humanizado</h3>
                             <p class="text-gray-600">Ofereço uma escuta empática e respeitosa, focada em suas necessidades e particularidades</p>
-                        </div>
-                    </div>
+                        
+                   </div>
                     <div class="flex items-start space-x-4">
                         <div class="flex-shrink-0">
                             <svg class="h-10 w-10 text-orcann-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -245,45 +204,7 @@
                 </div>
             </div>
         </section>
-        <section class="py-20 bg-neutral-100">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-lg shadow-premium hover:shadow-xl transition duration-300">
-                        <div class="text-primary text-4xl mb-4">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl mb-4">Especialista em Cannabis Medicinal</h3>
-                        <p class="text-neutral-800">Pioneiro em tratamentos inovadores e personalizados com cannabis medicinal.</p>
-                    </div>
-                    <!-- Adicione mais cards similares -->
-                </div>
-            </div>
-        </section>
-        <section class="bg-primary py-20">
-            <div class="container mx-auto px-4">
-                <div class="bg-white rounded-xl shadow-premium p-8 md:p-12">
-                    <div class="grid md:grid-cols-2 gap-12">
-                        <div>
-                            <h2 class="font-serif text-3xl mb-6">Agende sua Consulta</h2>
-                            <p class="text-neutral-800 mb-8">
-                                Atendimento exclusivo e personalizado em nossa clínica na Vila Olímpia ou via telemedicina.
-                            </p>
-                            <div class="space-y-4">
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-primary mr-4"></i>
-                                    <span>Vila Olímpia, São Paulo - SP</span>
-                                </div>
-                                <!-- Adicione mais informações de contato -->
-                            </div>
-                        </div>
-                        <form class="space-y-6">
-                            <input type="text" placeholder="Nome completo" class="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20">
-                            <!-- Adicione mais campos do formulário -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <section class="bg-white py-16 px-4" aria-labelledby="formacao-title">
             <div class="max-w-7xl mx-auto">
                 <h2 id="formacao-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">Formação e Experiência</h2>
@@ -313,6 +234,7 @@
                 </div>
             </div>
         </section>
+
         <section class="py-16 px-4 bg-gray-50" aria-labelledby="primeira-consulta-title">
             <div class="max-w-7xl mx-auto">
                 <h2 id="primeira-consulta-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">Como é a Primeira Consulta?</h2>
@@ -345,6 +267,7 @@
                 </div>
             </div>
         </section>
+
         <section id="contato" class="py-16 px-4" aria-labelledby="contato-title">
             <div class="max-w-7xl mx-auto">
                 <h2 id="contato-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">Contato e Agendamento</h2>
@@ -373,7 +296,7 @@
                             <li class="flex items-start space-x-3">
                                 <svg class="h-6 w-6 text-orcann-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                                 <div>
                                     <span class="text-gray-600 font-medium">Endereço:</span>
@@ -406,6 +329,7 @@
                 </div>
             </div>
         </section>
+
         <section class="bg-gray-50 py-16 px-4" aria-labelledby="faq-title">
             <div class="max-w-7xl mx-auto">
                 <h2 id="faq-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">Dúvidas Frequentes (FAQ)</h2>
@@ -440,8 +364,8 @@
                             </svg>
                         </button>
                         <div class="faq-answer mt-4 text-gray-600">
-                            <p>A <p>A duração do tratamento varia de acordo com cada caso. Algumas pessoas podem precisar de acompanhamento por alguns meses, enquanto outras podem se beneficiar de um tratamento em menor tempo.
-                                </div>
+                            <p>A <p>A duração do tratamento varia de acordo com cada caso. Algumas pessoas podem precisar de acompanhamento por alguns meses, enquanto outras podem se beneficiar de um tratamento mais
+                        </div>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <button class="faq-btn flex justify-between items-center w-full text-left focus:outline-none">
@@ -457,101 +381,8 @@
                 </div>
             </div>
         </section>
-        <!-- 1. Container Principal -->
-        <section id="servicos" class="bg-gray-50 py-12">
-            <div class="container mx-auto px-4">
-                
-                <!-- 2. Card Principal -->
-                <div class="card-container transition-all duration-300 ease-in-out" data-card="main">
-                    <button class="w-full flex justify-between items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
-                            onclick="toggleCard(this)"
-                            aria-expanded="false"
-                            aria-controls="card-content-1">
-                        <h3 class="text-xl font-semibold text-gray-800">Serviços</h3>
-                        <svg class="w-5 h-5 transition-transform duration-300 transform" viewBox="0 0 20 20">
-                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                        </svg>
-                    </button>
-        
-                    <!-- 3. Conteúdo Expansível -->
-                    <div id="card-content-1" 
-                         class="hidden mt-4 transform transition-all duration-300 ease-in-out opacity-0 scale-95">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <!-- Card Item -->
-                            <div class="bg-white rounded-lg p-4 shadow">
-                                <button class="w-full text-left flex justify-between items-center"
-                                        onclick="toggleSubCard(this)"
-                                        aria-expanded="false"
-                                        aria-controls="subcard-1">
-                                    <h4 class="text-lg font-medium text-gray-700">Tratamento 1</h4>
-                                    <svg class="w-4 h-4 transition-transform duration-300 transform" viewBox="0 0 20 20">
-                                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                                    </svg>
-                                </button>
-                                <div id="subcard-1" class="hidden mt-4 transform transition-all duration-300">
-                                    <p class="text-gray-600">Descrição breve...</p>
-                                    <button class="mt-4 text-blue-600 hover:text-blue-800 transition-colors duration-300"
-                                            onclick="openModal('modal-1')">
-                                        Saiba mais
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <!-- 4. Modal -->
-            <div id="modal-1" 
-                 class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 transition-opacity duration-300">
-                <div class="bg-white rounded-lg max-w-2xl mx-auto mt-20 p-6 transform transition-all duration-300">
-                    <!-- ... conteúdo do modal ... -->
-                </div>
-            </div>
-        
-            <script>
-                function toggleCard(button) {
-                    const content = document.getElementById(button.getAttribute('aria-controls'));
-                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
-                    const icon = button.querySelector('svg');
-                    
-                    button.setAttribute('aria-expanded', !isExpanded);
-                    
-                    if (isExpanded) {
-                        content.classList.add('opacity-0', 'scale-95');
-                        setTimeout(() => content.classList.add('hidden'), 300);
-                        icon.classList.remove('rotate-180');
-                    } else {
-                        content.classList.remove('hidden');
-                        setTimeout(() => content.classList.remove('opacity-0', 'scale-95'), 10);
-                        icon.classList.add('rotate-180');
-                    }
-                }
-        
-                function toggleSubCard(button) {
-                    const content = document.getElementById(button.getAttribute('aria-controls'));
-                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
-                    const icon = button.querySelector('svg');
-                    
-                    button.setAttribute('aria-expanded', !isExpanded);
-                    content.classList.toggle('hidden');
-                    icon.classList.toggle('rotate-180');
-                }
-        
-                function openModal(modalId) {
-                    const modal = document.getElementById(modalId);
-                    modal.classList.remove('hidden');
-                    document.body.classList.add('overflow-hidden');
-                }
-        
-                function closeModal(modalId) {
-                    const modal = document.getElementById(modalId);
-                    modal.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                }
-            </script>
-        </section>
     </main>
+
     <footer class="bg-gray-800 text-white py-12 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -564,25 +395,26 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4 text-orcann-green">Redes Sociais</h3>
                     <div class="flex space-x-4">
-                        <a href="https://linkedin.com/in/mendes-e-silva" class="text-gray-300 hover:text-white" 
-                           aria-label="Perfil no LinkedIn" rel="noopener noreferrer">
+                        <a href="https://linkedin.com/in/mendes-e-silva" class="text-gray-300 hover:text-white" aria-label="LinkedIn">
                             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/dr.gustavomendes" class="text-gray-300 hover:text-white" 
-                           aria-label="Perfil no Instagram">
-                            <!-- ... SVG do Instagram ... -->
+                        <a href="https://www.instagram.com/seuinstagram/" class="text-gray-300 hover:text-white" aria-label="Instagram">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.79.217 2.427.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.636.415 1.363.465 2.427.048 1.024.06 1.379.06 3.808 0 2.43-.013 2.784-.06 3.808-.049 1.064-.217 1.79-.465 2.427a4.883 4.883 0 0 1-1.153 1.772c-.255.66-.6 1.216-1.153 1.772-.636.247-1.363.415-2.427.465-1.024.048-1.379.06-3.808.06-2.43 0-2.784-.013-3.808-.06-1.064-.049-1.79-.217-2.427-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.247-.636-.415-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808 0-2.43.013-2.784.06-3.808.049-1.064.217-1.79.465-2.427a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.636-.247 1.363-.415 2.427-.465 1.024-.048 1.379-.06 3.808-.06zm-.81.13c-2.66 0-2.987.01-4.04.058-1.052.048-1.745.211-2.338.454a3.418 3.418 0 0 0-1.274.818 3.42 3.42 0 0 0-.818 1.274c-.243.593-.405 1.286-.454 2.338-.048 1.053-.058 1.38-.058 4.04 0 2.66.01 2.987.058 4.04.048 1.052.211 1.745.454 2.338.24.6.513 1.08.818 1.274s.678.474 1.274.818c.593.243 1.286.405 2.338.454 1.053.048 1.38.058 4.04.058 2.66 0 2.987-.01 4.04-.058 1.052-.048 1.745-.211 2.338-.454.6-.24.977-.513 1.274-.818s.474-.678.818-1.274c.243-.593.405-1.286.454-2.338.048-1.053.058-1.38.058-4.04 0-2.66-.01-2.987-.058-4.04-.048-1.052-.211-1.745-.454-2.338a3.42 3.42 0 0 0-.818-1.274 3.418 3.418 0 0 0-1.274-.818c-.593-.243-1.286-.405-2.338-.454-1.053-.048-1.38-.058-4.04-.058zM12 6.865a5.135 5.135 0 1 1 0 10.27 5.135 5.135 0 0 1 0-10.27zm0 8.468a3.333 3.333 0 1 1 0-6.666 3.333 3.333 0 0 1 0 6.666zm5.338-9.87a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z" clip-rule="evenodd" />
+                            </svg>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="mt-10 pt-6 border-t border-gray-700">
-                <p class="text-center text-gray-400 text-sm">&copy; 2024 Dr. Gustavo Mendes e Silva. Todos os direitos reservados.</p>
-                <p class="text-center text-gray-400 text-sm mt-1">Desenvolvido por <a href="https://www.devgustavo.com.br" class="text-orcann-green hover:underline" target="_blank" rel="noopener noreferrer">Gustavo Mendes</a></p>
+                <p class="text-center text-gray-400 text-sm">&copy; 2023 Dr. Gustavo Mendes e Silva. Todos os direitos reservados.</p>
+                <p class="text-center text-gray-400 text-sm mt-1">Desenvolvido por <a href="https://seusite.com.br" class="text-orcann-green hover:underline" target="_blank" rel="noopener noreferrer">Seu Nome ou Sua Empresa</a></p>
             </div>
         </div>
     </footer>
+
     <script>
         // Mobile menu toggle
         document.getElementById('menuBtn').addEventListener('click', () => {
@@ -590,6 +422,7 @@
             menu.classList.toggle('hidden');
             document.querySelector('#menuBtn > svg').classList.toggle('hidden');
         });
+
         // FAQ toggles
         document.querySelectorAll('.faq-btn').forEach(button => {
             button.addEventListener('click', () => {
@@ -599,21 +432,26 @@
                 icon.classList.toggle('rotate-180');
             });
         });
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
+
                 if (targetElement) {
                     // Ajuste para o header fixo, se necessário
                     const offset = document.querySelector('nav').offsetHeight; 
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     const offsetPosition = targetPosition - offset;
+
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
+
                     // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobileMenu');
                     if (!mobileMenu.classList.contains('hidden')) {
