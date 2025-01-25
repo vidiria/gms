@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dr. Gustavo Mendes e Silva - Psiquiatra. Tratamento para depressão, ansiedade, bipolar, TDAH. Consultas em São Paulo e online.">
-    <meta name="keywords" content="Dr. Gustavo Mendes e Silva, psiquiatra, São Paulo, Vila Olímpia, saúde mental, depressão, ansiedade, bipolar, TDAH, burnout, telemedicina, consulta online, psiquiatria">
+    <meta name="description" content="Dr. Gustavo Mendes e Silva - Psiquiatra em São Paulo (Vila Olímpia e Itaim Bibi). Tratamento para depressão, ansiedade, bipolar, TDAH. Consultas presenciais e online.">
+    <meta name="keywords" content="Dr. Gustavo Mendes e Silva, psiquiatra, São Paulo, Vila Olímpia, Itaim Bibi, saúde mental, depressão, ansiedade, bipolar, TDAH, burnout, telemedicina, consulta online, psiquiatria">
     <meta name="author" content="Dr. Gustavo Mendes e Silva">
     <meta property="og:title" content="Dr. Gustavo Mendes e Silva - Psiquiatra">
-    <meta property="og:description" content="Tratamento para depressão, ansiedade, bipolar, TDAH. Consultas em São Paulo e online.">
+    <meta property="og:description" content="Tratamento para depressão, ansiedade, bipolar, TDAH. Consultas presenciais em São Paulo (Vila Olímpia e Itaim Bibi) e online.">
     <meta property="og:image" content="https://www.dr.orcann.com/imagem-social.jpg">
     <meta property="og:url" content="https://www.dr.orcann.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dr. Gustavo Mendes e Silva - Psiquiatra">
-    <meta name="twitter:description" content="Tratamento para depressão, ansiedade, bipolar, TDAH. Consultas em São Paulo e online.">
+    <meta name="twitter:description" content="Tratamento para depressão, ansiedade, bipolar, TDAH. Consultas presenciais em São Paulo (Vila Olímpia e Itaim Bibi) e online.">
     <meta name="twitter:image" content="https://www.dr.orcann.com/imagem-social.jpg">
     <meta name="robots" content="index, follow">
     <title>Dr. Gustavo Mendes e Silva - Psiquiatra</title>
@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" href="https://www.dr.orcann.com/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,14 +29,35 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
                     },
                     colors: {
-                        'background': '#fafafa',
-                        'text': '#222222',
-                        'accent': '#555555',
-                        'accent-hover': '#999999',
-                        'border': '#e0e0e0',
+                        'primary': '#2c3e50', // Azul escuro, sóbrio
+                        'secondary': '#7f8c8d', // Cinza médio, para textos secundários
+                        'accent': '#c2b280', // Toque de dourado, sofisticado e discreto
+                        'background': '#f8f8f8', // Fundo claro e suave
+                        'text': '#222222', // Preto para textos principais
+                        'border': '#d9d9d9', // Cinza claro para divisórias
+                    },
+                    animation: {
+                      'fade-in': 'fadeIn 0.5s ease-in forwards',
+                      'slide-up': 'slideUp 0.5s ease-in-out forwards',
+                      'pulse-slow': 'pulse 3s linear infinite',
+                    },
+                    keyframes: {
+                      fadeIn: {
+                        '0%': { opacity: '0' },
+                        '100%': { opacity: '1' },
                       },
+                      slideUp: {
+                        '0%': { transform: 'translateY(50px)', opacity: '0' },
+                        '100%': { transform: 'translateY(0)', opacity: '1' },
+                      },
+                     pulse: {
+                        '0%, 100%': { transform: 'scale(1)' },
+                        '50%': { transform: 'scale(1.05)' },
+                      },
+                    },
                 }
             }
         }
@@ -51,40 +72,61 @@
             -moz-osx-font-smoothing: grayscale;
         }
         .container {
-            max-width: 1024px;
+            max-width: 1100px;
             margin-left: auto;
             margin-right: auto;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
         }
         .section-spacing {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
+            padding-top: 8rem;
+            padding-bottom: 8rem;
         }
         .nav-link {
             transition: color 0.2s ease-in-out;
+            position: relative;
         }
         .nav-link:hover {
-            color: var(--accent-hover);
+            color: var(--primary);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
         }
         .btn {
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            transition: all 0.3s ease-in-out;
             border: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
         }
         .btn:hover {
-            background-color: var(--accent-hover);
+            background-color: var(--primary);
             color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
         .faq-btn {
             transition: color 0.2s ease-in-out;
         }
         .faq-btn:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
+            transition: max-height 0.4s ease-in-out;
         }
         .faq-answer.show {
             max-height: 500px;
@@ -94,22 +136,54 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .bg-radial {
+            background: radial-gradient(circle at center, var(--background) 0%, rgba(240, 240, 240, 0.8) 100%);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .shadow-custom {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header-border-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background-color: var(--border);
+          }
+        .header-border-bottom {
+            position: relative;
+        }
+        .photo-container {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+        .form-bg {
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+            backdrop-filter: blur(10px); /* Efeito de desfoque */
+            -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+            border: 1px solid var(--border);
         }
         @media (min-width: 768px) {
             .section-spacing {
-                padding-top: 8rem;
-                padding-bottom: 8rem;
+                padding-top: 10rem;
+                padding-bottom: 10rem;
             }
         }
     </style>
 </head>
 <body class="bg-background text-text font-sans">
     <a href="#main" class="sr-only focus:not-sr-only absolute z-50 bg-accent text-white p-2">Ir para o conteúdo principal</a>
-    <header class="py-4 fixed top-0 left-0 w-full bg-background shadow-md z-50">
+    <header class="py-4 fixed top-0 left-0 w-full bg-background shadow-md z-50 header-border-bottom">
         <div class="container">
             <nav class="flex items-center justify-between flex-wrap" aria-label="Menu Principal">
                 <div class="flex items-center flex-shrink-0">
-                    <a href="/" class="font-medium text-lg tracking-tight">Dr. Gustavo Mendes e Silva</a>
+                    <a href="/" class="font-serif text-lg md:text-xl tracking-tight text-primary font-semibold">Dr. Gustavo Mendes e Silva</a>
                 </div>
                 <button id="menuBtn" class="lg:hidden ml-4 px-3 py-2 border rounded" aria-label="Abrir Menu">
                     <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -120,16 +194,16 @@
                 <div id="menu" class="hidden w-full lg:flex lg:items-center lg:w-auto pt-4 lg:pt-0">
                     <ul class="flex flex-col lg:flex-row list-none ml-auto space-y-4 lg:space-y-0 lg:space-x-8">
                         <li>
-                            <a href="#sobre" class="nav-link block">Sobre</a>
+                            <a href="#sobre" class="nav-link block text-text font-medium">Sobre</a>
                         </li>
                         <li>
-                            <a href="#areas" class="nav-link block">Áreas de Atuação</a>
+                            <a href="#areas" class="nav-link block text-text font-medium">Áreas de Atuação</a>
                         </li>
                         <li>
-                            <a href="#diferenciais" class="nav-link block">Diferenciais</a>
+                            <a href="#diferenciais" class="nav-link block text-text font-medium">Diferenciais</a>
                         </li>
                         <li>
-                            <a href="#contato" class="nav-link block">Contato</a>
+                            <a href="#contato" class="nav-link block text-text font-medium">Contato</a>
                         </li>
                     </ul>
                 </div>
@@ -138,24 +212,27 @@
     </header>
 
     <main id="main">
-        <section class="hero-bg section-spacing flex items-center justify-center">
+        <section class="hero-bg bg-radial section-spacing flex items-center justify-center">
             <div class="container text-center">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">Dr. Gustavo Mendes e Silva</h1>
-                <p class="text-lg md:text-xl mb-8">Psiquiatria</p>
-                <a href="#contato" class="btn bg-accent text-white px-8 py-3 rounded-md">Agende sua consulta</a>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-4 text-primary text-shadow">Dr. Gustavo Mendes e Silva</h1>
+                <p class="text-lg md:text-xl mb-8 text-secondary font-medium">Psiquiatria - Consultas na Vila Olímpia, Itaim Bibi e Online</p>
+                <a href="#contato" class="btn bg-accent hover:bg-primary text-white px-8 py-3 rounded-md inline-flex items-center gap-2 animate-pulse-slow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16"><path d="M5.646 11.854a.5.5 0 0 0 .708 0L8 10.207l1.646 1.647a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708z"/><path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>
+                    Agende sua consulta
+                </a>
             </div>
         </section>
 
         <section id="sobre" class="section-spacing">
             <div class="container">
-                <div class="md:flex md:items-center md:gap-12">
+                <div class="md:flex md:items-center md:gap-16">
                     <div class="md:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-semibold mb-6">Sobre</h2>
-                        <p class="mb-4">Médico psiquiatra com foco em atendimento humanizado e baseado em evidências.</p>
-                        <p>Busco sempre o melhor tratamento, considerando as particularidades de cada indivíduo.</p>
+                        <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-6 text-primary">Sobre</h2>
+                        <p class="mb-4 text-secondary">Com consultório na <strong class="text-primary">Vila Olímpia</strong> e <strong class="text-primary">Itaim Bibi</strong>, e também em <strong class="text-primary">atendimento Online</strong>, sou médico psiquiatra com foco em um cuidado personalizado, humanizado e baseado nas melhores evidências científicas disponíveis.</p>
+                        <p class="text-secondary">Busco sempre a melhor abordagem terapêutica, considerando as particularidades e necessidades de cada indivíduo.</p>
                     </div>
-                    <div class="md:w-1/2 mt-8 md:mt-0">
-                        <img src="https://www.dr.orcann.com/foto-dr-gustavo.jpg" alt="Foto do Dr. Gustavo Mendes e Silva" class="rounded-lg shadow-md w-full">
+                    <div class="md:w-1/2 mt-8 md:mt-0 photo-container">
+                        <img src="https://www.dr.orcann.com/foto-dr-gustavo.jpg" alt="Foto do Dr. Gustavo Mendes e Silva" class="rounded-lg shadow-custom w-full" width="512" height="512">
                     </div>
                 </div>
             </div>
@@ -163,21 +240,21 @@
 
         <section id="areas" class="section-spacing bg-gray-100">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center">Áreas de Atuação</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Áreas de Atuação</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-medium mb-4">Saúde Mental</h3>
-                        <ul class="list-disc list-inside space-y-2">
+                        <h3 class="text-xl font-serif font-medium mb-4 text-primary">Saúde Mental</h3>
+                        <ul class="list-disc list-inside space-y-3 text-secondary">
                             <li>Depressão</li>
                             <li>Ansiedade</li>
                             <li>Transtorno Bipolar</li>
-                            <li>TDAH</li>
-                            <li>Burnout</li>
+                            <li>Transtorno do Déficit de Atenção com Hiperatividade (TDAH)</li>
+                            <li>Síndrome de Burnout</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-medium mb-4">Modalidades</h3>
-                        <ul class="list-disc list-inside space-y-2">
+                        <h3 class="text-xl font-serif font-medium mb-4 text-primary">Modalidades</h3>
+                        <ul class="list-disc list-inside space-y-3 text-secondary">
                             <li>Telemedicina</li>
                             <li>Atendimento Presencial</li>
                         </ul>
@@ -188,34 +265,34 @@
 
         <section id="diferenciais" class="section-spacing">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center">Diferenciais</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Diferenciais</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="flex flex-col items-center p-6 border border-border rounded-lg">
-                        <svg class="w-12 h-12 mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="text-xl font-medium mb-2 text-center">Consulta Inicial Detalhada</h3>
-                        <p class="text-center">Primeiro encontro com duração estendida para avaliação completa.</p>
+                    <div class="flex flex-col items-center p<div class="flex flex-col items-center p-6 border border-border rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:border-transparent">
+                        <svg class="w-12 h-12 mb-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-xl font-serif font-medium mb-2 text-center text-primary">Consulta Inicial Detalhada</h3>
+                        <p class="text-center text-secondary">Primeiro encontro com duração estendida para avaliação completa e aprofundada.</p>
                     </div>
-                    <div class="flex flex-col items-center p-6 border border-border rounded-lg">
-                        <svg class="w-12 h-12 mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        <h3 class="text-xl font-medium mb-2 text-center">Abordagem Integrativa</h3>
-                        <p class="text-center">Consideração de fatores biopsicossociais no tratamento.</p>
+                    <div class="flex flex-col items-center p-6 border border-border rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:border-transparent">
+                        <svg class="w-12 h-12 mb-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h3 class="text-xl font-serif font-medium mb-2 text-center text-primary">Abordagem Integrativa</h3>
+                        <p class="text-center text-secondary">Consideração de fatores biopsicossociais no tratamento, visando o bem-estar integral.</p>
                     </div>
-                    <div class="flex flex-col items-center p-6 border border-border rounded-lg">
-                        <svg class="w-12 h-12 mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                        <h3 class="text-xl font-medium mb-2 text-center">Transparência</h3>
-                        <p class="text-center">Clareza sobre condutas e decisões terapêuticas.</p>
+                    <div class="flex flex-col items-center p-6 border border-border rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:border-transparent">
+                        <svg class="w-12 h-12 mb-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        <h3 class="text-xl font-serif font-medium mb-2 text-center text-primary">Transparência</h3>
+                        <p class="text-center text-secondary">Clareza e honestidade em todas as etapas do tratamento, incluindo diagnósticos e condutas.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section id="formacao" class="section-spacing bg-gray-100">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center">Formação e Experiência</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Formação e Experiência</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-semibold mb-4">Formação</h3>
-                        <ul class="list-disc list-inside space-y-3">
+                        <h3 class="text-xl font-serif font-semibold mb-4 text-primary">Formação</h3>
+                        <ul class="list-disc list-inside space-y-3 text-secondary">
                             <li>Graduação em Medicina - Faculdade de Medicina de Marília (FAMEMA)</li>
                             <li>Residência em Psiquiatria - Hospital das Clínicas de Marília</li>
                             <li>Pós-Graduando em Neurociências - Instituto de Ensino e Pesquisa do Hospital Sírio Libanês (IEP-HSL)</li>
@@ -224,9 +301,9 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-4">Experiência</h3>
-                        <ul class="list-disc list-inside space-y-3">
-                            <li>Atuação em consultório particular</li>
+                        <h3 class="text-xl font-serif font-semibold mb-4 text-primary">Experiência</h3>
+                        <ul class="list-disc list-inside space-y-3 text-secondary">
+                            <li>Atuação em consultório particular na <strong class="text-primary">Vila Olímpia</strong> e <strong class="text-primary">Itaim Bibi</strong></li>
                             <li>Experiência no Sistema Único de Saúde (SUS)</li>
                             <li>Atuação em serviços de urgência e emergência psiquiátrica</li>
                             <li>Preceptoria de residentes de psiquiatria</li>
@@ -238,32 +315,33 @@
 
         <section id="faq" class="section-spacing">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center">Perguntas Frequentes</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Perguntas Frequentes</h2>
                 <div class="space-y-4">
                     <div class="border border-border rounded-lg">
                         <button class="faq-btn w-full text-left p-4">
-                            <span class="font-medium">Como é a primeira consulta?</span>
+                            <span class="font-medium text-primary">Como é a primeira consulta?</span>
                             <svg class="faq-icon w-5 h-5 ml-2 inline-block transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="faq-answer p-4 border-t border-border">
-                            <p>A primeira consulta dura cerca de 2 horas. É um momento para nos conhecermos e para que eu possa entender suas necessidades e expectativas.</p>
+                        <div class="faq-answer p-4 border-t border-border text-secondary">
+                            <p>A primeira consulta dura cerca de 2 horas. É um momento para nos conhecermos e para que eu possa entender suas necessidades, queixas e expectativas em relação ao tratamento. Faremos uma avaliação detalhada e, juntos, definiremos um plano terapêutico personalizado.</p>
                         </div>
                     </div>
                     <div class="border border-border rounded-lg">
                         <button class="faq-btn w-full text-left p-4">
-                            <span class="font-medium">Como funciona o tratamento?</span>
+                            <span class="font-medium text-primary">Como funciona o tratamento?</span>
                             <svg class="faq-icon w-5 h-5 ml-2 inline-block transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="faq-answer p-4 border-t border-border">
-                            <p>O tratamento é individualizado e baseado nas melhores evidências científicas. A frequência das consultas e a duração do tratamento variam conforme o caso.</p>
-                        </div></div>
+                        <div class="faq-answer p-4 border-t border-border text-secondary">
+                            <p>O tratamento é individualizado e baseado nas melhores evidências científicas disponíveis. A frequência das consultas e a duração do tratamento variam de acordo com a complexidade de cada caso. O tratamento pode envolver o uso de medicações, psicoterapia e outras abordagens terapêuticas, sempre com foco no seu bem-estar integral.</p>
+                        </div>
+                    </div>
                     <div class="border border-border rounded-lg">
                         <button class="faq-btn w-full text-left p-4">
-                            <span class="font-medium">Quais as formas de pagamento?</span>
+                            <span class="font-medium text-primary">Quais as formas de pagamento?</span>
                             <svg class="faq-icon w-5 h-5 ml-2 inline-block transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="faq-answer p-4 border-t border-border">
-                            <p>Aceito pagamento via PIX, transferência bancária e cartão de crédito. Também ofereço a possibilidade de reembolso para alguns convênios.</p>
+                        <div class="faq-answer p-4 border-t border-border text-secondary">
+                            <p>Aceito pagamento via PIX, transferência bancária e cartão de crédito. Também ofereço a possibilidade de reembolso para os principais convênios, mediante consulta prévia das condições específicas de cada plano.</p>
                         </div>
                     </div>
                 </div>
@@ -272,26 +350,32 @@
 
         <section id="contato" class="section-spacing bg-gray-100">
             <div class="container">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center">Contato</h2>
-                <div class="md:flex md:items-center md:gap-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 text-center text-primary">Contato</h2>
+                <div class="md:flex md:items-center md:gap-16">
                     <div class="md:w-1/2">
-                        <p class="mb-4">Entre em contato para agendar sua consulta ou para mais informações.</p>
-                        <ul class="space-y-4">
+                        <p class="mb-4 text-secondary">Entre em contato para agendar sua consulta ou para mais informações. Será um prazer atendê-lo!</p>
+                        <ul class="space-y-4 text-secondary">
                             <li>
-                                <span class="font-medium">Telefone/WhatsApp:</span> <a href="https://wa.me/5511915398330" class="text-accent hover:underline">(11) 91539-8330</a>
+                                <span class="font-medium text-primary">Telefone/WhatsApp:</span> <a href="https://wa.me/5511915398330" class="hover:underline">(11) 91539-8330</a>
                             </li>
                             <li>
-                                <span class="font-medium">E-mail:</span> <a href="mailto:contato@dr.orcann.com" class="text-accent hover:underline">contato@dr.orcann.com</a>
+                                <span class="font-medium text-primary">E-mail:</span> <a href="mailto:contato@dr.orcann.com" class="hover:underline">contato@dr.orcann.com</a>
                             </li>
-                            <li>
-                                <span class="font-medium">Endereço:</span> Rua Gomes de Carvalho, 892 - Vila Olímpia, São Paulo - SP
-                            </li>
+                            <li class="mt-4">
+                              <p class="font-bold text-primary">Consultório:</p>
+                              <p>
+                                  <span class="font-medium">Vila Olímpia</span> - Rua Gomes de Carvalho, 892
+                              </p>
+                              <p>
+                                <span class="font-medium">Itaim Bibi</span> - Rua Joaquim Floriano, 413
+                              </p>
+                          </li>
                         </ul>
                     </div>
-                    <div class="md:w-1/2 mt-8 md:mt-0">
-                        <div class="bg-white p-8 rounded-lg shadow-md">
-                            <p class="mb-4 text-center">Atendimento presencial e por telemedicina.</p>
-                            <a href="https://wa.me/5511915398330" target="_blank" rel="noopener noreferrer" class="btn w-full bg-accent text-white px-8 py-3 rounded-md flex items-center justify-center">
+                    <div class="md:w-1/2 mt-8 md:mt-0 form-bg p-6 md:p-8 rounded-lg">
+                        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                            <p class="mb-4 text-center text-secondary">Atendimento presencial e online.</p>
+                            <a href="https://wa.me/5511915398330" target="_blank" rel="noopener noreferrer" class="btn w-full bg-accent hover:bg-primary text-white px-8 py-3 rounded-md flex items-center justify-center animation:pulse-slow">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.854 5.146a.5.5 0 010 .708l-11 11a.5.5 0 01-.708-.708l11-11a.5.5 0 01.708 0z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M5.354 5.146a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path><path d="M12.293 2.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L16.586 12l-4.293-4.293a1 1 0 010-1.414z"></path></svg>
                                 Agendar Consulta
                             </a>
@@ -304,8 +388,8 @@
 
     <footer class="bg-gray-200 py-8">
         <div class="container text-center">
-            <p class="text-sm">&copy; 2023 Dr. Gustavo Mendes e Silva - Todos os direitos reservados.</p>
-            <p class="text-xs mt-2">CRM-SP 182222 | RQE 92424</p>
+            <p class="text-sm text-secondary">&copy; 2023 Dr. Gustavo Mendes e Silva - Todos os direitos reservados.</p>
+            <p class="text-xs mt-2 text-secondary">CRM-SP 182222 | RQE 92424</p>
         </div>
     </footer>
 
