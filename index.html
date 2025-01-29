@@ -36,7 +36,6 @@
           fontFamily: {
             sans: ["PT Sans", "sans-serif"],
             serif: ["Josefin Sans", "serif"],
-            // Se quiser usar Montserrat ou Quicksand em algum lugar, pode referenciar
             montserrat: ["Montserrat", "sans-serif"],
             quicksand: ["Quicksand", "sans-serif"],
           },
@@ -55,7 +54,9 @@
   </script>
 
   <style>
-    /* Modal genérico para captura de leads */
+    /* ==========================
+       1) Modal de captura de leads
+       ========================== */
     .modal {
       display: none;
       position: fixed;
@@ -86,64 +87,62 @@
       font-weight: bold;
     }
 
-    /* Cabeçalhos e fontes */
+    /* ==========================
+       2) Tipografia e layout base
+       ========================== */
     h1, h2, h3, h4 {
-      font-family: "Montserrat", sans-serif; /* Exemplo: Montserrat para headings */
+      font-family: "Montserrat", sans-serif; /* headings */
       color: #1F2937; /* primary */
     }
     body {
-      font-family: "Quicksand", sans-serif; /* Exemplo: Quicksand no corpo */
+      font-family: "Quicksand", sans-serif;  /* corpo */
       margin: 0;
       background-color: #F7F7F7;
     }
 
-    /* Estilo para cards expansíveis */
-    /* Estados padrão e expandido do card */
-.card {
-  background-color: #ffffff; /* card fechado = fundo branco */
-  color: #1f2937;            /* cor do texto normal */
-}
+    /* ==========================
+       3) Cards expansíveis
+       ========================== */
+    .card {
+      background-color: #ffffff; 
+      color: #1f2937; 
+    }
+    .card.expanded {
+      background-color: #293f4e; /* hero-bg */
+      color: #ffffff; 
+    }
+    .card.expanded .card-title {
+      background-color: transparent; 
+      color: #ffffff; 
+    }
+    .card.expanded .card-content {
+      max-height: 600px; 
+    }
+    .card.expanded a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
 
-.card.expanded {
-  background-color: #293f4e; /* azul-petróleo hero-bg */
-  color: #ffffff;            /* texto fica branco */
-}
-
-/* Ajuste do título quando expandido */
-.card.expanded .card-title {
-  background-color: transparent; 
-  color: #ffffff; /* texto do título também fica branco */
-}
-
-/* Conteúdo quando expandido (max-height grande) */
-.card.expanded .card-content {
-  max-height: 600px; /* ou 700px, dependendo do volume de texto */
-}
-
-/* Se quiser trocar a cor de links dentro do card expandido */
-.card.expanded a {
-  color: #ffffff;
-  text-decoration: underline;
-}
-    
     .card-content {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease-in-out;
     }
     .card.expanded .card-content {
-      max-height: 700px; /* Ajuste conforme necessário */
+      max-height: 700px; 
     }
     .card-title {
       cursor: pointer;
     }
 
-    /* Botão do WhatsApp fixo no canto (verde esmeralda/musgo) */
+    /* ==========================
+       4) Botão fixo do WhatsApp
+       ========================== */
     #whatsapp-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #1D8450; /* Ajuste para o tom de verde que preferir */
+      background-color: #1D8450; 
       color: white;
       padding: 14px 20px;
       border-radius: 8px;
@@ -152,10 +151,12 @@
       z-index: 1000;
     }
     #whatsapp-btn:hover {
-      background-color: #16663D; /* tom mais escuro no hover */
+      background-color: #16663D;
     }
 
-    /* Efeito de brilho fosco no hero */
+    /* ==========================
+       5) Hero com gradiente
+       ========================== */
     .bg-hero-gradient {
       background-image: linear-gradient(135deg, #293f4e 0%, #3d5c6f 100%);
       background-size: cover;
@@ -170,36 +171,51 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255,255,255,0) 60%);
+      background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
       pointer-events: none;
     }
+
+    /* ==========================
+       6) Background quadriculado (papel de arquiteto)
+       ========================== */
+    .bg-quadriculado {
+      background-color: #ffffff; /* ou #F7F7F7, se preferir */
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+      background-size: 20px 20px; /* Tamanho do quadriculado */
+    }
+
   </style>
 </head>
 
 <body class="bg-background font-sans">
 
-  <!-- NAV -->
+  <!-- ==========================
+       NAV (HEADER)
+       ========================== -->
   <nav class="bg-white shadow-lg fixed w-full z-50 top-0" aria-label="Menu principal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <!-- LOGO / TÍTULO -->
-        <div class="flex">
-          <div class="flex-shrink-0 flex items-center">
-            <a href="/" class="font-bold text-md text-primary">
-              Dr. Gustavo Mendes e Silva
-            </a>
-          </div>
-          <!-- LINKS DESKTOP -->
-          <div class="hidden md:ml-6 md:flex md:space-x-8">
-            <a href="#sobre" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Sobre</a>
-            <a href="#areas" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Áreas de Atuação</a>
-            <a href="#diferenciais" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Diferenciais</a>
-            <a href="#contato" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Contato</a>
-          </div>
+      <!-- Flex container com itens centralizados verticalmente -->
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo / Título -->
+        <div class="flex items-center">
+          <a href="/" class="font-bold text-md text-primary">
+            Dr. Gustavo Mendes e Silva
+          </a>
         </div>
 
-        <!-- BOTÃO MENU MOBILE -->
-        <div class="-mr-2 flex items-center md:hidden">
+        <!-- Links desktop -->
+        <div class="hidden md:flex md:space-x-8">
+          <a href="#sobre" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Sobre</a>
+          <a href="#areas" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Áreas de Atuação</a>
+          <a href="#diferenciais" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Diferenciais</a>
+          <a href="#contato" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Contato</a>
+        </div>
+
+        <!-- Botão menu mobile -->
+        <div class="md:hidden">
           <button
             id="menuBtn"
             type="button"
@@ -209,28 +225,31 @@
             aria-expanded="false"
           >
             <span class="sr-only">Abrir menu principal</span>
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" 
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" 
+              <path stroke-linecap="round" stroke-linejoin="round"
                     stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" />
             </svg>
           </button>
         </div>
+
       </div>
     </div>
 
-    <!-- MENU MOBILE (ESCONDIDO) -->
-    <div id="mobileMenu" class="hidden md:hidden" aria-labelledby="menuBtn">
+    <!-- Menu Mobile (escondido por padrão) -->
+    <div id="mobileMenu" class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#sobre" class="text-secondary hover:bg-gray-100 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
-        <a href="#areas" class="text-secondary hover:bg-gray-100 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Áreas de Atuação</a>
-        <a href="#diferenciais" class="text-secondary hover:bg-gray-100 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Diferenciais</a>
-        <a href="#contato" class="text-secondary hover:bg-gray-100 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Contato</a>
+        <a href="#sobre" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Sobre</a>
+        <a href="#areas" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Áreas de Atuação</a>
+        <a href="#diferenciais" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Diferenciais</a>
+        <a href="#contato" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Contato</a>
       </div>
     </div>
   </nav>
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- ==========================
+       CONTEÚDO PRINCIPAL
+       ========================== -->
   <main id="conteudo-principal" class="pt-16">
 
     <!-- HERO -->
@@ -243,7 +262,7 @@
           Psiquiatria | Cannabis Medicinal
         </h2>
         <h3 class="mt-1 text-white font-serif md:text-xl md:max-w-3xl md:mx-auto">
-          CRM 218133
+          CRM 218133/SP
         </h3>
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
           <div class="rounded-md shadow">
@@ -259,127 +278,124 @@
       </div>
     </section>
 
-   <!-- SEÇÃO SOBRE + FORMAÇÃO E EXPERIÊNCIA -->
-<section id="sobre" class="py-16 px-4 bg-card" aria-labelledby="sobre-formacao-title">
-  <div class="max-w-7xl mx-auto">
-    <h2 id="sobre-formacao-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
-      Sobre mim
-    </h2>
+    <!-- SEÇÃO SOBRE (com fundo quadriculado) -->
+    <section id="sobre" class="py-16 px-4 bg-quadriculado" aria-labelledby="sobre-formacao-title">
+      <div class="max-w-7xl mx-auto">
+        <h2 id="sobre-formacao-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
+          Sobre mim
+        </h2>
 
-    <div class="lg:flex lg:items-start lg:gap-8">
-      <!-- COLUNA COM FOTO E BIO BÁSICA -->
-      <div class="lg:w-1/3 mb-8 lg:mb-0">
-        <!-- Exemplo de foto circular: basta adicionar "rounded-full" em vez de "rounded-lg" -->
-        <img
-          class="h-56 w-56 object-cover mx-auto rounded-lg"
-          src="https://github.com/healthhealth/tech/blob/main/foto.jpg?raw=true"
-          alt="Foto Dr. Gustavo Mendes"
-        />
-
-        <!-- MINI-BIO -->
-        <div class="mt-6 text-center">
-          <p class="text-lg text-secondary leading-relaxed">
-            Olá, sou o <strong class="font-bold">Dr. Gustavo Mendes e Silva</strong>, médico psiquiatra
-            membro da <strong class="font-bold">Society of Cannabis Clinicians</strong>, com reconhecimento
-            internacional (EUA, Canadá, Europa e Israel).
-          </p>
-          <!-- Botão para abrir modal de currículo -->
-          <button
-            class="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-detail"
-            onclick="openCurriculoModal()"
-          >
-            Ver meu Currículo
-          </button>
-        </div>
-      </div>
-
-      <!-- COLUNA COM TEXTOS DE FORMAÇÃO, EXPERIÊNCIA, DIFERENCIAIS -->
-      <div class="lg:w-2/3">
-        <!-- Resumo "chamativo" -->
-        <div class="mb-6 text-base text-secondary">
-          <p class="mb-4">
-            Especialista em psiquiatria, ofereço um cuidado integral e humanizado, 
-            unindo atualização científica e empatia. Atendo em inglês, acolho pacientes 
-            surdos e mudos, crianças, idosos, famílias inteiras e adultos. 
-           <br><br> Acredito que o médico deve ir ao encontro das necessidades do paciente, 
-            promovendo proximidade e reforçando valores pessoais, para que cada pessoa 
-            encontre um caminho de bem-estar.
-          </p>
-        </div>
-
-   <!-- COLUNA COM OS CARDS EXPANSÍVEIS -->
-      <div class="lg:w-2/3 space-y-6">
-        <!-- 1) Card: Formação & Experiência em Destaque -->
-        <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
-          <!-- TÍTULO que expande/colapsa -->
-          <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
-            Formação & Experiência em Destaque
-          </h3>
-          <!-- CONTEÚDO que fica escondido até expandir -->
-          <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-            <div class="p-4">
-              <ul class="list-disc list-inside space-y-3">
-                <li>Graduação em Medicina pela <strong>FAMEMA</strong></li>
-                <li>Especialização em Psiquiatria</li>
-                <li>Membro da <strong>Society of Cannabis Clinicians</strong></li>
-                <li>Reconhecimento como especialista em Cannabis Medicinal (América Latina, EUA, Canadá, Europa, Israel)</li>
-                <li>Atendimento humanizado a diferentes perfis: crianças, adultos, idosos, famílias, surdos/mudos</li>
-                <li>Atendo também em <strong>Inglês</strong></li>
-              </ul>
+        <div class="lg:flex lg:items-start lg:gap-8">
+          <!-- COLUNA ESQUERDA: FOTO E MINI-BIO -->
+          <div class="lg:w-1/3 mb-8 lg:mb-0">
+            <!-- Foto (pode ser circular ou arredondada) -->
+            <img
+              class="h-56 w-56 object-cover mx-auto rounded-lg"
+              src="https://github.com/healthhealth/tech/blob/main/foto.jpg?raw=true"
+              alt="Foto Dr. Gustavo Mendes"
+            />
+            <!-- Mini-bio -->
+            <div class="mt-6 text-center">
+              <p class="text-lg text-secondary leading-relaxed">
+                Olá, sou o <strong class="font-bold">Dr. Gustavo Mendes e Silva</strong>, médico psiquiatra
+                membro da <strong class="font-bold">Society of Cannabis Clinicians</strong>, com reconhecimento
+                internacional (América Latina, EUA, Canadá).
+              </p>
+              <!-- Botão para abrir modal de currículo -->
+              <button
+                class="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-detail"
+                onclick="openCurriculoModal()"
+              >
+                Ver meu Currículo
+              </button>
             </div>
           </div>
-        </div>
 
-        <!-- 2) Card: Inovação & Tecnologia -->
-        <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
-          <!-- TÍTULO que expande/colapsa -->
-          <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
-            Inovação & Tecnologia
-          </h3>
-          <!-- CONTEÚDO que fica escondido até expandir -->
-          <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-            <div class="p-4">
+          <!-- COLUNA DIREITA: TEXTO E CARDS -->
+          <div class="lg:w-2/3">
+            <!-- Parágrafo introdutório -->
+            <div class="mb-6 text-base text-secondary">
               <p class="mb-4">
-                Meu envolvimento com <strong>tecnologia e IA</strong> começou em 2020, ao vencer um hackathon 
-                organizado por uma ONG alemã, desenvolvendo um app de educação sexual e saúde para jovens de grandes cidades. 
-                Essa experiência inspirou-me a criar soluções que valorizem a história de cada paciente, mantendo-a 
-                registrada e respeitada.
+                Especialista em psiquiatria, ofereço um cuidado integral e humanizado, 
+                unindo atualização científica e empatia. Atendo em inglês, acolho pacientes 
+                surdos e mudos, crianças, idosos, famílias inteiras e adultos. 
               </p>
               <p>
-                Hoje, utilizo um <strong>robô de IA</strong> para análise de linguagem, um diferencial que promove 
-                <em>maior humanização</em> no atendimento. A tecnologia nos aproxima, garantindo mais 
-                tempo de qualidade para cuidar da saúde mental, alinhada aos nossos valores pessoais.
+                Acredito que o médico deve ir ao encontro das necessidades do paciente, 
+                promovendo proximidade e reforçando valores pessoais, para que cada pessoa 
+                encontre um caminho de bem-estar.
               </p>
             </div>
+
+            <!-- Agora dois cards lado a lado no desktop -->
+            <div class="grid lg:grid-cols-2 gap-6">
+              <!-- Card 1: Formação & Experiência -->
+              <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+                <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+                  Formação & Experiência ↓
+                </h3>
+                <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                  <div class="p-4">
+                    <ul class="list-disc list-inside space-y-3">
+                      <li>Graduação em Medicina pela <strong>FAMEMA</strong></li>
+                      <li>Especialização em Psiquiatria</li>
+                      <li>Membro da <strong>Society of Cannabis Clinicians</strong></li>
+                      <li>Reconhecimento como especialista em Cannabis Medicinal (América Latina, EUA, Canadá, Europa, Israel)</li>
+                      <li>Atendimento humanizado a diferentes perfis: crianças, adultos, idosos, famílias, surdos/mudos</li>
+                      <li>Atendo também em <strong>Inglês</strong></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Inovação & Tecnologia -->
+              <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+                <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+                  Inovação & Tecnologia ↓
+                </h3>
+                <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                  <div class="p-4">
+                    <p class="mb-4">
+                      Meu envolvimento com <strong>tecnologia e IA</strong> começou em 2020, 
+                      ao vencer um hackathon organizado por uma ONG alemã, desenvolvendo 
+                      um app de educação sexual e saúde para jovens de grandes cidades. 
+                      Essa experiência inspirou-me a criar soluções que valorizem a história 
+                      de cada paciente, mantendo-a registrada e respeitada.
+                    </p>
+                    <p>
+                      Hoje, utilizo um <strong>robô de IA</strong> para análise de linguagem, 
+                      um diferencial que promove <em>maior humanização</em> no atendimento. 
+                      A tecnologia nos aproxima, garantindo mais tempo de qualidade para 
+                      cuidar da saúde mental, alinhada aos nossos valores pessoais.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- fim grid -->
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Pequeno resumo de consultório/valores (opcional) -->
-              </div>
+    <!-- MODAL PARA O CURRÍCULO -->
+    <div id="curriculoModal" class="modal">
+      <div class="modal-content relative">
+        <span 
+          class="modal-close text-gray-700 absolute top-3 right-4 cursor-pointer text-xl font-bold"
+          onclick="closeCurriculoModal()"
+        >
+          &times;
+        </span>
+        <h2 class="text-xl font-bold mb-4">Meu Currículo Completo</h2>
+        <iframe
+          src="https://clinical-pearl.vercel.app"
+          title="Currículo Dr. Gustavo Mendes"
+          width="100%"
+          height="600px"
+          frameborder="0"
+        ></iframe>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- MODAL PARA O CURRÍCULO (iframe) -->
-<div id="curriculoModal" class="modal">
-  <div class="modal-content relative">
-    <span 
-      class="modal-close modal-close text-gray-700 absolute top-3 right-4 cursor-pointer text-xl font-bold"
-      onclick="closeCurriculoModal()"
-    >
-      &times;
-    </span>
-    <h2 class="text-xl font-bold mb-4">Meu Currículo Completo</h2>
-    <iframe
-      src="https://clinical-pearl.vercel.app"
-      title="Currículo Dr. Gustavo Mendes"
-      width="100%"
-      height="600px"
-      frameborder="0"
-    ></iframe>
-  </div>
-</div>
 
     <!-- ÁREAS DE ATUAÇÃO -->
     <section id="areas" class="bg-card py-16 px-4" aria-labelledby="areas-title">
@@ -455,7 +471,8 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M12 8v4l3 3m6-3a9 9 0 
+                     11-18 0 9 9 0 0118 0z"
                 ></path>
               </svg>
             </div>
@@ -487,7 +504,13 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  d="M19 21V5a2 
+                     2 0 00-2-2H7a2 2 0 00-2 
+                     2v16m14 0h2m-2 0h-5m-9
+                     0H3m2 0h5M9 7h1m-1
+                     4h1m4-4h1m-1 4h1m-5
+                     10v-5a1 1 0 011-1h2a1
+                     1 0 011 1v5m-4 0h4"
                 ></path>
               </svg>
             </div>
@@ -519,7 +542,16 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  d="M17 20h5v-2a3
+                     3 0 00-5.356-1.857M17
+                     20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7
+                     20H2v-2a3 3 0 015.356-1.857M7
+                     20v-2c0-.656.126-1.283.356-1.857m0 
+                     0a5.002 5.002 0 019.288 0M15
+                     7a3 3 0 11-6 0 3 3 0 016
+                     0zm6 3a2 2 0 11-4 0 2 2 0
+                     014 0zM7 10a2 2 0 11-4
+                     0 2 2 0 014 0z"
                 ></path>
               </svg>
             </div>
@@ -551,7 +583,16 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  d="M9 5H7a2 2 0
+                     00-2 2v12a2 2 0 002
+                     2h10a2 2 0 002-2V7a2
+                     2 0 00-2-2h-2M9
+                     5a2 2 0 002 2h2a2
+                     2 0 002-2M9 5a2
+                     2 0 012-2h2a2 2
+                     0 012 2m-3 7h3m-3
+                     4h3m-6-4h.01M9
+                     16h.01"
                 ></path>
               </svg>
             </div>
@@ -649,7 +690,7 @@
       </div>
     </section>
 
-    <!-- CONTATO (onde o modal de leads vai aparecer) -->
+    <!-- CONTATO -->
     <section id="contato" class="py-16 px-4" aria-labelledby="contato-title">
       <div class="max-w-7xl mx-auto">
         <h2 id="contato-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
@@ -698,9 +739,10 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 
-                    2.761 2.239 5 5 5h14c2.762 0 5-2.239 
-                    5-5v-14c0-2.761-2.238-5-5-5zm-11 
+                  d="M19 0h-14c-2.761 0-5 
+                    2.239-5 5v14c0 2.761 
+                    2.239 5 5 5h14c2.762 0 
+                    5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 
                     19h-3v-11h3v11zm-1.5-12.268c-.966 
                     0-1.75-.79-1.75-1.764s.784-1.764 
                     1.75-1.764 1.75.79 1.75 
@@ -727,18 +769,20 @@
                   fill-rule="evenodd"
                   clip-rule="evenodd"
                   d="M12.315 2c2.43 0 
-                    2.784.013 3.808.06 1.064.049 1.79.217 
-                    2.427.465.66.254 1.216.598 
-                    1.772 1.153a4.908 4.908 0 0 1 1.153 
-                    1.772c.247.636.415 1.363.465 2.427.048 
+                    2.784.013 3.808.06 1.064.049 
+                    1.79.217 2.427.465.66.254 
+                    1.216.598 1.772 1.153a4.908 
+                    4.908 0 0 1 1.153 1.772c.247.636.415 
+                    1.363.465 2.427.048 
                     1.024.06 1.379.06 3.808 0 
                     2.43-.013 2.784-.06 3.808-.049 
                     1.064-.217 1.79-.465 
-                    2.427a4.883 4.883 0 0 1-1.153 
-                    1.772c-.255.66-.6 1.216-1.153 
-                    1.772-.636.247-1.363.415-2.427.465-1.024.048-1.379.06-3.808.06-2.43 
+                    2.427a4.883 4.883 0 0 
+                    1-1.153 1.772c-.255.66-.6 
+                    1.216-1.153 1.772-.636.247-1.363.415-2.427.465-1.024.048-1.379.06-3.808.06-2.43 
                     0-2.784-.013-3.808-.06-1.064-.049-1.79-.217-2.427-.465a4.89 
-                    4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.247-.636-.415-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808 
+                    4.89 0 0 1-1.772-1.153 4.904 4.904 
+                    0 0 1-1.153-1.772c-.247-.636-.415-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808 
                     0-2.43.013-2.784.06-3.808.049-1.064.217-1.79.465-2.427a4.88 
                     4.88 0 0 1 1.153-1.772A4.897 4.897 
                     0 0 1 5.45 2.525c.636-.247 
@@ -746,10 +790,11 @@
                     1.024-.048 1.379-.06 
                     3.808-.06zm-.81.13c-2.66 0-2.987.01-4.04.058-1.052.048-1.745.211-2.338.454a3.418 
                     3.418 0 0 0-1.274.818 3.42 3.42 0 0 0-.818 
-                    1.274c-.243.593-.405 1.286-.454 2.338-.048 
+                    1.274c-.243.593-.405 
+                    1.286-.454 2.338-.048 
                     1.053-.058 1.38-.058 4.04 
-                    0 2.66.01 2.987.058 
-                    4.04.048 1.052.211 1.745.454 
+                    0 2.66.01 2.987.058 4.04.048 
+                    1.052.211 1.745.454 
                     2.338.24.6.513 1.08.818 
                     1.274s.678.474 
                     1.274.818c.593.243 
@@ -778,20 +823,21 @@
           &copy; 2025 Dr. Gustavo Mendes e Silva. Todos os direitos reservados.
         </p>
         <p class="text-center text-gray-400 text-sm mt-1">
-          Desenvolvido por HEALTH/HEALTH ltda.
+          Desenvolvido por HEALTH/HEALTH ltda. 
           <a
             href="https://healthhealth"
             class="text-primary hover:underline"
             target="_blank"
             rel="noopener noreferrer"
-            >Dr. Gustavo Mendes e Silva | HEALTH/HEALTH</a
           >
+            Dr. Gustavo Mendes e Silva | HEALTH/HEALTH
+          </a>
         </p>
       </div>
     </div>
   </footer>
 
-  <!-- BOTÃO FIXO DO WHATSAPP (verde esmeralda/musgo) -->
+  <!-- BOTÃO FIXO DO WHATSAPP (VERDE MUSGO) -->
   <a
     id="whatsapp-btn"
     href="https://wa.me/+5511976965550"
@@ -801,7 +847,7 @@
     WhatsApp
   </a>
 
-  <!-- MODAL DE CAPTURA DE LEADS (exibe quando usuário chega na seção #contato) -->
+  <!-- MODAL DE CAPTURA DE LEADS (Intersection Observer em #contato) -->
   <div id="leadModal" class="modal">
     <div class="modal-content">
       <span class="modal-close" onclick="closeLeadModal()">×</span>
@@ -828,7 +874,7 @@
     </div>
   </div>
 
-  <!-- SCRIPT EXTERNO -->
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
