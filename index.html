@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Configurações básicas de SEO -->
+  <!-- SEO BÁSICO -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
   <!-- Título e meta descrição -->
-  <title>Dr. Gustavo Mendes e Silva - Psiquiatra | Saúde Mental em São Paulo</title>
+  <title>Dr. Gustavo Mendes e Silva - Psiquiatra em São Paulo | OrCann</title>
   <meta
     name="description"
-    content="Dr. Gustavo Mendes e Silva, médico psiquiatra em São Paulo. Atendimento humanizado, cannabis medicinal, telemedicina e mais. Agende sua consulta."
+    content="Dr. Gustavo Mendes e Silva, médico psiquiatra em São Paulo. Atendimento humanizado, cannabis medicinal, telemedicina, autismo, TDAH, e mais. Conheça o portal OrCann!"
   />
   <meta
     name="keywords"
-    content="psiquiatra, São Paulo, saúde mental, depressão, ansiedade, bipolar, TDAH, burnout, cannabis medicinal, telemedicina"
+    content="psiquiatria sp, psiquiatra autismo, cannabis medicinal, TDAH, orcann, portal educativo, psychiatria, Dr Gustavo Mendes, psicanalise, medico cannabis"
   />
   <meta name="author" content="Dr. Gustavo Mendes e Silva" />
   <link rel="canonical" href="https://www.seusite.com.br" />
 
-  <!-- Google Fonts (PT Sans, Montserrat, Josefin Sans, Quicksand) -->
+  <!-- Fontes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -28,8 +28,17 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome (para ícones) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <script>
-    /* Configuração do Tailwind para usar suas fontes e cores personalizadas */
     tailwind.config = {
       theme: {
         extend: {
@@ -40,13 +49,13 @@
             quicksand: ["Quicksand", "sans-serif"],
           },
           colors: {
-            primary: "#1F2937",     // cinza-escuro
-            secondary: "#4B5563",   // cinza
-            detail: "#5A7D8F",      // cor de detalhe
+            primary: "#1F2937",
+            secondary: "#4B5563",
+            detail: "#5A7D8F",
             border: "#B5B5B5",
             background: "#F7F7F7",
             card: "#FFFFFF",
-            "hero-bg": "#293f4e",   // Azul-petróleo
+            "hero-bg": "#293f4e",
           },
         },
       },
@@ -54,163 +63,132 @@
   </script>
 
   <style>
-    /* ==========================
-       1) Modal de captura de leads
-       ========================== */
+    /* ===== MODAL LEADS ===== */
     .modal {
       display: none;
       position: fixed;
       z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(0, 0, 0, 0.5);
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      align-items: center; justify-content: center;
     }
     .modal-content {
       background-color: #fff;
-      margin: auto;
-      padding: 20px;
-      border-radius: 6px;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
+      margin: auto; padding: 20px;
+      border-radius: 6px; max-width: 500px;
+      width: 90%; position: relative;
     }
     .modal-close {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      cursor: pointer;
-      font-size: 20px;
-      font-weight: bold;
+      position: absolute; top: 8px; right: 12px;
+      cursor: pointer; font-size: 20px; font-weight: bold;
     }
 
-    /* ==========================
-       2) Tipografia e layout base
-       ========================== */
+    /* ===== TIPOGRAFIA ===== */
     h1, h2, h3, h4 {
-      font-family: "Montserrat", sans-serif; /* headings */
-      color: #1F2937; /* primary */
+      font-family: "Montserrat", sans-serif; 
+      color: #1F2937;
     }
     body {
-      font-family: "Quicksand", sans-serif;  /* corpo */
-      margin: 0;
-      background-color: #F7F7F7;
+      font-family: "Quicksand", sans-serif;
+      margin: 0; background-color: #F7F7F7;
     }
 
-    /* ==========================
-       3) Cards expansíveis
-       ========================== */
+    /* ===== CARDS EXPANSÍVEIS ===== */
     .card {
-      background-color: #ffffff; 
-      color: #1f2937; 
+      background-color: #fff; 
+      color: #1f2937;
     }
     .card.expanded {
-      background-color: #293f4e; /* hero-bg */
-      color: #ffffff; 
+      background-color: #293f4e;
+      color: #ffffff;
     }
     .card.expanded .card-title {
-      background-color: transparent; 
-      color: #ffffff; 
+      background-color: transparent;
+      color: #ffffff;
     }
+    
     .card.expanded .card-content {
-      max-height: 600px; 
+  color: #fff; /* Torna o texto branco ao expandir */
+}
+
+    .card.expanded .card-content {
+      max-height: 600px;
     }
     .card.expanded a {
-      color: #ffffff;
-      text-decoration: underline;
+      color: #fff; text-decoration: underline;
     }
-
     .card-content {
-      max-height: 0;
-      overflow: hidden;
+      max-height: 0; overflow: hidden;
       transition: max-height 0.3s ease-in-out;
     }
     .card.expanded .card-content {
-      max-height: 700px; 
+      max-height: 700px;
     }
-    .card-title {
-      cursor: pointer;
-    }
+    .card.expanded .card-content,
+.card.expanded .card-content p,
+.card.expanded .card-content li,
+.card.expanded .card-content span {
+  color: #ffffff !important; /* Força o texto a ficar branco */
+}
 
-    /* ==========================
-       4) Botão fixo do WhatsApp
-       ========================== */
+
+    /* ===== BOTÃO WHATSAPP ===== */
     #whatsapp-btn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #1D8450; 
-      color: white;
+      bottom: 20px; right: 20px;
+      background-color: #1D8450;
+      color: #fff;
       padding: 14px 20px;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      font-weight: bold;
-      z-index: 1000;
+      font-weight: bold; z-index: 1000;
     }
     #whatsapp-btn:hover {
       background-color: #16663D;
     }
 
-    /* ==========================
-       5) Hero com gradiente
-       ========================== */
+    /* ===== HERO GRADIENT (com padding generoso) ===== */
     .bg-hero-gradient {
       background-image: linear-gradient(135deg, #293f4e 0%, #3d5c6f 100%);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
+      /* hero margin/padding grande: */
+      padding-top: 12rem; /* ajustado para maior respiro */
+      padding-bottom: 8rem; /* sm:py-24 adaptado *
     }
     .bg-hero-gradient::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
       pointer-events: none;
     }
 
-    /* ==========================
-       6) Background quadriculado (papel de arquiteto)
-       ========================== */
+    /* ===== BG QUADRICULADO ===== */
     .bg-quadriculado {
-      background-color: #ffffff; 
+      background-color: #fff;
       background-image:
         linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-      background-size: 20px 20px; 
+      background-size: 20px 20px;
     }
 
-    /* ==========================
-       7) Seção Unificada ("servicos-diferenciais")
-       ========================== */
+    /* ===== REMOÇÃO DO CARROSSEL ANIMADO ===== */
+    .foto-carousel { display: none; }
 
-    /* Exemplo de carousel de fotos no background (fake) */
-    .foto-carousel {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      z-index: 0; /* atrás do conteúdo */
-      opacity: 0.3; /* semitransparente */
-    }
-    .foto-carousel img {
-      position: absolute;
-      width: 100%; 
-      height: 100%;
-      object-fit: cover;
-      animation: fadeImages 12s infinite;
-    }
-    @keyframes fadeImages {
-      0%   {opacity: 1;}
-      33%  {opacity: 0;}
-      66%  {opacity: 0;}
-      100% {opacity: 1;}
+    /* ===== BG ESTÁTICO ONDE ESTOU - LINHAS DIAGONAIS ===== */
+    .bg-geom-static {
+      background: repeating-linear-gradient(
+        135deg,
+        #f0f0f0,
+        #f0f0f0 1px,
+        transparent 1px,
+        transparent 25px
+      );
     }
 
   </style>
@@ -218,18 +196,23 @@
 
 <body class="bg-background font-sans">
 
-  <!-- ==========================
-       NAV (HEADER)
-       ========================== -->
-  <nav class="bg-white shadow-lg fixed w-full z-50 top-0" aria-label="Menu principal">
+  <!-- NAV -->
+  <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Flex container com itens centralizados verticalmente -->
       <div class="flex items-center justify-between h-16">
-        
         <!-- Logo / Título -->
-        <div class="flex items-center">
+        <div class="flex items-center space-x-8">
           <a href="/" class="font-bold text-md text-primary">
             Dr. Gustavo Mendes e Silva
+          </a>
+          <!-- Link para OrCann (com ícone cannabis) -->
+          <a
+            href="https://orcann.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center text-secondary hover:text-primary px-2 py-1 text-sm font-medium"
+          >
+            <i class="fa-solid fa-cannabis mr-1"></i> OrCann
           </a>
         </div>
 
@@ -237,8 +220,7 @@
         <div class="hidden md:flex md:space-x-8">
           <a href="#sobre" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Sobre</a>
           <a href="#servicos-diferenciais" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Serviços & Diferenciais</a>
-          <a href="#primeira-consulta" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Primeira Consulta</a>
-          <a href="#contato" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Contato</a>
+          <a href="#onde-estou" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Onde Estou</a>
         </div>
 
         <!-- Botão menu mobile -->
@@ -246,402 +228,351 @@
           <button
             id="menuBtn"
             type="button"
-            class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400
-                   hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset
-                   focus:ring-primary"
-            aria-expanded="false"
+            class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 
+                   focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
           >
-            <span class="sr-only">Abrir menu principal</span>
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" />
+            <span class="sr-only">Abrir menu</span>
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16m-16 6h16"/>
             </svg>
           </button>
         </div>
-
       </div>
     </div>
-
-    <!-- Menu Mobile (escondido por padrão) -->
+    <!-- Menu Mobile -->
     <div id="mobileMenu" class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#sobre" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Sobre</a>
-        <a href="#servicos-diferenciais" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Serviços & Diferenciais</a>
-        <a href="#primeira-consulta" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Primeira Consulta</a>
-        <a href="#contato" class="block px-3 py-2 text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Contato</a>
+        <a href="#sobre" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">
+          Sobre
+        </a>
+        <a href="#servicos-diferenciais" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">
+          Serviços & Diferenciais
+        </a>
+        <a href="#onde-estou" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">
+          Onde Estou
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- ==========================
-       CONTEÚDO PRINCIPAL
-       ========================== -->
-  <main id="conteudo-principal" class="pt-16">
+  <!-- HERO (mais espaçado) -->
+  <section class="relative bg-hero-gradient text-white px-4" aria-labelledby="hero-title">
+    <div class="max-w-7xl mx-auto text-center relative">
+      <h1 id="hero-title" class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+        <span class="block text-white">Dr. Gustavo Mendes e Silva</span>
+      </h1>
+      <h2 class="mt-3 text-lg sm:mt-5 md:text-2xl md:max-w-3xl md:mx-auto text-white">
+        Psiquiatria | Cannabis Medicinal
+      </h2>
+      <h3 class="mt-1 text-white font-serif md:text-xl md:max-w-3xl md:mx-auto">
+        CRM 218133/SP
+      </h3>
+      <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
+        <div class="rounded-md shadow">
+          <a
+            href="#onde-estou"
+            class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base
+                   font-medium rounded-md text-card bg-primary hover:bg-detail md:py-4 md:text-lg md:px-10"
+          >
+            Agende sua Consulta
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="relative bg-hero-gradient text-white py-20 px-4 sm:py-24" aria-labelledby="hero-title">
-      <div class="max-w-7xl mx-auto text-center relative">
-        <h1 id="hero-title" class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-          <span class="block text-white">Dr. Gustavo Mendes e Silva</span>
-        </h1>
-        <h2 class="mt-3 text-lg sm:mt-5 md:text-2xl md:max-w-3xl md:mx-auto text-white">
-          Psiquiatria | Cannabis Medicinal
-        </h2>
-        <h3 class="mt-1 text-white font-serif md:text-xl md:max-w-3xl md:mx-auto">
-          CRM 218133/SP
-        </h3>
-        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
-          <div class="rounded-md shadow">
-            <a
-              href="#contato"
-              class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base
-                     font-medium rounded-md text-card bg-primary hover:bg-detail md:py-4 md:text-lg md:px-10"
-            >
-              Agende sua Consulta
-            </a>
+  <!-- SEÇÃO SOBRE (cards expansíveis na COLUNA ESQUERDA, cal.com 10% menor) -->
+  <section id="sobre" class="py-16 px-4 bg-quadriculado">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
+        Sobre mim
+      </h2>
+      <div class="lg:flex lg:gap-8">
+        <!-- Coluna Esquerda -->
+        <div class="lg:w-1/3 mb-8 lg:mb-0 flex flex-col items-center">
+          <!-- Foto -->
+          <img
+            class="h-56 w-56 object-cover rounded-lg"
+            src="foto.jpg"
+            alt="Foto Dr. Gustavo Mendes"
+          />
+          <!-- Botão Currículo -->
+          <button
+            class="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-detail"
+            onclick="openCurriculoModal()"
+          >
+            Ver meu Currículo
+          </button>
+          <!-- Cards Expansíveis ABAIXO do botão -->
+          <div class="w-full mt-6 space-y-4">
+            <!-- Card 1: Formação & Experiência -->
+            <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+              <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+                Formação & Experiência ↓
+              </h3>
+              <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <div class="p-4 text-secondary">
+                  <ul class="list-disc list-inside space-y-2">
+                    <li>Graduação em Medicina (FAMEMA)</li>
+                    <li>Especialização em Psiquiatria</li>
+                    <li>Membro da Society of Cannabis Clinicians</li>
+                    <li>Abordagem humanizada e inclusiva</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2: Inovação & Tecnologia -->
+            <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+              <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+                Inovação & Tecnologia ↓
+              </h3>
+              <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <div class="p-4 text-secondary">
+                  <p class="mb-2">
+                    Uso de IA (Claude, Vertex AI) no Google Cloud, garantindo LGPD/HIPAA. 
+                    Foco total no paciente, sem burocracias.
+                  </p>
+                  <p>
+                    Documentação discreta, segurança de dados e acompanhamento 
+                    contínuo para sua tranquilidade.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita -->
+        <div class="lg:w-2/3">
+          <div class="mb-6 text-base text-secondary">
+            <p class="mb-4">
+              Especialista em psiquiatria, ofereço um cuidado integral e humanizado, 
+              unindo atualização científica e empatia. Atendo em inglês, acolho pacientes 
+              surdos e mudos, crianças, idosos, famílias inteiras e adultos.
+            </p>
+            <p>
+              Acredito que o médico deve ir ao encontro das necessidades do paciente, 
+              promovendo proximidade e reforçando valores pessoais, para que cada pessoa 
+              encontre um caminho de bem-estar.
+            </p>
+          </div>
+          <!-- Iframe do Cal.com menor (90% do original) -->
+          <div class="bg-white p-4 rounded shadow" style="transform: scale(0.9); transform-origin: top left;">
+            <h3 class="text-md font-bold text-primary mb-2">Agende Agora</h3>
+            <iframe
+              src="https://cal.com/drgustavomendes?embed=true"
+              title="Agendar Consulta Rápida"
+              width="100%" height="450" frameborder="0"
+            ></iframe>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SEÇÃO SOBRE (bg quadriculado) -->
-    <section id="sobre" class="py-16 px-4 bg-quadriculado" aria-labelledby="sobre-formacao-title">
-      <div class="max-w-7xl mx-auto">
-        <h2 id="sobre-formacao-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
-          Sobre mim
-        </h2>
-
-        <div class="lg:flex lg:items-start lg:gap-8">
-          <!-- COLUNA ESQUERDA: FOTO E MINI-BIO -->
-          <div class="lg:w-1/3 mb-8 lg:mb-0">
-            <img
-              class="h-56 w-56 object-cover mx-auto rounded-lg"
-              src="foto.jpg"  <!-- Substitua pelas suas imagens: ex. fotos/foto-01.jpg -->
-              alt="Foto Dr. Gustavo Mendes"
-            />
-            <div class="mt-6 text-center">
-              <p class="text-lg text-secondary leading-relaxed">
-                Olá, sou o <strong class="font-bold">Dr. Gustavo Mendes e Silva</strong>, médico psiquiatra
-                membro da <strong class="font-bold">Society of Cannabis Clinicians</strong>, com reconhecimento
-                internacional (EUA, Canadá, Europa e Israel).
-              </p>
-              <button
-                class="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-detail"
-                onclick="openCurriculoModal()"
-              >
-                Ver meu Currículo
-              </button>
-            </div>
-          </div>
-
-          <!-- COLUNA DIREITA: TEXTO E CARDS -->
-          <div class="lg:w-2/3">
-            <div class="mb-6 text-base text-secondary">
-              <p class="mb-4">
-                Especialista em psiquiatria, ofereço um cuidado integral e humanizado, 
-                unindo atualização científica e empatia. Atendo em inglês, acolho pacientes 
-                surdos e mudos, crianças, idosos, famílias inteiras e adultos. 
-              </p>
-              <p>
-                Acredito que o médico deve ir ao encontro das necessidades do paciente, 
-                promovendo proximidade e reforçando valores pessoais, para que cada pessoa 
-                encontre um caminho de bem-estar.
-              </p>
-            </div>
-
-            <!-- Cards: Formação & Inovação -->
-            <div class="grid lg:grid-cols-2 gap-6">
-              <!-- Card 1: Formação & Experiência -->
-              <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
-                <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
-                  Formação & Experiência ↓
-                </h3>
-                <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                  <div class="p-4">
-                    <ul class="list-disc list-inside space-y-3">
-                      <li>Graduação em Medicina pela <strong>FAMEMA</strong></li>
-                      <li>Especialização em Psiquiatria</li>
-                      <li>Membro da <strong>Society of Cannabis Clinicians</strong></li>
-                      <li>Reconhecimento como especialista em Cannabis Medicinal</li>
-                      <li>Atendimento humanizado a diferentes perfis (crianças, adultos, idosos, surdos/mudos)</li>
-                      <li>Atendo também em <strong>Inglês</strong></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2: Inovação & Tecnologia -->
-              <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
-                <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
-                  Inovação & Tecnologia ↓
-                </h3>
-                <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                  <div class="p-4">
-                    <p class="mb-4">
-                      Participei de hackathons e criei soluções que valorizam a 
-                      história individual de cada paciente, mantendo-a respeitada e segura.
-                    </p>
-                    <p class="mb-4">
-                      Utilizo <strong>IA (Claude, Vertex AI no Google Cloud)</strong>, 
-                      garantindo conformidade com LGPD/HIPAA. Isso aumenta a proximidade 
-                      e o acompanhamento contínuo, sem substituir o toque humano.
-                    </p>
-                    <p>
-                      Toda documentação é feita de forma discreta e sem burocracias 
-                      durante a consulta, para que possamos focar no que importa: você.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODAL CURRÍCULO -->
+    <!-- Modal Currículo -->
     <div id="curriculoModal" class="modal">
-      <div class="modal-content relative">
-        <span 
-          class="modal-close text-gray-700 absolute top-3 right-4 cursor-pointer text-xl font-bold"
-          onclick="closeCurriculoModal()"
-        >&times;</span>
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeCurriculoModal()">&times;</span>
         <h2 class="text-xl font-bold mb-4">Meu Currículo Completo</h2>
         <iframe
           src="https://clinical-pearl.vercel.app"
           title="Currículo Dr. Gustavo Mendes"
-          width="100%"
-          height="600px"
-          frameborder="0"
+          width="100%" height="600" frameborder="0"
         ></iframe>
       </div>
     </div>
+  </section>
 
-    <!-- NOVA SEÇÃO UNIFICADA: SERVIÇOS & DIFERENCIAIS -->
-    <section id="servicos-diferenciais" class="relative py-16 px-4 bg-white" aria-labelledby="servicos-title">
-      <!-- Carrossel de fotos (caso deseje) -->
-      <div class="foto-carousel hidden md:block">
-        <!-- Exemplo: 3 imagens no repositório -->
-        <img src="fotos/fundo-01.jpg" alt="Fundo 1" />
-        <img src="fotos/fundo-02.jpg" alt="Fundo 2" />
-        <img src="fotos/fundo-03.jpg" alt="Fundo 3" />
-      </div>
-      <div class="max-w-7xl mx-auto relative z-10">
-        <h2 id="servicos-title" class="text-3xl font-bold text-gray-900 text-center mb-6">
-          Como posso te ajudar
-        </h2>
-        <p class="text-center text-secondary max-w-3xl mx-auto mb-8">
-          Aqui você encontrará as principais **condições** que trato e os 
-          **diferenciais** que oferecem uma experiência única — seja você 
-          criança, adulto, idoso, ou família. Meu objetivo é promover bem-estar 
-          de forma integral, transparente e personalizada.
+  <!-- SERVIÇOS & DIFERENCIAIS -->
+  <section id="servicos-diferenciais" class="relative py-16 px-4 bg-white">
+    <!-- Carrossel? removido (display:none). Substituímos por estático. -->
+    <div class="max-w-7xl mx-auto relative z-10">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-6">
+        Como posso te ajudar
+      </h2>
+      <p class="text-center text-secondary max-w-3xl mx-auto mb-8">
+        Conheça as principais condições que atendo, meus diferenciais de atendimento 
+        e entenda como funcionam as consultas — tudo em um único lugar, para garantir 
+        clareza e confiança antes mesmo de começarmos.
+      </p>
+
+      <!-- Condições -->
+      <div class="rounded-lg p-6 bg-gray-50 shadow-md mb-10">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Principais Condições Atendidas</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Humor & Ansiedade -->
+          <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
+            <h4 class="font-bold text-lg text-primary mb-2">Humor & Ansiedade</h4>
+            <ul class="list-disc list-inside text-secondary">
+              <li>Depressão, Bipolar</li>
+              <li>Pânico, Fobias</li>
+              <li>TOC, TAG</li>
+            </ul>
+          </div>
+          <!-- Neurodiversidade -->
+          <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
+            <h4 class="font-bold text-lg text-primary mb-2">Neurodiversidade</h4>
+            <ul class="list-disc list-inside text-secondary">
+              <li>Autismo*, TDAH</li>
+              <li>Altas Habilidades</li>
+              <li>Idosos & Declínios Cognitivos</li>
+            </ul>
+          </div>
+          <!-- Sono & Burnout -->
+          <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
+            <h4 class="font-bold text-lg text-primary mb-2">Sono & Burnout</h4>
+            <ul class="list-disc list-inside text-secondary">
+              <li>Insônia, Apneia</li>
+              <li>Síndrome de Burnout</li>
+              <li>Estresse Crônico</li>
+            </ul>
+          </div>
+          <!-- Dependência Química -->
+          <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
+            <h4 class="font-bold text-lg text-primary mb-2">Dependência Química</h4>
+            <ul class="list-disc list-inside text-secondary">
+              <li>Álcool, Outras Substâncias</li>
+              <li>Recaídas e Prevenção</li>
+              <li>Apoio Familiar</li>
+            </ul>
+          </div>
+          <!-- Traumas -->
+          <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
+            <h4 class="font-bold text-lg text-primary mb-2">Traumas & Violências*</h4>
+            <ul class="list-disc list-inside text-secondary">
+              <li>Violência Sexual, Racista, Homofóbica</li>
+              <li>Luto, Perdas</li>
+              <li>Descontos p/ vítimas (dr@orcann.com)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-sm text-secondary mt-4">
+          *Pacientes autistas e idosos num raio de 15km podem receber atendimento domiciliar caso prefiram.
         </p>
+      </div>
 
-        <!-- BLOCO 1: Principais condições (ex-Áreas de Atuação) -->
-        <div class="rounded-lg p-6 bg-gray-50 shadow-md mb-10">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">Principais Condições que Atendo</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Condição 1 -->
-            <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
-              <h4 class="font-bold text-lg text-primary mb-2">Transtornos de Humor</h4>
-              <ul class="list-disc list-inside text-secondary">
-                <li>Depressão</li>
-                <li>Transtorno Bipolar</li>
-                <li>Ciclotimia, Distimia</li>
-              </ul>
+      <!-- Diferenciais -->
+      <div class="rounded-lg p-6 bg-gray-50 shadow-md mb-10">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Diferenciais do Meu Atendimento</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- item 1 -->
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0">
+              <i class="fa-solid fa-clock text-primary text-3xl"></i>
             </div>
-            <!-- Condição 2 -->
-            <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
-              <h4 class="font-bold text-lg text-primary mb-2">Transtornos de Ansiedade</h4>
-              <ul class="list-disc list-inside text-secondary">
-                <li>Pânico, Fobias</li>
-                <li>TOC, Estresse Pós-Traumático</li>
-                <li>TAG (Ansiedade Generalizada)</li>
-              </ul>
-            </div>
-            <!-- Condição 3 -->
-            <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
-              <h4 class="font-bold text-lg text-primary mb-2">Neurodiversidade & Infantojuvenil</h4>
-              <ul class="list-disc list-inside text-secondary">
-                <li>Autismo*, TDAH</li>
-                <li>Altas Habilidades, Impulsividade</li>
-                <li>Idosos e Declínios Cognitivos</li>
-              </ul>
-            </div>
-            <!-- Condição 4 -->
-            <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
-              <h4 class="font-bold text-lg text-primary mb-2">Dependência & Burnout</h4>
-              <ul class="list-disc list-inside text-secondary">
-                <li>Álcool e Outras Substâncias</li>
-                <li>Síndrome de Burnout</li>
-                <li>Estresse Crônico & Fadiga</li>
-              </ul>
-            </div>
-            <!-- Condição 5 -->
-            <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
-              <h4 class="font-bold text-lg text-primary mb-2">Transtornos do Sono</h4>
-              <ul class="list-disc list-inside text-secondary">
-                <li>Insônia, Apneia</li>
-                <li>Hipersônia, Sonambulismo</li>
-                <li>Terrores Noturnos</li>
-              </ul>
-            </div>
-            <!-- Condição 6 -->
-            <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
-              <h4 class="font-bold text-lg text-primary mb-2">Traumas & Violências*</h4>
-              <ul class="list-disc list-inside text-secondary">
-                <li>Violência Sexual, Moral, Racista, Homofóbica</li>
-                <li>Luto, Perdas, Traumas Complexos</li>
-                <li><strong>Descontos</strong> para vítimas (contato: <em>dr@orcann.com</em>)</li>
-              </ul>
+            <div>
+              <h4 class="font-bold text-lg text-primary">Consultas de 2h</h4>
+              <p class="text-secondary">
+                Foco total em você, sem papelada. Esclareço cada proposta para que 
+                você não saia com inseguranças.
+              </p>
             </div>
           </div>
-          <p class="text-sm text-secondary mt-4">
-            *Pacientes infantojuvenis autistas, pessoas neurodiversas e idosos num raio de 15km podem receber atendimento domiciliar caso prefiram.
-          </p>
-        </div>
-
-        <!-- BLOCO 2: Diferenciais (ex-Diferenciais) -->
-        <div class="rounded-lg p-6 bg-gray-50 shadow-md">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">Diferenciais do Meu Atendimento</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Diferença 1 -->
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0">
-                <img src="fotos/icon-consulta.png" alt="Ícone Consulta" class="h-10 w-10" />
-              </div>
-              <div>
-                <h4 class="font-bold text-lg text-primary">Consulta de 2h, Sem Bureaucracia</h4>
-                <p class="text-secondary">
-                  Conversa livre, sem papelada durante a consulta. Você sai sem dúvidas 
-                  ou inseguranças, pois explico cada proposta de tratamento.
-                </p>
-              </div>
+          <!-- item 2 -->
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0">
+              <i class="fa-solid fa-bullseye text-primary text-3xl"></i>
             </div>
-            <!-- Diferença 2 -->
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0">
-                <img src="fotos/icon-goals.png" alt="Ícone Metas" class="h-10 w-10" />
-              </div>
-              <div>
-                <h4 class="font-bold text-lg text-primary">Metas Definidas pelo Paciente</h4>
-                <p class="text-secondary">
-                  Falamos de alta logo na primeira sessão: ela é nossa meta. 
-                  Você define objetivos, pois é quem vive a própria história.
-                </p>
-              </div>
-            </div>
-            <!-- Diferença 3 -->
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0">
-                <img src="fotos/icon-ai.png" alt="Ícone IA" class="h-10 w-10" />
-              </div>
-              <div>
-                <h4 class="font-bold text-lg text-primary">Uso de IA Avançada</h4>
-                <p class="text-secondary">
-                  Tecnologias como <strong>Claude</strong> e <strong>Vertex AI</strong> no Google Cloud 
-                  (LGPD/HIPAA compliant), me auxiliam a entender melhor sua linguagem e histórico, 
-                  aumentando nossa proximidade e segurança.
-                </p>
-              </div>
-            </div>
-            <!-- Diferença 4 -->
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0">
-                <img src="fotos/icon-homevisit.png" alt="Ícone Domiciliar" class="h-10 w-10" />
-              </div>
-              <div>
-                <h4 class="font-bold text-lg text-primary">Atendimento Domiciliar</h4>
-                <p class="text-secondary">
-                  Pacientes autistas e idosos num raio de 15km podem escolher 
-                  atendimento em casa, garantindo conforto e acessibilidade.
-                </p>
-              </div>
+            <div>
+              <h4 class="font-bold text-lg text-primary">Metas Definidas Juntos</h4>
+              <p class="text-secondary">
+                Falamos de “alta” logo na primeira sessão. Você define objetivos, 
+                pois é quem vive a própria história.
+              </p>
             </div>
           </div>
-
-          <!-- Espaço para blog/artigos, se desejar -->
-          <div class="mt-8 bg-white p-4 rounded shadow">
-            <h4 class="text-md font-bold text-primary mb-2">Mais detalhes e artigos:</h4>
-            <p class="text-sm text-secondary">
-              Confira no <a href="#" class="text-detail font-semibold hover:underline">Blog</a> 
-              alguns artigos que explicam minha abordagem, a eficácia da Cannabis Medicinal, 
-              as vantagens do uso de IA e muito mais.
-            </p>
+          <!-- item 3 -->
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0">
+              <i class="fa-solid fa-robot text-primary text-3xl"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-lg text-primary">IA Avançada</h4>
+              <p class="text-secondary">
+                Claude e Vertex AI (Google Cloud) me ajudam a analisar linguagem e histórico, 
+                aumentando proximidade sem violar sua privacidade.
+              </p>
+            </div>
+          </div>
+          <!-- item 4 -->
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0">
+              <i class="fa-solid fa-house-chimney-medical text-primary text-3xl"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-lg text-primary">Atendimento em Casa</h4>
+              <p class="text-secondary">
+                Autistas e idosos num raio de 15km podem solicitar atendimento domiciliar, 
+                garantindo conforto e inclusão.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- SEÇÃO PRIMEIRA CONSULTA (id="primeira-consulta") -->
-    <section id="primeira-consulta" class="py-16 px-4 bg-background" aria-labelledby="primeira-consulta-title">
-      <div class="max-w-7xl mx-auto">
-        <h2 id="primeira-consulta-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
+      <!-- Card Expansível: Como é a Primeira Consulta? -->
+      <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+        <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
           Como é a Primeira Consulta?
-        </h2>
-        <div class="bg-card p-8 rounded-lg shadow-md">
-          <p class="text-secondary text-lg mb-6">
-            A primeira consulta é um momento fundamental para iniciarmos nosso trabalho conjunto 
-            em prol do seu bem-estar. Dedico <strong class="text-primary">2 horas</strong> para uma avaliação completa.
-          </p>
-          <div class="grid md:grid-cols-2 gap-8">
-            <!-- Lado esquerdo -->
-            <div class="card">
-              <h3 class="card-title text-xl font-semibold mb-4 text-gray-800">
-                O que esperar:
-              </h3>
-              <ul class="list-disc list-inside space-y-3 text-secondary">
-                <li><strong class="text-primary">Escuta Atenta:</strong> Compartilhe sua história livremente.</li>
-                <li><strong class="text-primary">Avaliação Detalhada:</strong> Histórico médico, familiar e social.</li>
-                <div class="card-content">
-                  <li class="card-content"><strong class="text-primary">Esclarecimento:</strong> Perguntas e dúvidas são bem-vindas.</li>
-                  <li class="card-content"><strong class="text-primary">Plano Conjunto:</strong> Definimos estratégias de tratamento juntos.</li>
-                  <li class="card-content"><strong class="text-primary">Orientações Iniciais:</strong> Receitas, encaminhamentos e próximos passos.</li>
-                </div>
-              </ul>
-            </div>
-            <!-- Lado direito -->
-            <div class="card">
-              <h3 class="card-title text-xl font-semibold mb-4 text-gray-800">
-                Como se preparar:
-              </h3>
-              <ul class="list-disc list-inside space-y-3 text-secondary">
-                <li><strong class="text-primary">Documentos:</strong> Exames recentes, receitas e histórico.</li>
-                <li><strong class="text-primary">Sintomas:</strong> Anote principais queixas, frequência, intensidade.</li>
-                <div class="card-content">
-                  <li class="card-content"><strong class="text-primary">Medicações:</strong> Liste todas, com dosagens.</li>
-                  <li class="card-content"><strong class="text-primary">Tempo Adequado:</strong> Reserva sem interrupções.</li>
-                  <li class="card-content"><strong class="text-primary">Acompanhante:</strong> (Opcional) Alguém de confiança.</li>
-                </div>
-              </ul>
-            </div>
+        </h3>
+        <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <div class="p-4 text-secondary">
+            <p class="mb-4">
+              A primeira consulta é essencial para nos conhecermos e traçarmos um plano. 
+              Dedico <strong class="text-primary">2 horas</strong>, sem pressa ou burocracia.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li><strong class="text-primary">Escuta Atenta</strong> de toda sua história;</li>
+              <li><strong class="text-primary">Avaliação Abrangente</strong> (histórico médico, social, familiar);</li>
+              <li><strong class="text-primary">Definição de Metas</strong> e possíveis durações do tratamento;</li>
+              <li><strong class="text-primary">Uso de IA</strong> (quando relevante) para otimizar segurança e confidencialidade;</li>
+              <li><strong class="text-primary">Orientações Iniciais</strong> (receitas, próximos passos, encaminhamentos).</li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SEÇÃO CONTATO -->
-    <section id="contato" class="py-16 px-4" aria-labelledby="contato-title">
-      <div class="max-w-7xl mx-auto">
-        <h2 id="contato-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
-          Agendamento de Consulta
-        </h2>
-        <div class="bg-card p-8 rounded-lg shadow-md mx-auto" style="max-width: 800px">
-          <iframe
-            src="https://cal.com/drgustavomendes"
-            title="Agendar Consulta"
-            width="100%"
-            height="600px"
-            frameborder="0"
-          ></iframe>
+  <!-- SEÇÃO ONDE ESTOU (BG estático com diagonais) -->
+  <section
+    id="onde-estou"
+    class="py-16 px-4 bg-geom-static relative"
+    aria-labelledby="onde-title"
+  >
+    <div class="max-w-7xl mx-auto relative z-10">
+      <h2 id="onde-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
+        Onde Estou
+      </h2>
+      <p class="text-center text-secondary max-w-2xl mx-auto mb-8">
+        Você pode me encontrar na Vila Olímpia (São Paulo). 
+        Veja avaliações, fotos e local exato no Google. 
+        Sinta-se à vontade para visitar!
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- Mapa do Google -->
+        <div class="rounded shadow overflow-hidden">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.123237487306!2d-46.6798223!3d-23.5999128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57b6e629e251%3A0x514a30df0fa62955!2sDr.%20Gustavo%20Mendes%20e%20Silva%20-%20Psiquiatria%20e%20Cannabis%20Medicinal!5e0!3m2!1spt-BR!2sbr!4v1738162079431!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
         </div>
+
+        <!-- Exibir a página do Google Meu Negócio em um iframe -->
+     <a
+  href="https://maps.app.goo.gl/dpSNKZ4bHYm8iQ8B9"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="inline-block px-5 py-3 bg-detail text-white font-semibold rounded hover:bg-primary"
+>
+  Ver no Google Maps
+</a>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
-
-  <!-- RODAPÉ -->
+  <!-- FOOTER -->
   <footer class="bg-gray-800 text-white py-12 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -658,71 +589,11 @@
           <div class="flex space-x-4">
             <!-- LinkedIn -->
             <a href="https://linkedin.com/in/mendes-e-silva" class="text-gray-300 hover:text-white" aria-label="LinkedIn">
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M19 0h-14c-2.761 
-                    0-5 2.239-5 5v14c0 2.761 2.239
-                    5 5 5h14c2.762 0 5-2.239
-                    5-5v-14c0-2.761-2.238-5-5-5zm-11
-                    19h-3v-11h3v11zm-1.5-12.268c-.966
-                    0-1.75-.79-1.75-1.764s.784-1.764
-                    1.75-1.764 1.75.79 1.75
-                    1.764-.783 1.764-1.75
-                    1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4
-                    0v5.604h-3v-11h3v1.765c1.396-2.586
-                    7-2.777 7 2.476v6.759z"
-                />
-              </svg>
+              <i class="fab fa-linkedin h-6 w-6 text-xl"></i>
             </a>
             <!-- Instagram -->
-            <a href="https://www.instagram.com/myself.gus" class="text-gray-300 hover:text-white" aria-label="Instagram">
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12.315 2c2.43 0 2.784.013
-                    3.808.06 1.064.049 1.79.217
-                    2.427.465.66.254 1.216.598 
-                    1.772 1.153a4.908 4.908 0 0 1 
-                    1.153 1.772c.247.636.415 1.363.465
-                    2.427.048 1.024.06 1.379.06
-                    3.808 0 2.43-.013 2.784-.06
-                    3.808-.049 1.064-.217 1.79-.465
-                    2.427a4.883 4.883 0 0 
-                    1-1.153 1.772c-.255.66-.6 1.216-1.153
-                    1.772-.636.247-1.363.415-2.427.465-1.024.048-1.379.06-3.808.06-2.43
-                    0-2.784-.013-3.808-.06-1.064-.049-1.79-.217-2.427-.465a4.89
-                    4.89 0 0 1-1.772-1.153 4.904 4.904
-                    0 0 1-1.153-1.772c-.247-.636-.415-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808
-                    0-2.43.013-2.784.06-3.808.049-1.064.217-1.79.465-2.427a4.88
-                    4.88 0 0 1 1.153-1.772A4.897 4.897
-                    0 0 1 5.45 2.525c.636-.247
-                    1.363-.415 2.427-.465
-                    1.024-.048 1.379-.06
-                    3.808-.06zm-.81.13c-2.66 0-2.987.01-4.04.058-1.052.048-1.745.211-2.338.454a3.418 
-                    3.418 0 0 0-1.274.818 3.42 3.42 0 0 0-.818 
-                    1.274c-.243.593-.405 
-                    1.286-.454 2.338-.048 
-                    1.053-.058 1.38-.058 4.04 
-                    0 2.66.01 2.987.058 4.04.048 
-                    1.052.211 1.745.454 
-                    2.338.24.6.513 1.08.818 
-                    1.274s.678.474 
-                    1.274.818c.593.243 
-                    1.286.405 2.338.454 1.053.048 
-                    1.38.058 4.04.058 2.66 
-                    0 2.987-.01 4.04-.058 1.052-.048 
-                    1.745-.211 2.338-.454.6-.24.977-.513 
-                    1.274-.818s.474-.678.818-1.274c.243-.593.405-1.286.454-2.338.048-1.053.058-1.38.058-4.04 
-                    0-2.66-.01-2.987-.058-4.04-.048-1.052-.211-1.745-.454-2.338a3.42 
-                    3.42 0 0 0-.818-1.274 3.418 3.418 
-                    0 0 0-1.274-.818c-.593-.243-1.286-.405-2.338-.454-1.053-.048-1.38-.058-4.04-.058zM12 
-                    6.865a5.135 5.135 0 1 1 0 10.27 
-                    5.135 5.135 0 0 1 0-10.27zm0 
-                    8.468a3.333 3.333 0 1 1 0-6.666 
-                    3.333 3.333 0 0 1 0 6.666zm5.338-9.87a1.2 
-                    1.2 0 1 1 0 2.4 1.2 
-                    1.2 0 0 1 0-2.4z"
-                />
-              </svg>
+            <a href="https://www.instagram.com/seuinstagram" class="text-gray-300 hover:text-white" aria-label="Instagram">
+              <i class="fab fa-instagram h-6 w-6 text-xl"></i>
             </a>
           </div>
         </div>
@@ -734,7 +605,7 @@
         <p class="text-center text-gray-400 text-sm mt-1">
           Desenvolvido por HEALTH/HEALTH ltda. 
           <a
-            href="https://healthhealth.io"
+            href="https://healthhealth"
             class="text-primary hover:underline"
             target="_blank"
             rel="noopener noreferrer"
@@ -746,7 +617,7 @@
     </div>
   </footer>
 
-  <!-- BOTÃO FIXO DO WHATSAPP -->
+  <!-- BOTÃO FIXO WHATSAPP -->
   <a
     id="whatsapp-btn"
     href="https://wa.me/+5511965461146"
@@ -756,12 +627,15 @@
     WhatsApp
   </a>
 
-  <!-- MODAL DE CAPTURA DE LEADS -->
+  <!-- MODAL DE LEADS -->
   <div id="leadModal" class="modal">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeLeadModal()">×</span>
-      <h2 class="text-xl font-bold mb-4">Deixe seus dados</h2>
-      <p>Quer receber mais informações?</p>
+      <span class="modal-close" onclick="closeLeadModal()">&times;</span>
+      <h2 class="text-xl font-bold mb-4">Quer saber mais?</h2>
+      <p>
+        Deixe seus dados e receba informações adicionais sobre meu atendimento,
+        uso de IA, cannabis medicinal e muito mais!
+      </p>
       <input
         type="text"
         id="leadName"
@@ -786,3 +660,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
