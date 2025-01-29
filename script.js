@@ -15,7 +15,6 @@ if (menuBtn && mobileMenu) {
  ********************************************************/
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    // Se for link interno (exclui caso seja só "#") 
     const targetId = this.getAttribute("href");
     if (targetId !== "#") {
       e.preventDefault();
@@ -42,7 +41,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 /********************************************************
- * 3) EXPANSÃO DOS CARDS (Clica no título => abre/fecha)
+ * 3) EXPANSÃO DOS CARDS
  ********************************************************/
 document.querySelectorAll(".card").forEach((card) => {
   const title = card.querySelector(".card-title");
@@ -63,14 +62,12 @@ window.openCurriculoModal = function() {
     curriculoModal.style.display = "flex";
   }
 };
-
 window.closeCurriculoModal = function() {
   if (curriculoModal) {
     curriculoModal.style.display = "none";
   }
 };
-
-// Fechar modal se clicar fora do conteúdo
+// Fecha se clicar fora
 window.addEventListener("click", (e) => {
   if (e.target === curriculoModal) {
     closeCurriculoModal();
@@ -81,7 +78,7 @@ window.addEventListener("click", (e) => {
  * 5) MODAL DE LEADS (Intersection Observer em #contato)
  ********************************************************/
 const leadModal = document.getElementById("leadModal");
-let modalShown = false; // só exibe uma vez
+let modalShown = false;
 
 function showLeadModal() {
   if (!modalShown) {
@@ -94,25 +91,18 @@ window.closeLeadModal = function() {
 };
 
 window.enviarLead = function() {
-  const nameField = document.getElementById("leadName");
-  const emailField = document.getElementById("leadEmail");
-
-  const name = nameField.value.trim();
-  const email = emailField.value.trim();
+  const name = document.getElementById("leadName").value.trim();
+  const email = document.getElementById("leadEmail").value.trim();
 
   if (!name || !email) {
     alert("Por favor, preencha seu nome e email.");
     return;
   }
-
   alert(`Obrigado, ${name}! Recebemos seu contato.`);
-  // Se quiser enviar para um backend: 
-  // fetch('/api/leads', { method: 'POST', body: JSON.stringify({ name, email }) })
-
   closeLeadModal();
 };
 
-// Observa a seção #contato para abrir o modal automaticamente 
+// Observa a seção #contato para disparar modal
 const contatoSection = document.getElementById("contato");
 if (contatoSection) {
   const observer = new IntersectionObserver((entries) => {
