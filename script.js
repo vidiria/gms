@@ -51,6 +51,31 @@ document.querySelectorAll(".card").forEach((card) => {
   }
 });
 
+/*************************************************
+ * MODAL DO CURRÍCULO
+ *************************************************/
+const curriculoModal = document.getElementById("curriculoModal");
+
+window.openCurriculoModal = function() {
+  if (curriculoModal) {
+    curriculoModal.style.display = "flex";
+  }
+};
+
+window.closeCurriculoModal = function() {
+  if (curriculoModal) {
+    curriculoModal.style.display = "none";
+  }
+};
+
+// Fechar modal se clicar fora do conteúdo
+window.addEventListener("click", (e) => {
+  if (e.target === curriculoModal) {
+    window.closeCurriculoModal();
+  }
+});
+
+
 /********************************************************
  * 4) MODAL DE LEADS (Intersection Observer em #contato)
  ********************************************************/
