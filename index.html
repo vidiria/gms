@@ -98,6 +98,34 @@
     }
 
     /* Estilo para cards expansíveis */
+    /* Estados padrão e expandido do card */
+.card {
+  background-color: #ffffff; /* card fechado = fundo branco */
+  color: #1f2937;            /* cor do texto normal */
+}
+
+.card.expanded {
+  background-color: #293f4e; /* azul-petróleo hero-bg */
+  color: #ffffff;            /* texto fica branco */
+}
+
+/* Ajuste do título quando expandido */
+.card.expanded .card-title {
+  background-color: transparent; 
+  color: #ffffff; /* texto do título também fica branco */
+}
+
+/* Conteúdo quando expandido (max-height grande) */
+.card.expanded .card-content {
+  max-height: 600px; /* ou 700px, dependendo do volume de texto */
+}
+
+/* Se quiser trocar a cor de links dentro do card expandido */
+.card.expanded a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+    
     .card-content {
       max-height: 0;
       overflow: hidden;
@@ -231,38 +259,127 @@
       </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="py-16 px-4" aria-labelledby="sobre-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="lg:flex lg:items-center lg:justify-between">
-          <div class="flex-1 min-w-0">
-            <h2 id="sobre-title" class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9">
-              Sobre mim
-            </h2>
-            <div class="mt-4 text-base text-secondary sm:mt-5 sm:text-lg md:text-xl">
-              <p>
-                Olá, sou o Dr. Gustavo Mendes, médico psiquiatra com ampla experiência e dedicado ao cuidado integral da
-                saúde mental. Minha abordagem combina o conhecimento científico atualizado com uma escuta atenta e
-                empática, essencial para um tratamento eficaz e humanizado.
+   <!-- SEÇÃO SOBRE + FORMAÇÃO E EXPERIÊNCIA -->
+<section id="sobre" class="py-16 px-4 bg-card" aria-labelledby="sobre-formacao-title">
+  <div class="max-w-7xl mx-auto">
+    <h2 id="sobre-formacao-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
+      Sobre mim & Formação
+    </h2>
+
+    <div class="lg:flex lg:items-start lg:gap-8">
+      <!-- COLUNA COM FOTO E BIO BÁSICA -->
+      <div class="lg:w-1/3 mb-8 lg:mb-0">
+        <!-- Exemplo de foto circular: basta adicionar "rounded-full" em vez de "rounded-lg" -->
+        <img
+          class="h-56 w-56 object-cover mx-auto rounded-lg"
+          src="https://github.com/healthhealth/tech/blob/main/foto.jpg?raw=true"
+          alt="Foto Dr. Gustavo Mendes"
+        />
+
+        <!-- MINI-BIO -->
+        <div class="mt-6 text-center">
+          <p class="text-lg text-secondary leading-relaxed">
+            Olá, sou o <strong class="font-bold">Dr. Gustavo Mendes</strong>, médico psiquiatra
+            membro da <strong class="font-bold">Society of Cannabis Clinicians</strong>, com reconhecimento
+            internacional (EUA, Canadá, Europa e Israel).
+          </p>
+          <!-- Botão para abrir modal de currículo -->
+          <button
+            class="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-detail"
+            onclick="openCurriculoModal()"
+          >
+            Ver meu Currículo
+          </button>
+        </div>
+      </div>
+
+      <!-- COLUNA COM TEXTOS DE FORMAÇÃO, EXPERIÊNCIA, DIFERENCIAIS -->
+      <div class="lg:w-2/3">
+        <!-- Resumo "chamativo" -->
+        <div class="mb-6 text-base text-secondary">
+          <p class="mb-4">
+            Especialista em psiquiatria, ofereço um cuidado integral e humanizado, 
+            unindo atualização científica e empatia. Atendo em inglês, acolho pacientes 
+            surdos e mudos, crianças, idosos, famílias inteiras e adultos. 
+           <br><br> Acredito que o médico deve ir ao encontro das necessidades do paciente, 
+            promovendo proximidade e reforçando valores pessoais, para que cada pessoa 
+            encontre um caminho de bem-estar.
+          </p>
+        </div>
+
+   <!-- COLUNA COM OS CARDS EXPANSÍVEIS -->
+      <div class="lg:w-2/3 space-y-6">
+        <!-- 1) Card: Formação & Experiência em Destaque -->
+        <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+          <!-- TÍTULO que expande/colapsa -->
+          <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+            Formação & Experiência em Destaque
+          </h3>
+          <!-- CONTEÚDO que fica escondido até expandir -->
+          <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="p-4">
+              <ul class="list-disc list-inside space-y-3">
+                <li>Graduação em Medicina pela <strong>FAMEMA</strong></li>
+                <li>Especialização em Psiquiatria</li>
+                <li>Membro da <strong>Society of Cannabis Clinicians</strong></li>
+                <li>Reconhecimento como especialista em Cannabis Medicinal (América Latina, EUA, Canadá, Europa, Israel)</li>
+                <li>Atendimento humanizado a diferentes perfis: crianças, adultos, idosos, famílias, surdos/mudos</li>
+                <li>Atendo também em <strong>Inglês</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) Card: Inovação & Tecnologia -->
+        <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+          <!-- TÍTULO que expande/colapsa -->
+          <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+            Inovação & Tecnologia
+          </h3>
+          <!-- CONTEÚDO que fica escondido até expandir -->
+          <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="p-4">
+              <p class="mb-4">
+                Meu envolvimento com <strong>tecnologia e IA</strong> começou em 2020, ao vencer um hackathon 
+                organizado por uma ONG alemã, desenvolvendo um app de educação sexual e saúde para jovens de grandes cidades. 
+                Essa experiência inspirou-me a criar soluções que valorizem a história de cada paciente, mantendo-a 
+                registrada e respeitada.
               </p>
-              <p class="mt-4">
-                Acredito firmemente que cada paciente é único e merece um plano terapêutico personalizado, que considere
-                sua história de vida, contexto social e necessidades individuais. Meu objetivo é oferecer um atendimento
-                acolhedor e seguro, onde você se sinta à vontade para compartilhar suas preocupações e juntos possamos
-                construir um caminho para o seu bem-estar.
+              <p>
+                Hoje, utilizo um <strong>robô de IA</strong> para análise de linguagem, um diferencial que promove 
+                <em>maior humanização</em> no atendimento. A tecnologia nos aproxima, garantindo mais 
+                tempo de qualidade para cuidar da saúde mental, alinhada aos nossos valores pessoais.
               </p>
             </div>
           </div>
-          <div class="mt-10 sm:mt-12 md:mt-16 lg:mt-0 lg:ml-10">
-            <img
-              class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full rounded-lg shadow-lg"
-              src="foto.jpg"
-              alt="Foto do Dr. Gustavo Mendes e Silva"
-            />
-          </div>
         </div>
+
+        <!-- Pequeno resumo de consultório/valores (opcional) -->
+              </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL PARA O CURRÍCULO (iframe) -->
+<div id="curriculoModal" class="modal">
+  <div class="modal-content relative">
+    <span 
+      class="modal-close modal-close text-gray-700 absolute top-3 right-4 cursor-pointer text-xl font-bold"
+      onclick="closeCurriculoModal()"
+    >
+      &times;
+    </span>
+    <h2 class="text-xl font-bold mb-4">Meu Currículo Completo</h2>
+    <iframe
+      src="https://clinical-pearl.vercel.app"
+      title="Currículo Dr. Gustavo Mendes"
+      width="100%"
+      height="600px"
+      frameborder="0"
+    ></iframe>
+  </div>
+</div>
 
     <!-- ÁREAS DE ATUAÇÃO -->
     <section id="areas" class="bg-card py-16 px-4" aria-labelledby="areas-title">
