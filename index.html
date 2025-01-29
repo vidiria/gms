@@ -484,12 +484,7 @@
             </div>
         </div>
     </footer>
-  
-<div id="search-bar-container" class="bg-[#008080]">
-    <div class="max-w-7xl mx-auto px-4">
-        <input type="text" placeholder="Como agendar?" id="search-input" class="search-input" readonly>
-    </div>
-</div>
+
 
 <div id="chat-window" class="hidden fixed bottom-16 right-4 z-50 w-96">
     <div class="bg-white rounded-lg shadow-lg flex flex-col h-96">
@@ -497,6 +492,28 @@
             <h3 class="text-lg font-semibold">Chat com Dr. Gustavo</h3>
             <button id="close-chat" class="text-gray-500 hover:text-gray-700">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          <button class="floating-button" onclick="openModal()">Fale Conosco</button>
+
+<div id="chatModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Fale Conosco</h2>
+        <p>Informe seus dados para continuar:</p>
+        <input type="text" id="name" placeholder="Seu Nome" required>
+        <input type="email" id="email" placeholder="Seu E-mail" required>
+        <button onclick="captureLead()">Continuar</button>
+    </div>
+</div>
+
+<div id="optionsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeOptions()">&times;</span>
+        <h2>Escolha uma opção</h2>
+        <button onclick="window.location.href='https://wa.me/+5511976965550'">WhatsApp</button>
+        <button onclick="window.location.href='#faq'">FAQ</button>
+    </div>
+</div>
+</script>
             </button>
         </div>
         <div class="flex-1 p-4 overflow-y-auto" id="chat-messages">
@@ -544,24 +561,33 @@
             });
         });
 
-        // Search Bar placeholder animation
-        const placeholders = ['Como agendar?', 'Tratamento para insônia?', 'Quais os horários disponíveis?'];
-        let currentPlaceholder = 0;
-        const searchInput = document.getElementById('search-input');
-      const chatWindow = document.getElementById('chat-window');
-const closeChatButton = document.getElementById('close-chat');
-        
-        function updatePlaceholder() {
-            searchInput.placeholder = placeholders[currentPlaceholder];
-            currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
-        }
-
         setInterval(updatePlaceholder, 3000);
         updatePlaceholder(); // call the function immediately to set the first placeholder
       function openChat() {
     chatWindow.classList.remove('hidden');
 }
-
+<script>
+    function openModal() {
+        document.getElementById("chatModal").style.display = "flex";
+    }
+    function closeModal() {
+        document.getElementById("chatModal").style.display = "none";
+    }
+    function closeOptions() {
+        document.getElementById("optionsModal").style.display = "none";
+    }
+    function captureLead() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        if (name && email) {
+            alert(`Obrigado, ${name}! Entraremos em contato em breve.`);
+            closeModal();
+            document.getElementById("optionsModal").style.display = "flex";
+        } else {
+            alert("Por favor, preencha todos os campos.");
+        }
+    }
+        
 function closeChat() {
     chatWindow.classList.add('hidden');
 }
