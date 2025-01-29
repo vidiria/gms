@@ -7,40 +7,42 @@ const mobileMenu = document.getElementById("mobileMenu");
 if (menuBtn && mobileMenu) {
   menuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
-    // Se quiser alternar o ícone dentro do button, pode manipular aqui
   });
 }
 
 /********************************************************
- * 2) SCROLL SUAVE PARA ANCORAS
+ * 2) SCROLL SUAVE PARA ÂNCORAS (#)
  ********************************************************/
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+    // Se for link interno (exclui caso seja só "#") 
     const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
+    if (targetId !== "#") {
+      e.preventDefault();
+      const targetElement = document.querySelector(targetId);
 
-    if (targetElement) {
-      const nav = document.querySelector("nav");
-      const offset = nav ? nav.offsetHeight : 0;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = targetPosition - offset;
+      if (targetElement) {
+        const nav = document.querySelector("nav");
+        const offset = nav ? nav.offsetHeight : 0;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = targetPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
 
-      // Fechar menu mobile se estiver aberto
-      if (!mobileMenu.classList.contains("hidden")) {
-        mobileMenu.classList.add("hidden");
+        // Fechar menu mobile se estiver aberto
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+        }
       }
     }
   });
 });
 
 /********************************************************
- * 3) EXPANSÃO DOS CARDS (Ao clicar no título)
+ * 3) EXPANSÃO DOS CARDS (Clica no título => abre/fecha)
  ********************************************************/
 document.querySelectorAll(".card").forEach((card) => {
   const title = card.querySelector(".card-title");
@@ -51,9 +53,9 @@ document.querySelectorAll(".card").forEach((card) => {
   }
 });
 
-/*************************************************
- * MODAL DO CURRÍCULO
- *************************************************/
+/********************************************************
+ * 4) MODAL DO CURRÍCULO
+ ********************************************************/
 const curriculoModal = document.getElementById("curriculoModal");
 
 window.openCurriculoModal = function() {
@@ -71,30 +73,26 @@ window.closeCurriculoModal = function() {
 // Fechar modal se clicar fora do conteúdo
 window.addEventListener("click", (e) => {
   if (e.target === curriculoModal) {
-    window.closeCurriculoModal();
+    closeCurriculoModal();
   }
 });
 
-
 /********************************************************
- * 4) MODAL DE LEADS (Intersection Observer em #contato)
+ * 5) MODAL DE LEADS (Intersection Observer em #contato)
  ********************************************************/
 const leadModal = document.getElementById("leadModal");
 let modalShown = false; // só exibe uma vez
 
-// Função para abrir modal
 function showLeadModal() {
   if (!modalShown) {
     modalShown = true;
-    leadModal.style.display = "flex"; // ou 'grid', 'block'...
+    leadModal.style.display = "flex";
   }
 }
-// Função para fechar modal
 window.closeLeadModal = function() {
   leadModal.style.display = "none";
 };
 
-// Função para enviar lead
 window.enviarLead = function() {
   const nameField = document.getElementById("leadName");
   const emailField = document.getElementById("leadEmail");
@@ -108,25 +106,22 @@ window.enviarLead = function() {
   }
 
   alert(`Obrigado, ${name}! Recebemos seu contato.`);
-  // Se quiser enviar para um backend:
+  // Se quiser enviar para um backend: 
   // fetch('/api/leads', { method: 'POST', body: JSON.stringify({ name, email }) })
 
   closeLeadModal();
 };
 
-// -------------- Intersection Observer ---------------
-// Observa a seção #contato para abrir o modal automaticamente
+// Observa a seção #contato para abrir o modal automaticamente 
 const contatoSection = document.getElementById("contato");
 if (contatoSection) {
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-      // Quando a seção "contato" aparece na tela:
       showLeadModal();
-      // Para não exibir o modal repetidas vezes
       observer.unobserve(contatoSection);
     }
   }, {
-    threshold: 0.4 // Ajuste: 40% visível
+    threshold: 0.4
   });
   observer.observe(contatoSection);
 }
