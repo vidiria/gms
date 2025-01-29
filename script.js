@@ -1,9 +1,8 @@
 /********************************************************
- * 1) MENU MOBILE TOGGLE
+ * MENU MOBILE
  ********************************************************/
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
-
 if (menuBtn && mobileMenu) {
   menuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
@@ -11,27 +10,21 @@ if (menuBtn && mobileMenu) {
 }
 
 /********************************************************
- * 2) SCROLL SUAVE PARA ÂNCORAS (#)
+ * SCROLL SUAVE
  ********************************************************/
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
     const targetId = this.getAttribute("href");
     if (targetId !== "#") {
       e.preventDefault();
       const targetElement = document.querySelector(targetId);
-
       if (targetElement) {
         const nav = document.querySelector("nav");
         const offset = nav ? nav.offsetHeight : 0;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = targetPosition - offset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-
-        // Fechar menu mobile se estiver aberto
         if (!mobileMenu.classList.contains("hidden")) {
           mobileMenu.classList.add("hidden");
         }
@@ -41,7 +34,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 /********************************************************
- * 3) EXPANSÃO DOS CARDS
+ * CARD EXPANSION
  ********************************************************/
 document.querySelectorAll(".card").forEach((card) => {
   const title = card.querySelector(".card-title");
@@ -53,47 +46,39 @@ document.querySelectorAll(".card").forEach((card) => {
 });
 
 /********************************************************
- * 4) MODAL DO CURRÍCULO
+ * MODAL CURRÍCULO
  ********************************************************/
 const curriculoModal = document.getElementById("curriculoModal");
-
 window.openCurriculoModal = function() {
-  if (curriculoModal) {
-    curriculoModal.style.display = "flex";
-  }
+  if (curriculoModal) curriculoModal.style.display = "flex";
 };
 window.closeCurriculoModal = function() {
-  if (curriculoModal) {
-    curriculoModal.style.display = "none";
-  }
+  if (curriculoModal) curriculoModal.style.display = "none";
 };
-// Fecha se clicar fora
 window.addEventListener("click", (e) => {
-  if (e.target === curriculoModal) {
-    closeCurriculoModal();
-  }
+  if (e.target === curriculoModal) closeCurriculoModal();
 });
 
 /********************************************************
- * 5) MODAL DE LEADS (Intersection Observer em #contato)
+ * MODAL DE LEADS (Agora dispara ao chegar em #servicos-diferenciais)
  ********************************************************/
 const leadModal = document.getElementById("leadModal");
 let modalShown = false;
 
 function showLeadModal() {
-  if (!modalShown) {
+  if (!modalShown && leadModal) {
     modalShown = true;
     leadModal.style.display = "flex";
   }
 }
+
 window.closeLeadModal = function() {
-  leadModal.style.display = "none";
+  if (leadModal) leadModal.style.display = "none";
 };
 
 window.enviarLead = function() {
   const name = document.getElementById("leadName").value.trim();
   const email = document.getElementById("leadEmail").value.trim();
-
   if (!name || !email) {
     alert("Por favor, preencha seu nome e email.");
     return;
@@ -102,16 +87,16 @@ window.enviarLead = function() {
   closeLeadModal();
 };
 
-// Observa a seção #contato para disparar modal
-const contatoSection = document.getElementById("contato");
-if (contatoSection) {
+// Observa a seção #servicos-diferenciais (em vez de #contato)
+const servicosSection = document.getElementById("servicos-diferenciais");
+if (servicosSection) {
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       showLeadModal();
-      observer.unobserve(contatoSection);
+      observer.unobserve(servicosSection);
     }
   }, {
-    threshold: 0.4
+    threshold: 0.5 // abre quando 50% da seção estiver visível
   });
-  observer.observe(contatoSection);
+  observer.observe(servicosSection);
 }
