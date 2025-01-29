@@ -148,48 +148,53 @@
       background-color: #16663D;
     }
 
-    /* ===== HERO GRADIENT (com padding generoso) ===== */
-    .bg-hero-gradient {
-      background-image: linear-gradient(135deg, #293f4e 0%, #3d5c6f 100%);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-      /* hero margin/padding grande: */
-      padding-top: 12rem; /* ajustado para maior respiro */
-      padding-bottom: 8rem; /* sm:py-24 adaptado *
-    }
-    .bg-hero-gradient::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
-      pointer-events: none;
-    }
+ /* ===== HERO GRADIENT (com padding generoso) ===== */
+.bg-hero-gradient {
+  background-image: linear-gradient(135deg, #293f4e 0%, #3d5c6f 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 12rem; /* Ajustado para maior respiro */
+  padding-bottom: 8rem;
+}
 
-    /* ===== BG QUADRICULADO ===== */
-    .bg-quadriculado {
-      background-color: #fff;
-      background-image:
-        linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
+.bg-hero-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+  pointer-events: none;
+  z-index: -1; /* Mantém o efeito no fundo */
+  opacity: 0.9; /* Garante boa visibilidade */
+}
 
-    /* ===== REMOÇÃO DO CARROSSEL ANIMADO ===== */
-    .foto-carousel { display: none; }
+/* ===== BG QUADRICULADO ===== */
+.bg-quadriculado {
+  background-color: #fff;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 10vh; /* Garante que o fundo apareça */
+}
 
-    /* ===== BG ESTÁTICO ONDE ESTOU - LINHAS DIAGONAIS ===== */
-    .bg-geom-static {
-      background: repeating-linear-gradient(
-        135deg,
-        #f0f0f0,
-        #f0f0f0 1px,
-        transparent 1px,
-        transparent 25px
-      );
-    }
+/* ===== REMOÇÃO DO CARROSSEL ANIMADO ===== */
+.foto-carousel { display: none; }
+
+/* ===== BG ESTÁTICO ONDE ESTOU - LINHAS DIAGONAIS ===== */
+.bg-geom-static {
+  background: repeating-linear-gradient(
+    135deg,
+    #f0f0f0,
+    #dddddd 1px,
+    transparent 1px,
+    transparent 25px
+  );
+  background-size: cover; /* Faz o fundo preencher todo o espaço */
+  min-height: 400px; /* Garante altura suficiente */
+}
 
   </style>
 </head>
@@ -295,7 +300,7 @@
           <!-- Foto -->
           <img
             class="h-56 w-56 object-cover rounded-lg"
-            src="foto.jpg"
+            src="fotos/foto-01.jpg"
             alt="Foto Dr. Gustavo Mendes"
           />
           <!-- Botão Currículo -->
