@@ -387,15 +387,9 @@
     </div>
   </section>
 
-  <!-- SEÇÃO ÚNICA: SERVIÇOS & DIFERENCIAIS + (Card expansível: Como é a Primeira Consulta?) -->
+ <!-- SERVIÇOS & DIFERENCIAIS -->
   <section id="servicos-diferenciais" class="relative py-16 px-4 bg-white">
-    <!-- Carrossel de fotos no fundo -->
-    <div class="foto-carousel hidden md:block">
-      <img src="fotos/fundo-01.jpg" alt="Fundo 1" />
-      <img src="fotos/fundo-02.jpg" alt="Fundo 2" />
-      <img src="fotos/fundo-03.jpg" alt="Fundo 3" />
-    </div>
-
+    <!-- Carrossel? removido (display:none). Substituímos por estático. -->
     <div class="max-w-7xl mx-auto relative z-10">
       <h2 class="text-3xl font-bold text-gray-900 text-center mb-6">
         Como posso te ajudar
@@ -406,11 +400,11 @@
         clareza e confiança antes mesmo de começarmos.
       </p>
 
-      <!-- Bloco: Principais Condições -->
+      <!-- Condições -->
       <div class="rounded-lg p-6 bg-gray-50 shadow-md mb-10">
         <h3 class="text-xl font-semibold text-gray-800 mb-4">Principais Condições Atendidas</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Condição 1 -->
+          <!-- Humor & Ansiedade -->
           <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
             <h4 class="font-bold text-lg text-primary mb-2">Humor & Ansiedade</h4>
             <ul class="list-disc list-inside text-secondary">
@@ -419,7 +413,7 @@
               <li>TOC, TAG</li>
             </ul>
           </div>
-          <!-- Condição 2 -->
+          <!-- Neurodiversidade -->
           <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
             <h4 class="font-bold text-lg text-primary mb-2">Neurodiversidade</h4>
             <ul class="list-disc list-inside text-secondary">
@@ -428,7 +422,7 @@
               <li>Idosos & Declínios Cognitivos</li>
             </ul>
           </div>
-          <!-- Condição 3 -->
+          <!-- Sono & Burnout -->
           <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
             <h4 class="font-bold text-lg text-primary mb-2">Sono & Burnout</h4>
             <ul class="list-disc list-inside text-secondary">
@@ -437,7 +431,7 @@
               <li>Estresse Crônico</li>
             </ul>
           </div>
-          <!-- Condição 4 -->
+          <!-- Dependência Química -->
           <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
             <h4 class="font-bold text-lg text-primary mb-2">Dependência Química</h4>
             <ul class="list-disc list-inside text-secondary">
@@ -446,7 +440,7 @@
               <li>Apoio Familiar</li>
             </ul>
           </div>
-          <!-- Condição 5 -->
+          <!-- Traumas -->
           <div class="p-4 bg-white rounded shadow hover:shadow-lg transition">
             <h4 class="font-bold text-lg text-primary mb-2">Traumas & Violências*</h4>
             <ul class="list-disc list-inside text-secondary">
@@ -461,14 +455,14 @@
         </p>
       </div>
 
-      <!-- Bloco: Diferenciais -->
+      <!-- Diferenciais -->
       <div class="rounded-lg p-6 bg-gray-50 shadow-md mb-10">
         <h3 class="text-xl font-semibold text-gray-800 mb-4">Diferenciais do Meu Atendimento</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- item 1 -->
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
-              <img src="fotos/icon-consulta.png" alt="Consulta" class="h-10 w-10"/>
+              <i class="fa-solid fa-clock text-primary text-3xl"></i>
             </div>
             <div>
               <h4 class="font-bold text-lg text-primary">Consultas de 2h</h4>
@@ -481,7 +475,7 @@
           <!-- item 2 -->
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
-              <img src="fotos/icon-goals.png" alt="Metas" class="h-10 w-10"/>
+              <i class="fa-solid fa-bullseye text-primary text-3xl"></i>
             </div>
             <div>
               <h4 class="font-bold text-lg text-primary">Metas Definidas Juntos</h4>
@@ -494,7 +488,7 @@
           <!-- item 3 -->
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
-              <img src="fotos/icon-ai.png" alt="IA" class="h-10 w-10"/>
+              <i class="fa-solid fa-robot text-primary text-3xl"></i>
             </div>
             <div>
               <h4 class="font-bold text-lg text-primary">IA Avançada</h4>
@@ -507,7 +501,7 @@
           <!-- item 4 -->
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
-              <img src="fotos/icon-homevisit.png" alt="Domiciliar" class="h-10 w-10"/>
+              <i class="fa-solid fa-house-chimney-medical text-primary text-3xl"></i>
             </div>
             <div>
               <h4 class="font-bold text-lg text-primary">Atendimento em Casa</h4>
@@ -520,10 +514,10 @@
         </div>
       </div>
 
-      <!-- Card Expansível: Como é a Primeira Consulta -->
+      <!-- Card Expansível: Como é a Primeira Consulta? -->
       <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
         <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
-          Como é a Primeira Consulta?
+          Como é a Primeira Consulta? ↓
         </h3>
         <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
           <div class="p-4 text-secondary">
@@ -541,12 +535,15 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- SEÇÃO ONDE ESTOU (com BG geométrico animado) -->
-  <section id="onde-estou" class="py-16 px-4 bg-geom-anim relative" aria-labelledby="onde-title">
+  <!-- SEÇÃO ONDE ESTOU (BG estático com diagonais) -->
+  <section
+    id="onde-estou"
+    class="py-16 px-4 bg-geom-static relative"
+    aria-labelledby="onde-title"
+  >
     <div class="max-w-7xl mx-auto relative z-10">
       <h2 id="onde-title" class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
         Onde Estou
@@ -556,43 +553,34 @@
         Veja avaliações, fotos e local exato no Google. 
         Sinta-se à vontade para visitar!
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <!-- Mapa do Google -->
         <div class="rounded shadow overflow-hidden">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.123237487306!2d-46.6798223!3d-23.5999128!2m3!1f0!2f0!3f0!m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57b6e629e251%3A0x514a30df0fa62955!2sDr.%20Gustavo%20Mendes%20e%20Silva%20-%20Psiquiatria%20e%20Cannabis%20Medicinal!5e0!3m2!1spt-BR!2sbr!4v1738162079431!5m2!1spt-BR!2sbr"
-            width="100%" height="300" style="border:0;"
-            allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.123237487306!2d-46.6798223!3d-23.5999128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57b6e629e251%3A0x514a30df0fa62955!2sDr.%20Gustavo%20Mendes%20e%20Silva%20-%20Psiquiatria%20e%20Cannabis%20Medicinal!5e0!3m2!1spt-BR!2sbr!4v1738162079431!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
         </div>
-        <!-- Informações e Link Google My Business -->
-        <div class="bg-white p-6 rounded shadow">
-          <h3 class="text-lg font-bold text-primary mb-2">Google Meu Negócio</h3>
-          <p class="text-secondary mb-4">
-            Confira fotos do consultório, avaliações de pacientes e mais detalhes do local 
-            diretamente no Google:
-          </p>
-          <a
-            href="https://maps.app.goo.gl/dpSNKZ4bHYm8iQ8B9"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-5 py-3 bg-detail text-white font-semibold rounded hover:bg-primary"
-          >
-            Ver no Google Maps
-          </a>
-        </div>
+
+        <!-- Exibir a página do Google Meu Negócio em um iframe -->
+     <a
+  href="https://maps.app.goo.gl/dpSNKZ4bHYm8iQ8B9"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="inline-block px-5 py-3 bg-detail text-white font-semibold rounded hover:bg-primary"
+>
+  Ver no Google Maps
+</a>
+
       </div>
     </div>
   </section>
 
-  <!-- RODAPÉ -->
+  <!-- FOOTER -->
   <footer class="bg-gray-800 text-white py-12 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <h3 class="text-xl font-bold mb-4 text-primary">Dr. Gustavo Mendes e Silva</h3>
-          <p class="text-gray-300">Médico Psiquiatra</p>
+          <p class="text-gray-300">Médico</p>
           <p class="text-gray-300">CRM-SP: 218133</p>
           <p class="mt-4 text-gray-400">
             Atendimento em consultório particular na Vila Olímpia - São Paulo e por Telemedicina para todo o Brasil.
@@ -603,71 +591,11 @@
           <div class="flex space-x-4">
             <!-- LinkedIn -->
             <a href="https://linkedin.com/in/mendes-e-silva" class="text-gray-300 hover:text-white" aria-label="LinkedIn">
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M19 0h-14c-2.761 
-                    0-5 2.239-5 5v14c0 2.761 2.239
-                    5 5 5h14c2.762 0 5-2.239
-                    5-5v-14c0-2.761-2.238-5-5-5zm-11
-                    19h-3v-11h3v11zm-1.5-12.268c-.966
-                    0-1.75-.79-1.75-1.764s.784-1.764
-                    1.75-1.764 1.75.79 1.75
-                    1.764-.783 1.764-1.75
-                    1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4
-                    0v5.604h-3v-11h3v1.765c1.396-2.586
-                    7-2.777 7 2.476v6.759z"
-                />
-              </svg>
+              <i class="fab fa-linkedin h-6 w-6 text-xl"></i>
             </a>
             <!-- Instagram -->
             <a href="https://www.instagram.com/seuinstagram" class="text-gray-300 hover:text-white" aria-label="Instagram">
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12.315 2c2.43 0 2.784.013
-                    3.808.06 1.064.049 1.79.217
-                    2.427.465.66.254 1.216.598 
-                    1.772 1.153a4.908 4.908 0 0 1 
-                    1.153 1.772c.247.636.415 1.363.465
-                    2.427.048 1.024.06 1.379.06
-                    3.808 0 2.43-.013 2.784-.06
-                    3.808-.049 1.064-.217 1.79-.465
-                    2.427a4.883 4.883 0 0 
-                    1-1.153 1.772c-.255.66-.6 1.216-1.153
-                    1.772-.636.247-1.363.415-2.427.465-1.024.048-1.379.06-3.808.06-2.43
-                    0-2.784-.013-3.808-.06-1.064-.049-1.79-.217-2.427-.465a4.89
-                    4.89 0 0 1-1.772-1.153 4.904 4.904
-                    0 0 1-1.153-1.772c-.247-.636-.415-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808
-                    0-2.43.013-2.784.06-3.808.049-1.064.217-1.79.465-2.427a4.88
-                    4.88 0 0 1 1.153-1.772A4.897 4.897
-                    0 0 1 5.45 2.525c.636-.247
-                    1.363-.415 2.427-.465
-                    1.024-.048 1.379-.06
-                    3.808-.06zm-.81.13c-2.66 0-2.987.01-4.04.058-1.052.048-1.745.211-2.338.454a3.418 
-                    3.418 0 0 0-1.274.818 3.42 3.42 0 0 0-.818 
-                    1.274c-.243.593-.405 
-                    1.286-.454 2.338-.048 
-                    1.053-.058 1.38-.058 4.04 
-                    0 2.66.01 2.987.058 4.04.048 
-                    1.052.211 1.745.454 
-                    2.338.24.6.513 1.08.818 
-                    1.274s.678.474 
-                    1.274.818c.593.243 
-                    1.286.405 2.338.454 1.053.048 
-                    1.38.058 4.04.058 2.66 
-                    0 2.987-.01 4.04-.058 1.052-.048 
-                    1.745-.211 2.338-.454.6-.24.977-.513 
-                    1.274-.818s.474-.678.818-1.274c.243-.593.405-1.286.454-2.338.048-1.053.058-1.38.058-4.04 
-                    0-2.66-.01-2.987-.058-4.04-.048-1.052-.211-1.745-.454-2.338a3.42 
-                    3.42 0 0 0-.818-1.274 3.418 3.418 
-                    0 0 0-1.274-.818c-.593-.243-1.286-.405-2.338-.454-1.053-.048-1.38-.058-4.04-.058zM12 
-                    6.865a5.135 5.135 0 1 1 0 10.27 
-                    5.135 5.135 0 0 1 0-10.27zm0 
-                    8.468a3.333 3.333 0 1 1 0-6.666 
-                    3.333 3.333 0 0 1 0 6.666zm5.338-9.87a1.2 
-                    1.2 0 1 1 0 2.4 1.2 
-                    1.2 0 0 1 0-2.4z"
-                />
-              </svg>
+              <i class="fab fa-instagram h-6 w-6 text-xl"></i>
             </a>
           </div>
         </div>
@@ -704,7 +632,7 @@
   <!-- MODAL DE LEADS -->
   <div id="leadModal" class="modal">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeLeadModal()">×</span>
+      <span class="modal-close" onclick="closeLeadModal()">&times;</span>
       <h2 class="text-xl font-bold mb-4">Quer saber mais?</h2>
       <p>
         Deixe seus dados e receba informações adicionais sobre meu atendimento,
@@ -734,3 +662,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
