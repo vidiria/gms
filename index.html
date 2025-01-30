@@ -277,48 +277,69 @@
       </div>
     </div>
   </section>
-  
-  <!-- SEÇÃO SOBRE -->
+
+  <!-- SEÇÃO SOBRE (cards expansíveis na COLUNA ESQUERDA, cal.com 10% menor) -->
   <section id="sobre" class="py-16 px-4 bg-quadriculado">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl text-center mb-10">
         Sobre mim
       </h2>
-      <div class="lg:flex lg:items-start lg:gap-8">
-        <!-- Coluna esquerda -->
-        <div class="lg:w-1/3 mb-8 lg:mb-0">
+      <div class="lg:flex lg:gap-8">
+        <!-- Coluna Esquerda -->
+        <div class="lg:w-1/3 mb-8 lg:mb-0 flex flex-col items-center">
+          <!-- Foto -->
           <img
-            class="h-56 w-56 object-cover mx-auto rounded-lg"
+            class="h-56 w-56 object-cover rounded-lg"
             src="foto.jpg"
             alt="Foto Dr. Gustavo Mendes"
           />
-          <div class="mt-6 text-center">
-            <p class="text-lg text-secondary leading-relaxed">
-              Olá, sou o <strong>Dr. Gustavo Mendes e Silva</strong>, médico psiquiatra
-              membro da <strong>Society of Cannabis Clinicians</strong>, com reconhecimento
-              internacional.
-            </p>
-            <button
-              class="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-detail"
-              onclick="openCurriculoModal()"
-            >
-              Ver meu Currículo
-            </button>
-          </div>
-          <!-- Pequeno embed do Cal.com menor, se quiser -->
-          <div class="bg-white mt-6 p-4 shadow rounded">
-            <h3 class="text-md font-bold text-primary mb-2">Agende Agora</h3>
-            <iframe
-              src="https://cal.com/drgustavomendes?embed=true"
-              title="Agendar Consulta Rápida"
-              width="100%"
-              height="450"
-              frameborder="0"
-            ></iframe>
+          <!-- Botão Currículo -->
+          <button
+            class="mt-4 bg-primary text-white px-4 py-2 rounded hover:bg-detail"
+            onclick="openCurriculoModal()"
+          >
+            Ver meu Currículo
+          </button>
+          <!-- Cards Expansíveis ABAIXO do botão -->
+          <div class="w-full mt-6 space-y-4">
+            <!-- Card 1: Formação & Experiência -->
+            <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+              <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+                Formação & Experiência ↓
+              </h3>
+              <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <div class="p-4 text-secondary">
+                  <ul class="list-disc list-inside space-y-2">
+                    <li>Graduação em Medicina (FAMEMA)</li>
+                    <li>Especialização em Psiquiatria</li>
+                    <li>Membro da Society of Cannabis Clinicians</li>
+                    <li>Abordagem humanizada e inclusiva</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2: Inovação & Tecnologia -->
+            <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
+              <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
+                Inovação & Tecnologia ↓
+              </h3>
+              <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <div class="p-4 text-secondary">
+                  <p class="mb-2">
+                    Uso de IA (Claude, Vertex AI) no Google Cloud, garantindo LGPD/HIPAA. 
+                    Foco total no paciente, sem burocracias.
+                  </p>
+                  <p>
+                    Documentação discreta, segurança de dados e acompanhamento 
+                    contínuo para sua tranquilidade.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Coluna direita -->
+        <!-- Coluna Direita -->
         <div class="lg:w-2/3">
           <div class="mb-6 text-base text-secondary">
             <p class="mb-4">
@@ -332,41 +353,14 @@
               encontre um caminho de bem-estar.
             </p>
           </div>
-          <div class="grid lg:grid-cols-2 gap-6">
-            <!-- Card: Formação -->
-            <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
-              <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
-                Formação & Experiência ↓
-              </h3>
-              <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                <div class="p-4">
-                  <ul class="list-disc list-inside space-y-3">
-                    <li>Graduação em Medicina (FAMEMA)</li>
-                    <li>Especialização em Psiquiatria</li>
-                    <li>Membro da Society of Cannabis Clinicians</li>
-                    <li>Abordagem humanizada e inclusiva</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- Card: Inovação -->
-            <div class="card relative rounded-lg shadow-md bg-white transition-all duration-300">
-              <h3 class="card-title text-xl font-semibold mb-0 text-gray-800 p-4 bg-gray-100 cursor-pointer">
-                Inovação & Tecnologia ↓
-              </h3>
-              <div class="card-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                <div class="p-4">
-                  <p class="mb-4">
-                    Uso de IA (Claude, Vertex AI) no Google Cloud, garantindo LGPD/HIPAA. 
-                    Foco total no paciente, sem burocracias.
-                  </p>
-                  <p>
-                    Documentação discreta, segurança de dados e acompanhamento contínuo 
-                    para sua tranquilidade.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <!-- Iframe do Cal.com menor (90% do original) -->
+          <div class="bg-white p-4 rounded shadow" style="transform: scale(0.9); transform-origin: top left;">
+            <h3 class="text-md font-bold text-primary mb-2">Agende Agora</h3>
+            <iframe
+              src="https://cal.com/drgustavomendes?embed=true"
+              title="Agendar Consulta Rápida"
+              width="100%" height="450" frameborder="0"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -380,15 +374,13 @@
         <iframe
           src="https://clinical-pearl.vercel.app"
           title="Currículo Dr. Gustavo Mendes"
-          width="100%"
-          height="600"
-          frameborder="0"
+          width="100%" height="600" frameborder="0"
         ></iframe>
       </div>
     </div>
   </section>
 
- <!-- SERVIÇOS & DIFERENCIAIS -->
+  <!-- SERVIÇOS & DIFERENCIAIS -->
   <section id="servicos-diferenciais" class="relative py-16 px-4 bg-white">
     <!-- Carrossel? removido (display:none). Substituímos por estático. -->
     <div class="max-w-7xl mx-auto relative z-10">
@@ -561,22 +553,16 @@
             
         </div>
 
-       <!-- Informações e Link Google My Business -->
-        <div class="bg-white p-6 rounded shadow">
-          <h3 class="text-lg font-bold text-primary mb-2">Google Meu Negócio</h3>
-          <p class="text-secondary mb-4">
-            Confira fotos do consultório, avaliações de pacientes e mais detalhes do local 
-            diretamente no Google:
-          </p>
-          <a
-            href="https://maps.app.goo.gl/dpSNKZ4bHYm8iQ8B9"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-5 py-3 bg-detail text-white font-semibold rounded hover:bg-primary"
-          >
-            Ver no Google Maps
-          </a>
-        </div>
+        <!-- Exibir a página do Google Meu Negócio em um iframe -->
+     <a
+  href="https://maps.app.goo.gl/dpSNKZ4bHYm8iQ8B9"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="inline-block px-5 py-3 bg-detail text-white font-semibold rounded hover:bg-primary"
+>
+  Ver no Google Maps
+</a>
+
       </div>
     </div>
   </section>
@@ -669,4 +655,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
