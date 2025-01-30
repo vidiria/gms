@@ -49,13 +49,14 @@ document.querySelectorAll(".card").forEach((card) => {
  * MODAL CURRÍCULO
  ********************************************************/
 const curriculoModal = document.getElementById("curriculoModal");
-window.openCurriculoModal = function() {
+window.openCurriculoModal = function () {
   if (curriculoModal) curriculoModal.style.display = "flex";
 };
-window.closeCurriculoModal = function() {
+window.closeCurriculoModal = function () {
   if (curriculoModal) curriculoModal.style.display = "none";
 };
+
+// Fechar ao clicar fora do modal
 window.addEventListener("click", (e) => {
   if (e.target === curriculoModal) closeCurriculoModal();
 });
-
