@@ -23,10 +23,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const offset = nav ? nav.offsetHeight : 0;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = targetPosition - offset;
-
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
 
-        // Fecha menu mobile se estiver aberto
         if (!mobileMenu.classList.contains("hidden")) {
           mobileMenu.classList.add("hidden");
         }
@@ -60,44 +58,3 @@ window.closeCurriculoModal = function() {
 window.addEventListener("click", (e) => {
   if (e.target === curriculoModal) closeCurriculoModal();
 });
-
-/********************************************************
- * MODAL DE LEADS (Observa #servicos-diferenciais)
- ********************************************************/
-const leadModal = document.getElementById("leadModal");
-let modalShown = false;
-
-function showLeadModal() {
-  if (!modalShown && leadModal) {
-    modalShown = true;
-    leadModal.style.display = "flex";
-  }
-}
-window.closeLeadModal = function() {
-  if (leadModal) leadModal.style.display = "none";
-};
-
-window.enviarLead = function() {
-  const name = document.getElementById("leadName").value.trim();
-  const email = document.getElementById("leadEmail").value.trim();
-  if (!name || !email) {
-    alert("Por favor, preencha seu nome e email.");
-    return;
-  }
-  alert(`Obrigado, ${name}! Recebemos seu contato.`);
-  closeLeadModal();
-};
-
-// Observa a seção #servicos-diferenciais
-const servicosSection = document.getElementById("servicos-diferenciais");
-if (servicosSection) {
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      showLeadModal();
-      observer.unobserve(servicosSection);
-    }
-  }, {
-    threshold: 0.5
-  });
-  observer.observe(servicosSection);
-}
