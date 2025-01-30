@@ -44,17 +44,3 @@ document.querySelectorAll(".card").forEach((card) => {
     });
   }
 });
-
-/********************************************************
- * MODAL CURRÍCULO
- ********************************************************/
-const curriculoModal = document.getElementById("curriculoModal");
-window.openCurriculoModal = function() {
-  if (curriculoModal) curriculoModal.style.display = "flex";
-};
-window.closeCurriculoModal = function() {
-  if (curriculoModal) curriculoModal.style.display = "none";
-};
-window.addEventListener("click", (e) => {
-  if (e.target === curriculoModal) closeCurriculoModal();
-});
