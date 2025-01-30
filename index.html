@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Configurações básicas de SEO -->
+  <!-- SEO BÁSICO -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
   <!-- Título e meta descrição -->
-  <title>Dr. Gustavo Mendes e Silva - Psiquiatra | Saúde Mental em São Paulo</title>
+  <title>Dr. Gustavo Mendes e Silva - Cannabis Medicinal | Psiquiatria | São Paulo</title>
   <meta
     name="description"
-    content="Dr. Gustavo Mendes e Silva, médico psiquiatra em São Paulo. Atendimento humanizado, cannabis medicinal, telemedicina e mais. Agende sua consulta."
+    content="Dr. Gustavo Mendes e Silva, médico psiquiatra em São Paulo, tratamentos com Cannabis Medicinal e Canabidiol. Atendimento humanizado, cannabis medicinal, telemedicina, autismo, TDAH, e mais. Conheça o portal OrCann!"
   />
   <meta
     name="keywords"
-    content="psiquiatra, São Paulo, saúde mental, depressão, ansiedade, bipolar, TDAH, burnout, cannabis medicinal, telemedicina"
+    content="psiquiatria sp, psiquiatra autismo, cannabis medicinal, TDAH, orcann, portal educativo, psiquiatria, Dr Gustavo Mendes, psicanalise, medico cannabis, medico canabidiol, tratamento autismo, cannabis e saude mental"
   />
   <meta name="author" content="Dr. Gustavo Mendes e Silva" />
-  <link rel="canonical" href="https://www.seusite.com.br" />
+  <link rel="canonical" href="https://dr.orcann.com" />
 
-  <!-- Google Fonts -->
+  <!-- Fontes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -28,8 +28,17 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome (para ícones) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <script>
-    /* Configuração do Tailwind */
     tailwind.config = {
       theme: {
         extend: {
@@ -54,69 +63,57 @@
   </script>
 
   <style>
-    /* =============== MODAL LEADS =============== */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-content {
-      background-color: #fff;
-      margin: auto; padding: 20px;
-      border-radius: 6px; max-width: 500px;
-      width: 90%; position: relative;
-    }
-    .modal-close {
-      position: absolute; top: 8px; right: 12px;
-      cursor: pointer; font-size: 20px; font-weight: bold;
-    }
-
-    /* =============== TIPOGRAFIA =============== */
+   
+    /* ===== TIPOGRAFIA ===== */
     h1, h2, h3, h4 {
       font-family: "Montserrat", sans-serif; 
-      color: #1F2937; 
+      color: #1F2937;
     }
     body {
-      font-family: "Quicksand", sans-serif; 
-      margin: 0;
-      background-color: #F7F7F7;
+      font-family: "Quicksand", sans-serif;
+      margin: 0; background-color: #F7F7F7;
     }
 
-    /* =============== CARDS EXPANSÍVEIS =============== */
+    /* ===== CARDS EXPANSÍVEIS ===== */
     .card {
       background-color: #fff; 
       color: #1f2937;
     }
     .card.expanded {
       background-color: #293f4e;
-      color: #fff;
+      color: #ffffff;
     }
     .card.expanded .card-title {
-      background-color: transparent; 
-      color: #fff;
+      background-color: transparent;
+      color: #ffffff;
     }
+    
+    .card.expanded .card-content {
+  color: #fff; /* Torna o texto branco ao expandir */
+}
+
     .card.expanded .card-content {
       max-height: 600px;
     }
     .card.expanded a {
       color: #fff; text-decoration: underline;
     }
-
     .card-content {
-      max-height: 0;
-      overflow: hidden;
+      max-height: 0; overflow: hidden;
       transition: max-height 0.3s ease-in-out;
     }
     .card.expanded .card-content {
-      max-height: 700px; 
+      max-height: 700px;
     }
+    .card.expanded .card-content,
+.card.expanded .card-content p,
+.card.expanded .card-content li,
+.card.expanded .card-content span {
+  color: #ffffff !important; /* Força o texto a ficar branco */
+}
 
-    /* =============== BOTÃO WHATSAPP =============== */
+
+    /* ===== BOTÃO WHATSAPP ===== */
     #whatsapp-btn {
       position: fixed;
       bottom: 20px; right: 20px;
@@ -125,89 +122,71 @@
       padding: 14px 20px;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      font-weight: bold;
-      z-index: 1000;
+      font-weight: bold; z-index: 1000;
     }
     #whatsapp-btn:hover {
       background-color: #16663D;
     }
 
-    /* =============== HERO GRADIENT =============== */
-    .bg-hero-gradient {
-      background-image: linear-gradient(135deg, #293f4e 0%, #3d5c6f 100%);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-    }
-    .bg-hero-gradient::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
-      pointer-events: none;
-    }
+ /* ===== HERO GRADIENT (com padding generoso) ===== */
+.bg-hero-gradient {
+  background-image: linear-gradient(135deg, #293f4e 0%, #3d5c6f 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 12rem; /* Ajustado para maior respiro */
+  padding-bottom: 8rem;
+}
 
-    /* =============== BG QUADRICULADO =============== */
-    .bg-quadriculado {
-      background-color: #fff; 
-      background-image:
-        linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-      background-size: 20px 20px; 
-    }
+.bg-hero-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+  pointer-events: none;
+  z-index: -1; /* Mantém o efeito no fundo */
+  opacity: 0.9; /* Garante boa visibilidade */
+}
 
-    /* =============== CARROSSEL FAKE =============== */
-    .foto-carousel {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      opacity: 0.3;
-      backdrop-filter: blur(4px); /* glass effect */
-    }
-    .foto-carousel img {
-      position: absolute;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      animation: fadeImages 12s infinite;
-    }
-    @keyframes fadeImages {
-      0%   {opacity: 1;}
-      33%  {opacity: 0;}
-      66%  {opacity: 0;}
-      100% {opacity: 1;}
-    }
+/* ===== BG QUADRICULADO ===== */
+.bg-quadriculado {
+  background-color: #fff;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 10vh; /* Garante que o fundo apareça */
+}
 
-    /* =============== BG GEOMÉTRICO ANIMADO (ex. "Onde estou") =============== */
-    .bg-geom-anim {
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 40px 40px; 
-      position: relative;
-      overflow: hidden;
-    }
-    .bg-geom-anim::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 200%; height: 200%;
-      background:
-        radial-gradient(circle, #293f4e 10%, transparent 10%) 0 0,
-        radial-gradient(circle, #293f4e 10%, transparent 10%) 25px 25px;
-      background-size: 50px 50px;
-      background-color: #202020;
-      opacity: 0.05;
-      animation: moveGeom 30s linear infinite;
-    }
-    @keyframes moveGeom {
-      0% { transform: translate(0,0); }
-      100% { transform: translate(-25px, -25px); }
-    }
+/* ===== REMOÇÃO DO CARROSSEL ANIMADO ===== */
+.foto-carousel { display: none; }
+
+/* ===== BG ESTÁTICO ONDE ESTOU - LINHAS DIAGONAIS ===== */
+.bg-geom-static {
+  background: repeating-linear-gradient(
+    135deg,
+    #f0f0f0,
+    #dddddd 1px,
+    transparent 1px,
+    transparent 25px
+  );
+  background-size: cover; /* Faz o fundo preencher todo o espaço */
+  min-height: 400px; /* Garante altura suficiente */
+}
+
   </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV4HDZLQ97">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HV4HDZLQ97');
+</script>
 </head>
 
 <body class="bg-background font-sans">
@@ -216,18 +195,37 @@
   <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <div class="flex items-center">
-          <a href="/" class="font-bold text-md text-primary">Dr. Gustavo Mendes e Silva</a>
+        <!-- Logo / Título -->
+        <div class="flex items-center space-x-8">
+          <a href="/" class="font-bold text-md text-primary">
+            Dr. Gustavo Mendes e Silva
+          </a>
+          <!-- Link para OrCann (com ícone cannabis) -->
+          <a
+            href="https://orcann.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center text-secondary hover:text-primary px-2 py-1 text-sm font-medium"
+          >
+            <i class="fa-solid fa-cannabis mr-1"></i> OrCann
+          </a>
         </div>
+
+        <!-- Links desktop -->
         <div class="hidden md:flex md:space-x-8">
           <a href="#sobre" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Sobre</a>
           <a href="#servicos-diferenciais" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Serviços & Diferenciais</a>
           <a href="#onde-estou" class="text-secondary hover:text-primary px-3 py-2 text-sm font-medium">Onde Estou</a>
         </div>
+
+        <!-- Botão menu mobile -->
         <div class="md:hidden">
-          <button id="menuBtn" type="button"
+          <button
+            id="menuBtn"
+            type="button"
             class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 
-                   focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                   focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+          >
             <span class="sr-only">Abrir menu</span>
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                  xmlns="http://www.w3.org/2000/svg">
@@ -238,18 +236,24 @@
         </div>
       </div>
     </div>
-    <!-- Menu mobile -->
+    <!-- Menu Mobile -->
     <div id="mobileMenu" class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#sobre" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Sobre</a>
-        <a href="#servicos-diferenciais" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Serviços & Diferenciais</a>
-        <a href="#onde-estou" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">Onde Estou</a>
+        <a href="#sobre" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">
+          Sobre
+        </a>
+        <a href="#servicos-diferenciais" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">
+          Serviços & Diferenciais
+        </a>
+        <a href="#onde-estou" class="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:bg-gray-100 hover:text-primary">
+          Onde Estou
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="relative bg-hero-gradient text-white py-20 px-4 sm:py-24" aria-labelledby="hero-title">
+  <!-- HERO (mais espaçado) -->
+  <section class="relative bg-hero-gradient text-white px-4" aria-labelledby="hero-title">
     <div class="max-w-7xl mx-auto text-center relative">
       <h1 id="hero-title" class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
         <span class="block text-white">Dr. Gustavo Mendes e Silva</span>
@@ -273,7 +277,6 @@
       </div>
     </div>
   </section>
-
   <!-- SEÇÃO SOBRE -->
   <section id="sobre" class="py-16 px-4 bg-quadriculado">
     <div class="max-w-7xl mx-auto">
