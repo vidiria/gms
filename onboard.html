@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a abordagem única do Dr. Gustavo Mendes e Silva em psiquiatria. Uma jornada de autoconhecimento e transformação.">
+    <title>Dr. Gustavo Mendes e Silva - A Experiência da Consulta</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --petrol-blue: #405664; /* Tom mais claro e acinzentado */
+            --ultramarine: #1B3B6F;
+            --silver: #C0C0C0;
+            --aged-gold: #C5B358;
+            --burnt-orange: #D2691E; /* Laranja queimado */
+            --lead-gray: #333333; /* Tom mais escuro para melhor contraste */
+            --whatsapp-green: #25D366;
+            --cream: #F8F3E8;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.5;
+            background: var(--cream);
+            color: var(--lead-gray);
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            position: relative;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: clamp(2rem, 5vw, 4rem);
+            overflow: hidden;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(50px);
+            /* Animação padrão (todas as seções)*/
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        section.active .content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animações específicas por seção */
+
+        /* Seção 1: Intro */
+        #intro.active .content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #intro.active .title-gradient {
+            transform: scale(1);
+            animation: subtlePulse 2.5s infinite alternate;
+        }
+
+        @keyframes subtlePulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.03); }
+        }
+
+        /* Seção 2: Consulta */
+        #consulta.active .content {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #consulta.active .title {
+            animation: slideInFromLeft 1.2s ease;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-80%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        #consulta.active .text-block {
+            animation: fadeIn 1.5s ease 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Seção 3: Descoberta */
+        #descoberta.active .content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #descoberta.active .title {
+            animation: zoomIn 1.2s ease;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #descoberta.active .quote {
+            animation: reveal 1.5s ease 0.5s forwards;
+        }
+
+        @keyframes reveal {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Seção 4: Metafora */
+        #metafora.active .content {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+
+        #metafora.active .title {
+            animation: flipIn 1.2s ease;
+        }
+
+        @keyframes flipIn {
+            0% {
+                opacity: 0;
+                transform: rotateY(80deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+
+        #metafora.active .highlight {
+            animation: colorChange 4s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% { color: var(--ultramarine); }
+            50% { color: var(--petrol-blue); }
+            100% { color: var(--burnt-orange); }
+        }
+
+        /* Seção 5: Compromisso */
+        #compromisso.active .content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #compromisso.active .title-gradient {
+            animation: subtlePulse 2.5s infinite alternate;
+        }
+
+        #compromisso.active .subtitle {
+            animation: slideUp 1.2s ease;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(80%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Seção 6: Alta */
+        #alta.active .content {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #alta.active .title-outline {
+            animation: writeText 3s linear forwards;
+        }
+
+        @keyframes writeText {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Seção 7: Metodologia */
+        #metodologia.active .content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #metodologia.active .quote {
+            animation: expand 1.5s ease forwards;
+        }
+
+        @keyframes expand {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Seção 8: Final */
+        #final.active .content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #final.active .title-gradient {
+            animation: subtlePulse 2.5s infinite alternate;
+        }
+
+        #final.active .call-to-action {
+            animation: fadeIn 1.5s ease 0.5s forwards;
+        }
+
+        /* Variações de Título */
+        .title {
+            font-family: 'Lora', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: clamp(1.5rem, 4vw, 3rem);
+            transition: transform 0.5s ease;
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, var(--petrol-blue), var(--ultramarine));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: scale(0.95);
+        }
+
+        .title-outline {
+            -webkit-text-stroke: 2px var(--white);
+            color: transparent;
+             overflow: hidden;
+             white-space: nowrap;
+             width: 0;
+        }
+
+        .title-bold {
+            color: var(--white);
+            font-weight: 800;
+             transition: transform 0.5s ease;
+        }
+
+        .title-light {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: var(--lead-gray);
+            font-weight: 400;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Animação de Títulos */
+        .active .title {
+            transform: scale(1.03);
+        }
+
+        /* Textos e Elementos */
+        .subtitle {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--ultramarine);
+            margin-bottom: clamp(2rem, 5vw, 4rem);
+            font-weight: 400;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease 0.3s;
+        }
+
+        .active .subtitle {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-block {
+            margin: clamp(2rem, 5vw, 4rem) 0;
+            opacity: 0;
+            transition: all 1s ease 0.6s;
+        }
+
+        .text-block-left {
+            border-left: 3px solid var(--aged-gold);
+            padding-left: clamp(1rem, 3vw, 2rem);
+            transform: translateX(-30px);
+            text-align: left;
+        }
+
+        .text-block-right {
+            border-right: 3px solid var(--aged-gold);
+            padding-right: clamp(1rem, 3vw, 2rem);
+            transform: translateX(30px);
+            text-align: right;
+        }
+
+        .active .text-block {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .highlight {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--ultramarine);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            transition: color 0.5s ease, transform 0.5s ease; /* Adiciona transição de transformação */
+            display: inline-block;
+        }
+
+        .detail {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--lead-gray);
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+        }
+
+        /* Animação de Microinteração */
+        .active .highlight:hover {
+            color: var(--burnt-orange);
+            cursor: pointer;
+            transform: translateX(5px) scale(1.05);
+        }
+
+        /* Backgrounds e Efeitos */
+       .bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+            z-index: 1;
+            background-size: cover;
+            transform: scale(1.1);
+            transition: transform 1.5s ease, opacity 1s ease;
+        }
+
+        .active .bg-pattern {
+            transform: scale(1);
+            opacity: 0.15;
+        }
+
+        .pattern-1 {
+            background-image: 
+                radial-gradient(circle at 20% 20%, var(--aged-gold) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, var(--petrol-blue) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .pattern-2 {
+            background: linear-gradient(135deg, var(--petrol-blue) 25%, transparent 25%) -50px 0,
+                      linear-gradient(225deg, var(--petrol-blue) 25%, transparent 25%) -50px 0;
+            background-size: 100px 100px;
+        }
+
+        .pattern-3 {
+            background-image: 
+                linear-gradient(45deg, var(--aged-gold) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--aged-gold) 25%, transparent 25%);
+            background-size: 60px 60px;
+        }
+
+        .pattern-4 {
+            background: repeating-linear-gradient(
+            -55deg,
+            var(--petrol-blue),
+            var(--petrol-blue) 10px,
+            var(--lead-gray) 10px,
+            var(--lead-gray) 20px
+            );
+        }
+
+        .pattern-5 {
+            background: radial-gradient(circle, var(--burnt-orange) 8%, transparent 8%);
+            background-size: 30px 30px;
+        }
+
+        .pattern-6 {
+            background: linear-gradient(to right, var(--lead-gray), var(--petrol-blue));
+            background-size: 200% 200%;
+            animation: gradientAnimation 5s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Elementos Flutuantes */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            transition: transform 1s ease, opacity 0.8s ease;
+        }
+
+        .float-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--aged-gold);
+            top: -150px;
+            right: -150px;
+            transform: translateY(-30px);
+        }
+
+        .float-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--petrol-blue);
+            bottom: -100px;
+            left: -100px;
+            transform: translateY(30px);
+        }
+        .float-3{
+            width: 250px;
+            height: 250px;
+            background: var(--ultramarine);
+            top: -125px;
+            left: -125px;
+            transform: translateY(-50px);
+        }
+
+        .float-4{
+            width: 350px;
+            height: 350px;
+            background: var(--aged-gold);
+            bottom: -175px;
+            right: -175px;
+            transform: translateY(50px);
+        }
+
+        .active .float-1, .active .float-2, .active .float-3, .active .float-4 { 
+            transform: translateY(0); 
+            opacity: 0.1;
+        }
+
+        /* Citações */
+        .quote {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--petrol-blue);
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            border-left: 3px solid var(--aged-gold);
+            background:  linear-gradient(90deg, rgba(197,179,88,0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: all 1s ease 0.9s;
+        }
+
+        /* Barra de Progresso */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(192,192,192,0.2);
+            z-index: 10;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--petrol-blue), var(--aged-gold));
+            transition: width 0.3s ease;
+        }
+
+        /* Icones */
+        .icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-compass {
+            font-size: 36px;
+            color: var(--aged-gold);
+            margin-right: 10px;
+            animation: rotateCompass 5s linear infinite;
+        }
+
+        @keyframes rotateCompass {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Seção Final com Botão */
+        .final-section {
+            text-align: center;
+        }
+
+        .call-to-action {
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 2rem;
+        }
+
+        .schedule-button {
+            background-color: var(--ultramarine);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .schedule-button:hover {
+            background-color: var(--burnt-orange);
+            color: var(--white);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .text-block-left {
+                text-align: center;
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .text-block-right {
+                text-align: center;
+                border-right: none;
+                padding-right: 0;
+            }
+
+            .quote {
+                padding: 1rem;
+            }
+
+            .floating-element {
+                transform: scale(0.7);
+            }
+
+            .call-to-action {
+                font-size: 1.2rem;
+            }
+
+            .schedule-button {
+                font-size: 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition-duration: 0.001ms !important;
+                animation-duration: 0.001ms !important;
+            }
+        }
+
+        /* Scroll Snap */
+        html, body {
+            scroll-snap-type: y mandatory;
+            height: 100%;
+        }
+
+        section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        /* Intercalação de cores de fundo */
+        #intro {
+            background-color: var(--cream);
+        }
+
+        #consulta {
+            background: linear-gradient(to bottom, var(--petrol-blue), var(--lead-gray));
+            color: var(--white);
+        }
+
+        #consulta .title-outline {
+            -webkit-text-stroke: 2px var(--cream);
+        }
+
+        #consulta .highlight {
+            color: var(--aged-gold);
+        }
+
+        #consulta .quote {
+            color: var(--cream);
+            border-left-color: var(--cream);
+        }
+
+        #descoberta {
+            background: linear-gradient(to right, var(--lead-gray), var(--petrol-blue));
+            color: var(--white);
+        }
+
+        #descoberta .title-bold {
+            color: var(--cream);
+        }
+
+        #descoberta .highlight {
+            color: var(--aged-gold);
+        }
+
+        #descoberta .quote {
+            color: var(--cream);
+            border-left-color: var(--aged-gold);
+        }
+
+        #metafora {
+            background-color: var(--cream);
+        }
+
+        #compromisso {
+            background: linear-gradient(to bottom, var(--petrol-blue) 0%, var(--lead-gray) 100%);
+            color: var(--white);
+        }
+
+        #compromisso .highlight {
+            color: var(--aged-gold);
+        }
+
+        #compromisso .quote {
+            color: var(--cream);
+            border-left-color: var(--cream);
+        }
+
+        #alta {
+            background: linear-gradient(to right, var(--lead-gray) 0%, var(--petrol-blue) 100%);
+            color: var(--white);
+        }
+
+        #alta .title-outline {
+            -webkit-text-stroke: 2px var(--cream);
+        }
+
+        #alta .highlight {
+            color: var(--aged-gold);
+        }
+
+        #metodologia {
+            background-color: var(--cream);
+        }
+
+        #final {
+            background: linear-gradient(to bottom, var(--petrol-blue), var(--lead-gray));
+            color: var(--white);
+        }
+
+        #final .title-gradient {
+            background: linear-gradient(135deg, var(--white), var(--aged-gold));
+             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #final .call-to-action {
+            color: var(--cream);
+        }
+
+        #final .schedule-button {
+            background-color: var(--aged-gold);
+            color: var(--petrol-blue);
+        }
+
+        #final .schedule-button:hover {
+            background-color: var(--burnt-orange);
+            color: var(--white);
+        }
+
+        /* Elementos Geométricos (Bauhaus) */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .triangle {
+            position: absolute;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .square {
+            position: absolute;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        /* Formas geométricas por seção */
+
+        /* Compromisso */
+        #compromisso .circle-1 {
+            width: 100px;
+            height: 100px;
+            background-color: var(--aged-gold);
+            top: 50%;
+            left: 20%;
+            animation: floatUp 5s linear infinite;
+        }
+
+        #compromisso .circle-2 {
+            width: 50px;
+            height: 50px;
+            background-color: var(--burnt-orange);
+            bottom: 10%;
+            right: 30%;
+            animation: floatDown 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes floatDown {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Descoberta */
+        #descoberta .triangle-1 {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid var(--aged-gold);
+            top: 10%;
+            right: 10%;
+            animation: rotate 7s linear infinite;
+        }
+
+        #descoberta .triangle-2 {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 60px solid var(--burnt-orange);
+            bottom: 20%;
+            left: 15%;
+            animation: pulse 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+         /* Alta */
+         #alta .square-1 {
+            width: 80px;
+            height: 80px;
+            background-color: var(--aged-gold);
+            top: 30%;
+            left: 10%;
+            animation: moveRight 4s linear infinite;
+        }
+
+        #alta .square-2 {
+            width: 120px;
+            height: 120px;
+            background-color: var(--burnt-orange);
+            bottom: 15%;
+            right: 25%;
+            animation: moveLeft 5s linear infinite;
+        }
+
+        @keyframes moveRight {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(30px); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes moveLeft {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-30px); }
+            100% { transform: translateX(0); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="wrapper">
+        <section id="intro" class="active">
+            <div class="bg-pattern pattern-1"></div>
+            <div class="floating-element float-1"></div>
+            <div class="content">
+                <h1 class="title title-gradient">CONHEÇA UMA NOVA ABORDAGEM</h1>
+                <p class="subtitle">Um convite para você se reconectar consigo mesmo</p>
+                <div class="text-block text-block-left">
+                    <p class="highlight"><span class="icon icon-compass"></span>Sou um navegador experiente.</p>
+                    <p class="detail">Estou aqui para guiar você em uma jornada de autoconhecimento.</p>
+                    <p class="detail">Peço que espere um momento antes de falarmos sobre sintomas e histórico médico.</p>
+                    <p class="detail">Vamos mergulhar juntos em uma experiência única, com a esperança de que seja a última vez que você precise de um psiquiatra.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="consulta">
+            <div class="bg-pattern pattern-2"></div>
+            <div class="floating-element float-2"></div>
+            <div class="content">
+                <h2 class="title title-outline">DUAS HORAS DE TRANSFORMAÇÃO</h2>
+                <div class="text-block text-block-right">
+                    <p class="highlight">Não é apenas uma consulta</p>
+                    <p class="detail">É um espaço para sua história</p>
+                    <p class="detail">Para seus sonhos e conquistas</p>
+                    <p class="detail">Para entender quem você realmente é</p>
+                </div>
+                <div class="quote">
+                    "Primeiro você me conta quem você é, não te conheço ainda. 
+                    Depois a gente fala de sintomas."
+                </div>
+            </div>
+        </section>
+
+        <section id="descoberta">
+            <div class="bg-pattern pattern-3"></div>
+            <div class="triangle triangle-1"></div>
+            <div class="triangle triangle-2"></div>
+            <div class="floating-element float-3"></div>
+            <div class="content">
+                <h2 class="title title-bold">ALÉM DAS RESPOSTAS ÓBVIAS</h2>
+                <div class="text-block text-block-left">
+                    <p class="highlight">As perguntas certas levam a novos caminhos</p>
+                    <p class="detail">Conexões que ninguém viu antes</p>
+                    <p class="detail">Entendimentos que transformam</p>
+                </div>
+                <div class="quote">
+                    "Muito mais do que respostas claras, é uma pergunta bem feita
+                    que faz você pensar: 'Eita, nunca tinha visto por esse ângulo'"
+                </div>
+            </div>
+        </section>
+
+        <section id="metafora">
+            <div class="bg-pattern pattern-4"></div>
+            <div class="floating-element float-4"></div>
+            <div class="content">
+                <h2 class="title title-light">SUAS EMOÇÕES SÃO COMO CRIANÇAS NO CARRO</h2>
+                <div class="text-block text-block-right">
+                    <p class="highlight">Não podem ficar soltas - seria perigoso</p>
+                    <p class="highlight">Nem trancadas no porta-malas - seria cruel</p>
+                    <p class="highlight">O lugar delas é no banco de trás</p>
+                    <p class="detail">Onde você pode vê-las pelo retrovisor</p>
+                    <p class="detail">Com você no controle do volante</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="compromisso">
+            <div class="bg-pattern pattern-5"></div>
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="floating-element float-1">
+                <div class="content">
+                <h2 class="title title-gradient">ME DÊ DUAS SEMANAS</h2>
+                <p class="subtitle">Para te mostrar que existe um caminho diferente</p>
+                <div class="text-block text-block-left">
+                    <p class="highlight">Não prometo diagnósticos rápidos</p>
+                    <p class="detail">Prometo entendimento real</p>
+                    <p class="detail">Prometo transformação verdadeira</p>
+                </div>
+                <div class="quote">
+                    "Como no filme 'Nenhum a Menos', faço uma promessa:
+                    não vou te deixar para trás"
+                </div>
+            </div>
+        </section>
+
+        <section id="alta">
+            <div class="bg-pattern pattern-6"></div>
+            <div class="square square-1"></div>
+            <div class="square square-2"></div>
+            <div class="floating-element float-2"></div>
+            <div class="content">
+                <h2 class="title title-outline">NÃO É UMA JORNADA ETERNA</h2>
+                <div class="text-block text-block-right">
+                    <p class="highlight">Isso não são As Mil e Uma Noites</p>
+                    <p class="detail">Tem começo, meio e fim</p>
+                    <p class="detail">E eu não vejo a hora de te dar alta</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="metodologia">
+            <div class="bg-pattern pattern-3"></div>
+            <div class="floating-element float-3"></div>
+            <div class="content">
+                <h2 class="title title-bold">ALÉM DAS PALAVRAS</h2>
+                <div class="quote">
+                    "Words are useless, especially sentences
+                    They don't stand for anything
+                    How can I explain how I feel?"
+                    <br>
+                    - Bedtime Story (Madonna & Björk)
+                </div>
+                <div class="text-block text-block-left">
+                    <p class="highlight">Por isso uso filmes, músicas e histórias</p>
+                    <p class="detail">Para explicar o que às vezes as palavras não alcançam</p>
+                    <p class="detail">Para construir pontes de entendimento</p>
+                    <p class="detail">Para encontrar novos caminhos de expressão</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="final" class="final-section">
+            <div class="bg-pattern pattern-1"></div>
+            <div class="floating-element float-4"></div>
+            <div class="content">
+                <h2 class="title title-gradient">PRONTO PARA A MUDANÇA?</h2>
+                <p class="call-to-action">Se você se identificou com essa abordagem e quer experimentar uma consulta transformadora, entre em contato.</p>
+                <a href="https://api.whatsapp.com/send?phone=SEUNUMERODOTELEFONE" class="schedule-button" target="_blank">Agendar Consulta pelo WhatsApp</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+       const sections = document.querySelectorAll('section');
+        const progressBar = document.querySelector('.progress-bar');
+        let currentSection = 0;
+        let isScrolling = false;
+
+        function updateProgressBar() {
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function scrollToSection(index) {
+            isScrolling = true;
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+
+            // Atualiza a seção atual e ativa a seção correspondente
+            currentSection = index;
+            updateActiveSection();
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000); // Ajuste o tempo conforme a duração da transição
+        }
+
+        function updateActiveSection() {
+            sections.forEach((section, index) => {
+                if (index === currentSection) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        function handleScroll() {
+            if (isScrolling) return;
+
+            const sectionHeight = sections[0].offsetHeight;
+            const scrollTop = window.pageYOffset;
+
+            let newSection = Math.round(scrollTop / sectionHeight); // Arredonda para o inteiro mais próximo
+
+            if (newSection !== currentSection) {
+                currentSection = newSection;
+                updateActiveSection();
+            }
+            updateProgressBar();
+        }
+
+        window.addEventListener('wheel', (event) => {
+            event.preventDefault();
+            if (isScrolling) return;
+
+            if (event.deltaY > 0) {
+                // Rolando para baixo
+                if (currentSection < sections.length - 1) {
+                    scrollToSection(currentSection + 1);
+                }
+            } else {
+                // Rolando para cima
+                if (currentSection > 0) {
+                    scrollToSection(currentSection - 1);
+                }
+            }
+        }, { passive: false });
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Ativa todas as seções inicialmente
+        sections.forEach(section => section.classList.add('active'));
+    </script>
+</body>
+</html>
