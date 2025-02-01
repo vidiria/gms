@@ -1086,6 +1086,19 @@
 
         // Ativa todas as seções inicialmente
         sections.forEach(section => section.classList.add('active'));
+document.addEventListener('keydown', (event) => {
+  const slider = document.querySelector('.onboarding-slider');
+  if (slider) {
+    const slideWidth = slider.querySelector('.onboarding-slide').offsetWidth;
+    if (event.key === 'ArrowRight') {
+      slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    } else if (event.key === 'ArrowLeft') {
+      slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    }
+  }
+});
+
+        
     </script>
 </body>
 </html>
