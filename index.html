@@ -375,20 +375,19 @@
       <h3 class="mt-1 text-white font-serif md:text-xl md:max-w-3xl md:mx-auto">
         CRM 218133/SP
       </h3>
-      <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
-     <div class="rounded-md shadow">
-       <a
-         href="https://wa.me/+5511965461146?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+com+o+Dr.+Gustavo."
-         target="_blank"
-         rel="noopener noreferrer"
-         class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base
-                font-medium rounded-md text-white md:py-4 md:text-lg md:px-10"
-         style="background-color: #b89f67;" onmouseover="this.style.backgroundColor='#9c7c43'" onmouseout="this.style.backgroundColor='#b89f67'"
-       >
-         <i class="fab fa-whatsapp mr-2"></i>Chamar no WhatsApp
-       </a>
-     </div>
-   </div>
+     <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
+    <div class="rounded-md shadow w-full md:w-2/3 lg:w-1/2">
+        <form method="POST" id="form-contato" data-netlify="true" name="contato-rapido" class="w-full flex flex-col items-center justify-center px-4 py-3 text-base font-medium rounded-md md:py-4 md:text-lg md:px-6">
+            <input type="hidden" name="form-name" value="contato-rapido" />
+            <input type="text" name="name" placeholder="Seu Nome" class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail" required />
+            <input type="email" name="email" placeholder="Seu Email" class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail" required />
+            <textarea name="message" placeholder="Sua Mensagem (Opcional)" rows="3" class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail"></textarea>
+            <button type="submit" id="submit-form" class="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-detail focus:outline-none focus:ring-2 focus:ring-detail">
+                Enviar Mensagem
+            </button>
+        </form>
+    </div>
+</div>
     </div>
   </section>
 
