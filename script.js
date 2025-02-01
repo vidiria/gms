@@ -92,3 +92,48 @@ document.querySelectorAll(".card").forEach((card) => {
     });
   }
 });
+
+// ... (seu código anterior) ...
+
+// Função para ajustar a altura do iframe com base na seção ativa
+function adjustIframeHeight(activeSectionId) {
+  const iframe = document.getElementById("onboarding-iframe");
+  if (iframe) {
+    // Obtém a altura da seção ativa dentro do iframe
+    const section = iframe.contentWindow.document.getElementById(activeSectionId);
+    if (section) {
+      const sectionHeight = section.scrollHeight;
+      // Ajusta a altura do iframe, com uma margem de segurança
+      iframe.style.height = `${sectionHeight + 25}px`; // 25px de margem
+    }
+  }
+}
+
+// Ouvinte de mensagens do iframe
+window.addEventListener("message", (event) => {
+  // Verifica se a mensagem é do iframe correto (segurança)
+  if (event.source === document.getElementById("onboarding-iframe").contentWindow) {
+    const data = event.data;
+    if (data && data.type === "activeSection") {
+      adjustIframeHeight(data.sectionId);
+    }
+  }
+});
+
+// Chamar a função quando o card for aberto
+document.querySelectorAll(".card").forEach((card) => {
+  // ... (seu código anterior para abrir o card) ...
+
+  if (card.classList.contains("expanded")) {
+    // ... (seu código para carregar o iframe) ...
+
+    // Chama a função para ajustar a altura inicialmente
+    setTimeout(() => {
+      toggleOverlayAndInteraction();
+      // Envia uma mensagem para o iframe requisitando a seção ativa
+      document.getElementById("onboarding-iframe").contentWindow.postMessage({ type: "getActiveSection" }, "*");
+    }, 300);
+  } else {
+    // ... (seu código para fechar o card) ...
+  }
+});
