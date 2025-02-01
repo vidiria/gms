@@ -34,8 +34,9 @@
             line-height: 1.5;
             background: var(--cream);
             color: var(--lead-gray);
-            overflow-x: hidden;
-        }
+           margin: 0; /* Resetar margens */
+      overflow: hidden; /* Evitar barra de rolagem dupla */
+    }
 
         .wrapper {
             position: relative;
@@ -66,6 +67,32 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+         .onboarding-container {
+      width: 100%;
+      overflow: hidden;
+    }
+    .onboarding-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+    .onboarding-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .onboarding-slide i {
+        margin-bottom: 1rem; /* Espaço entre ícone e texto */
+    }
 
         /* Animações específicas por seção */
 
@@ -1097,6 +1124,18 @@ document.addEventListener('keydown', (event) => {
     }
   }
 });
+
+         document.addEventListener('keydown', (event) => {
+            const slider = document.querySelector('.onboarding-slider');
+            if (slider) {
+                const slideWidth = slider.querySelector('.onboarding-slide').offsetWidth;
+                if (event.key === 'ArrowRight') {
+                    slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+                } else if (event.key === 'ArrowLeft') {
+                    slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+                }
+            }
+        });
 
         
     </script>
