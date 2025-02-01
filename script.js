@@ -45,37 +45,3 @@ document.querySelectorAll(".card").forEach((card) => {
   }
 });
 
-// Ajuste de altura do iframe (exemplo básico)
-const onboardingIframe = document.getElementById("onboarding-iframe");
-
-if (onboardingIframe) {
-  onboardingIframe.onload = () => {
-    // Tentativa de obter a altura do conteúdo do iframe
-    // Isso pode não funcionar em todos os casos devido a restrições de segurança de mesma origem (same-origin policy)
-    let height = onboardingIframe.contentWindow.document.body.scrollHeight;
-    onboardingIframe.style.height = height + "px";
-  };
-
-  //Monitorar mudanças no tamanho da janela
-  window.addEventListener('resize', () => {
-    let height = onboardingIframe.contentWindow.document.body.scrollHeight;
-    onboardingIframe.style.height = height + 'px';
-  });
-}
-
-// Abrir card e carregar iframe quando clicar no título
-document.querySelectorAll(".card").forEach((card) => {
-    const title = card.querySelector(".card-title");
-    const iframe = card.querySelector("iframe");
-    if (title) {
-        title.addEventListener("click", () => {
-            card.classList.toggle("expanded");
-            if (card.classList.contains("expanded")) {
-                // Carrega o iframe quando o card é aberto
-                if (iframe && !iframe.src) {
-                    iframe.src = "onboarding.html";
-                }
-            }
-        });
-    }
-});
