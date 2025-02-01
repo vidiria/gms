@@ -9,15 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --petrol-blue: #405664; /* Tom mais claro e acinzentado */
+            --petrol-blue: #405664;
             --ultramarine: #1B3B6F;
             --silver: #C0C0C0;
             --aged-gold: #C5B358;
-            --burnt-orange: #D2691E; /* Laranja queimado */
-            --lead-gray: #333333; /* Tom mais escuro para melhor contraste */
-            --whatsapp-green: #25D366;
-            --cream: #F8F3E8;
+            --burnt-orange: #D2691E;
+            /* Cores revisadas para melhor contraste */
+            --lead-gray: #222222; /* Tom mais escuro para melhor contraste */
+            --cream: #F8F8F8; /* Tom mais claro para contraste com texto escuro */
             --white: #FFFFFF;
+            /* Cores para texto sobre fundos escuros */
+            --text-light-gray: #EEEEEE; /* Cinza claro para texto em fundos escuros */
+            --text-aged-gold: #C5B358; /* Aged-gold para destaques em fundos escuros */
         }
 
         * {
@@ -46,6 +49,8 @@
             position: relative;
             padding: clamp(2rem, 5vw, 4rem);
             overflow: hidden;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
 
         .content {
@@ -54,9 +59,7 @@
             position: relative;
             z-index: 2;
             opacity: 0;
-            transform: translateY(50px);
-            /* Animação padrão (todas as seções)*/
-            transition: opacity 1s ease, transform 1s ease;
+            transition: opacity 1s ease, transform 1s ease; /* Animação padrão (todas as seções)*/
         }
 
         section.active .content {
@@ -67,13 +70,7 @@
         /* Animações específicas por seção */
 
         /* Seção 1: Intro */
-        #intro.active .content {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         #intro.active .title-gradient {
-            transform: scale(1);
             animation: subtlePulse 2.5s infinite alternate;
         }
 
@@ -83,11 +80,6 @@
         }
 
         /* Seção 2: Consulta */
-        #consulta.active .content {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
         #consulta.active .title {
             animation: slideInFromLeft 1.2s ease;
         }
@@ -113,11 +105,6 @@
         }
 
         /* Seção 3: Descoberta */
-        #descoberta.active .content {
-            opacity: 1;
-            transform: scale(1);
-        }
-
         #descoberta.active .title {
             animation: zoomIn 1.2s ease;
         }
@@ -149,11 +136,6 @@
         }
 
         /* Seção 4: Metafora */
-        #metafora.active .content {
-            opacity: 1;
-            transform: rotateY(0deg);
-        }
-
         #metafora.active .title {
             animation: flipIn 1.2s ease;
         }
@@ -169,22 +151,7 @@
             }
         }
 
-        #metafora.active .highlight {
-            animation: colorChange 4s infinite alternate;
-        }
-
-        @keyframes colorChange {
-            0% { color: var(--ultramarine); }
-            50% { color: var(--petrol-blue); }
-            100% { color: var(--burnt-orange); }
-        }
-
         /* Seção 5: Compromisso */
-        #compromisso.active .content {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
         #compromisso.active .title-gradient {
             animation: subtlePulse 2.5s infinite alternate;
         }
@@ -205,11 +172,6 @@
         }
 
         /* Seção 6: Alta */
-        #alta.active .content {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
         #alta.active .title-outline {
             animation: writeText 3s linear forwards;
         }
@@ -224,11 +186,6 @@
         }
 
         /* Seção 7: Metodologia */
-        #metodologia.active .content {
-            opacity: 1;
-            transform: scale(1);
-        }
-
         #metodologia.active .quote {
             animation: expand 1.5s ease forwards;
         }
@@ -245,11 +202,6 @@
         }
 
         /* Seção 8: Final */
-        #final.active .content {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         #final.active .title-gradient {
             animation: subtlePulse 2.5s infinite alternate;
         }
@@ -275,17 +227,17 @@
         }
 
         .title-outline {
-            -webkit-text-stroke: 2px var(--white);
+            -webkit-text-stroke: 2px var(--text-light-gray); /* Ajustado para fundo escuro */
             color: transparent;
-             overflow: hidden;
-             white-space: nowrap;
-             width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
         }
 
         .title-bold {
-            color: var(--white);
+            color: var(--text-light-gray); /* Ajustado para fundo escuro */
             font-weight: 800;
-             transition: transform 0.5s ease;
+            transition: transform 0.5s ease;
         }
 
         .title-light {
@@ -295,7 +247,7 @@
             font-weight: 400;
             transition: transform 0.5s ease;
         }
-        
+
         /* Animação de Títulos */
         .active .title {
             transform: scale(1.03);
@@ -305,12 +257,26 @@
         .subtitle {
             font-family: 'Lora', serif;
             font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: var(--ultramarine);
             margin-bottom: clamp(2rem, 5vw, 4rem);
             font-weight: 400;
             opacity: 0;
             transform: translateY(30px);
             transition: all 1s ease 0.3s;
+        }
+
+        /* Cores dos subtítulos */
+        #intro .subtitle,
+        #metafora .subtitle,
+        #metodologia .subtitle {
+            color: var(--ultramarine);
+        }
+
+        #consulta .subtitle,
+        #descoberta .subtitle,
+        #compromisso .subtitle,
+        #alta .subtitle,
+        #final .subtitle {
+            color: var(--text-aged-gold); /* Cor para subtítulos em fundos escuros */
         }
 
         .active .subtitle {
@@ -346,19 +312,50 @@
         .highlight {
             font-family: 'Lora', serif;
             font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--ultramarine);
             line-height: 1.6;
             margin-bottom: 1rem;
             transition: color 0.5s ease, transform 0.5s ease; /* Adiciona transição de transformação */
             display: inline-block;
         }
 
+        /* Cores dos destaques */
+        #intro .highlight,
+        #metafora .highlight,
+        #metodologia .highlight {
+            color: var(--ultramarine);
+        }
+
+        #consulta .highlight,
+        #descoberta .highlight,
+        #compromisso .highlight,
+        #alta .highlight {
+            color: var(--text-aged-gold); /* Cor para destaques em fundos escuros */
+        }
+
+        #final .highlight{
+            color: var(--aged-gold);
+        }
+
         .detail {
             font-size: clamp(1rem, 2.5vw, 1.4rem);
-            color: var(--lead-gray);
             margin-bottom: 0.5rem;
             padding: 0.5rem 0;
             opacity: 0.8;
+        }
+
+        /* Cores dos detalhes */
+        #intro .detail,
+        #metafora .detail,
+        #metodologia .detail {
+            color: var(--lead-gray);
+        }
+
+        #consulta .detail,
+        #descoberta .detail,
+        #compromisso .detail,
+        #alta .detail,
+        #final .detail {
+            color: var(--text-light-gray); /* Cor para detalhes em fundos escuros */
         }
 
         /* Animação de Microinteração */
@@ -369,7 +366,7 @@
         }
 
         /* Backgrounds e Efeitos */
-       .bg-pattern {
+        .bg-pattern {
             position: absolute;
             inset: 0;
             opacity: 0.3;
@@ -385,7 +382,7 @@
         }
 
         .pattern-1 {
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 20%, var(--aged-gold) 1px, transparent 1px),
                 radial-gradient(circle at 80% 80%, var(--petrol-blue) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -393,12 +390,12 @@
 
         .pattern-2 {
             background: linear-gradient(135deg, var(--petrol-blue) 25%, transparent 25%) -50px 0,
-                      linear-gradient(225deg, var(--petrol-blue) 25%, transparent 25%) -50px 0;
+                        linear-gradient(225deg, var(--petrol-blue) 25%, transparent 25%) -50px 0;
             background-size: 100px 100px;
         }
 
         .pattern-3 {
-            background-image: 
+            background-image:
                 linear-gradient(45deg, var(--aged-gold) 25%, transparent 25%),
                 linear-gradient(-45deg, var(--aged-gold) 25%, transparent 25%);
             background-size: 60px 60px;
@@ -462,6 +459,7 @@
             left: -100px;
             transform: translateY(30px);
         }
+
         .float-3{
             width: 250px;
             height: 250px;
@@ -480,8 +478,8 @@
             transform: translateY(50px);
         }
 
-        .active .float-1, .active .float-2, .active .float-3, .active .float-4 { 
-            transform: translateY(0); 
+        .active .float-1, .active .float-2, .active .float-3, .active .float-4 {
+            transform: translateY(0);
             opacity: 0.1;
         }
 
@@ -490,13 +488,33 @@
             font-family: 'Lora', serif;
             font-style: italic;
             font-size: clamp(1.2rem, 3vw, 1.6rem);
-            color: var(--petrol-blue);
             margin: 2rem 0;
             padding: 1rem 2rem;
-            border-left: 3px solid var(--aged-gold);
-            background:  linear-gradient(90deg, rgba(197,179,88,0.05) 0%, transparent 100%);
             opacity: 0;
             transition: all 1s ease 0.9s;
+        }
+
+        /* Cores das citações */
+        #intro .quote,
+        #metafora .quote,
+        #metodologia .quote {
+            color: var(--petrol-blue);
+            border-left: 3px solid var(--aged-gold);
+            background: linear-gradient(90deg, rgba(197,179,88,0.05) 0%, transparent 100%);
+        }
+
+        #consulta .quote,
+        #descoberta .quote,
+        #compromisso .quote,
+        #alta .quote {
+            color: var(--text-light-gray); /* Cor para citações em fundos escuros */
+            border-left: 3px solid var(--text-light-gray);
+            background: linear-gradient(90deg, rgba(197,179,88,0.2) 0%, transparent 100%);
+        }
+
+        #final .quote{
+            border-left: 3px solid var(--aged-gold);
+            background: linear-gradient(90deg, rgba(197,179,88,0.2) 0%, transparent 100%);
         }
 
         /* Barra de Progresso */
@@ -618,11 +636,6 @@
             height: 100%;
         }
 
-        section {
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
-        }
-
         /* Intercalação de cores de fundo */
         #intro {
             background-color: var(--cream);
@@ -630,7 +643,7 @@
 
         #consulta {
             background: linear-gradient(to bottom, var(--petrol-blue), var(--lead-gray));
-            color: var(--white);
+            color: var(--text-light-gray); /* Cor do texto ajustada para fundo escuro */
         }
 
         #consulta .title-outline {
@@ -638,7 +651,7 @@
         }
 
         #consulta .highlight {
-            color: var(--aged-gold);
+            color: var(--text-aged-gold); /* Cor do highlight ajustada para fundo escuro */
         }
 
         #consulta .quote {
@@ -648,7 +661,7 @@
 
         #descoberta {
             background: linear-gradient(to right, var(--lead-gray), var(--petrol-blue));
-            color: var(--white);
+            color: var(--text-light-gray); /* Cor do texto ajustada para fundo escuro */
         }
 
         #descoberta .title-bold {
@@ -656,7 +669,7 @@
         }
 
         #descoberta .highlight {
-            color: var(--aged-gold);
+            color: var(--text-aged-gold); /* Cor do highlight ajustada para fundo escuro */
         }
 
         #descoberta .quote {
@@ -670,11 +683,11 @@
 
         #compromisso {
             background: linear-gradient(to bottom, var(--petrol-blue) 0%, var(--lead-gray) 100%);
-            color: var(--white);
+            color: var(--text-light-gray); /* Cor do texto ajustada para fundo escuro */
         }
 
         #compromisso .highlight {
-            color: var(--aged-gold);
+            color: var(--text-aged-gold); /* Cor do highlight ajustada para fundo escuro */
         }
 
         #compromisso .quote {
@@ -684,7 +697,7 @@
 
         #alta {
             background: linear-gradient(to right, var(--lead-gray) 0%, var(--petrol-blue) 100%);
-            color: var(--white);
+            color: var(--text-light-gray); /* Cor do texto ajustada para fundo escuro */
         }
 
         #alta .title-outline {
@@ -692,7 +705,7 @@
         }
 
         #alta .highlight {
-            color: var(--aged-gold);
+            color: var(--text-aged-gold); /* Cor do highlight ajustada para fundo escuro */
         }
 
         #metodologia {
@@ -701,12 +714,12 @@
 
         #final {
             background: linear-gradient(to bottom, var(--petrol-blue), var(--lead-gray));
-            color: var(--white);
+            color: var(--text-light-gray); /* Cor do texto ajustada para fundo escuro */
         }
 
         #final .title-gradient {
             background: linear-gradient(135deg, var(--white), var(--aged-gold));
-             -webkit-background-clip: text;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -811,8 +824,8 @@
             100% { transform: scale(1); }
         }
 
-         /* Alta */
-         #alta .square-1 {
+        /* Alta */
+        #alta .square-1 {
             width: 80px;
             height: 80px;
             background-color: var(--aged-gold);
@@ -841,7 +854,6 @@
             50% { transform: translateX(-30px); }
             100% { transform: translateX(0); }
         }
-
     </style>
 </head>
 <body>
@@ -877,7 +889,7 @@
                     <p class="detail">Para entender quem você realmente é</p>
                 </div>
                 <div class="quote">
-                    "Primeiro você me conta quem você é, não te conheço ainda. 
+                    "Primeiro você me conta quem você é, não te conheço ainda.
                     Depois a gente fala de sintomas."
                 </div>
             </div>
@@ -908,8 +920,8 @@
             <div class="content">
                 <h2 class="title title-light">SUAS EMOÇÕES SÃO COMO CRIANÇAS NO CARRO</h2>
                 <div class="text-block text-block-right">
-                    <p class="highlight">Não podem ficar soltas - seria perigoso</p>
-                    <p class="highlight">Nem trancadas no porta-malas - seria cruel</p>
+                    <p class="highlight">Não podem ficar soltas - seria perigoso</p><br>
+                    <p class="highlight">Nem trancadas no porta-malas - seria cruel</p><br>
                     <p class="highlight">O lugar delas é no banco de trás</p>
                     <p class="detail">Onde você pode vê-las pelo retrovisor</p>
                     <p class="detail">Com você no controle do volante</p>
@@ -928,7 +940,7 @@
                 <div class="text-block text-block-left">
                     <p class="highlight">Não prometo diagnósticos rápidos</p>
                     <p class="detail">Prometo entendimento real</p>
-                    <p class="detail">Prometo transformação verdadeira</p>
+<p class="detail">Prometo transformação verdadeira</p>
                 </div>
                 <div class="quote">
                     "Como no filme 'Nenhum a Menos', faço uma promessa:
@@ -979,13 +991,13 @@
             <div class="content">
                 <h2 class="title title-gradient">PRONTO PARA A MUDANÇA?</h2>
                 <p class="call-to-action">Se você se identificou com essa abordagem e quer experimentar uma consulta transformadora, entre em contato.</p>
-                <a href="https://api.whatsapp.com/send?phone=SEUNUMERODOTELEFONE" class="schedule-button" target="_blank">Agendar Consulta pelo WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=5511987654321" class="schedule-button" target="_blank">Agendar Consulta pelo WhatsApp</a>
             </div>
         </section>
     </div>
 
     <script>
-       const sections = document.querySelectorAll('section');
+        const sections = document.querySelectorAll('section');
         const progressBar = document.querySelector('.progress-bar');
         let currentSection = 0;
         let isScrolling = false;
