@@ -34,58 +34,61 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /********************************************************
-
-// ... (seu código anterior) ...
-
+ * CARD EXPANSÍVEL, OVERLAY E IFRAME
+ ********************************************************/
 // Função para mostrar/ocultar o overlay e ativar a interação
 function toggleOverlayAndInteraction() {
-    const overlay = document.getElementById("overlay");
-    const iframe = document.getElementById("onboarding-iframe");
+  const overlay = document.getElementById("overlay");
+  const iframe = document.getElementById("onboarding-iframe");
 
-    if (overlay && iframe) {
-        overlay.classList.toggle("active");
+  if (overlay && iframe) {
+    overlay.classList.toggle("active");
 
-        // Ativar/desativar interação com o iframe
-        if (overlay.classList.contains("active")) {
-            iframe.style.pointerEvents = "none"; // Desativa a interação
-        } else {
-            iframe.style.pointerEvents = "auto"; // Reativa a interação
-        }
+    // Ativar/desativar interação com o iframe
+    if (overlay.classList.contains("active")) {
+      iframe.style.pointerEvents = "none"; // Desativa a interação
+    } else {
+      iframe.style.pointerEvents = "auto"; // Reativa a interação
     }
+  }
 }
 
-// Chamar a função quando clicar no overlay
+// Abrir card, carregar iframe e gerenciar overlay
 document.querySelectorAll(".card").forEach((card) => {
-    const title = card.querySelector(".card-title");
-    const iframe = card.querySelector("iframe");
-    const overlay = card.querySelector("#overlay");
+  const title = card.querySelector(".card-title");
+  const content = card.querySelector(".card-content"); // Adicionado para manipular a abertura/fechamento
+  const iframe = card.querySelector("iframe");
+  const overlay = card.querySelector("#overlay");
 
-    if (title) {
-        title.addEventListener("click", () => {
-            card.classList.toggle("expanded");
-            if (card.classList.contains("expanded")) {
-                // Carrega o iframe quando o card é aberto
-                if (iframe && !iframe.src) {
-                    iframe.src = "onboarding.html";
-                }
+  if (title) {
+    title.addEventListener("click", () => {
+      // Toggle para abrir/fechar o card
+      card.classList.toggle("expanded");
 
-                // Adiciona um pequeno atraso antes de mostrar o overlay
-                setTimeout(() => {
-                    toggleOverlayAndInteraction();
-                }, 300); // 300ms de atraso
-            } else {
-                // Se o card está fechado, esconde o overlay
-                if (overlay.classList.contains("active")) {
-                    toggleOverlayAndInteraction();
-                }
-            }
-        });
-    }
+      // Manipular o iframe e o overlay somente se o card estiver expandido
+      if (card.classList.contains("expanded")) {
+        // 1. Carrega o iframe quando o card é aberto
+        if (iframe && !iframe.src) {
+          iframe.src = "onboarding.html";
+        }
 
-    if (overlay) {
-        overlay.addEventListener("click", () => {
-            toggleOverlayAndInteraction();
-        });
-    }
+        // 2. Adiciona um pequeno atraso antes de mostrar o overlay
+        setTimeout(() => {
+          toggleOverlayAndInteraction();
+        }, 300); // 300ms de atraso
+      } else {
+        // 3. Se o card está fechado, esconde o overlay
+        if (overlay.classList.contains("active")) {
+          toggleOverlayAndInteraction();
+        }
+      }
+    });
+  }
+
+  // 4. Clique no overlay para interagir com o iframe
+  if (overlay) {
+    overlay.addEventListener("click", () => {
+      toggleOverlayAndInteraction();
+    });
+  }
 });
-
