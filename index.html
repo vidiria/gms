@@ -189,6 +189,26 @@
     }
 }
 
+    .onboarding-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.onboarding-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Para um scroll mais suave em dispositivos iOS */
+  scroll-behavior: smooth; /* Para um scroll mais suave em navegadores que suportam */
+}
+
+.onboarding-slide {
+  flex: 0 0 100%; /* Cada slide ocupa 100% da largura do container */
+  scroll-snap-align: start;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV4HDZLQ97">
