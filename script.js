@@ -34,16 +34,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /********************************************************
- * CARD EXPANSION
- ********************************************************/
-document.querySelectorAll(".card").forEach((card) => {
-  const title = card.querySelector(".card-title");
-  if (title) {
-    title.addEventListener("click", () => {
-      card.classList.toggle("expanded");
-    });
-  }
-});
 
 // ... (seu código anterior) ...
 
