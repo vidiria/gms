@@ -1137,6 +1137,43 @@ document.addEventListener('keydown', (event) => {
             }
         });
 
+        // ... (seu código anterior do onboarding.html) ...
+
+// Função para enviar a seção ativa para a página pai
+function sendActiveSection() {
+  const activeSection = document.querySelector('section.active');
+  if (activeSection) {
+    window.parent.postMessage({ type: 'activeSection', sectionId: activeSection.id }, '*');
+  }
+}
+
+// Ouvinte de mensagens da página pai
+window.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "getActiveSection") {
+    sendActiveSection();
+  }
+});
+
+// Envia a seção ativa quando a página carregar e quando houver mudança na seção ativa
+sendActiveSection(); // Envia inicialmente
+
+// Modifique a função `updateActiveSection` para enviar a mensagem quando a seção ativa mudar
+function updateActiveSection() {
+  sections.forEach((section, index) => {
+    if (index === currentSection) {
+      section.classList.add('active');
+    } else {
+      section.classList.remove('active');
+    }
+  });
+  sendActiveSection(); // Envia a mensagem quando a seção ativa for atualizada
+}
+
+// Adicione um listener para o evento 'load' do iframe, para enviar a seção ativa quando o iframe terminar de carregar
+window.addEventListener("load", () => {
+  sendActiveSection();
+});
+
         
     </script>
 </body>
