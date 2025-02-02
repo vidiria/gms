@@ -84,3 +84,30 @@ function scrollFunction() {
 backToTopButton.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+/********************************************************
+ * ENVIO DO FORMULÁRIO
+ ********************************************************/
+document.getElementById("submit-form").addEventListener("click", function(event){
+    event.preventDefault();
+    const form = document.getElementById("form-contato");
+
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao enviar o formulário');
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert("Mensagem enviada com sucesso!");
+        form.reset(); // Limpa o formulário
+    })
+    .catch(error => {
+        alert("Houve um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.");
+        console.error('Erro:', error);
+    });
+});
