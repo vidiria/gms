@@ -257,6 +257,30 @@
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+  #back-to-top {
+  position: fixed;
+  bottom: 20px; /* Distância do rodapé */
+  left: 20px; /* Distância da margem esquerda */
+  display: none; /* Inicialmente escondido */
+  background-color: #4B5563; /* Cor de fundo (secundary) */
+  color: #fff; /* Cor do ícone */
+  border: none;
+  border-radius: 50%; /* Botão circular */
+  padding: 12px; /* Espaçamento interno */
+  cursor: pointer;
+  opacity: 0.8; /* Um pouco de transparência */
+  z-index: 100; /* Garante que fique acima de outros elementos */
+  transition: opacity 0.3s ease; /* Transição suave */
+}
+
+#back-to-top:hover {
+  opacity: 1; /* Fica totalmente opaco no hover */
+}
+
+#back-to-top i {
+  font-size: 24px; /* Tamanho do ícone */
+}
     
   </style>
   <!-- Google tag (gtag.js) -->
@@ -639,5 +663,8 @@
   <img src="logo-whatsapp-sem-fundo.webp" alt="WhatsApp Logo" width="64" height="64">
 </a>
   <script src="script.js"></script>
+  <button id="back-to-top" title="Voltar ao Topo">
+  <i class="fas fa-arrow-up"></i>
+</button>
 </body>
 </html>
