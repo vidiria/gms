@@ -39,16 +39,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.querySelectorAll(".card").forEach((card) => {
   const title = card.querySelector(".card-title");
   const content = card.querySelector(".card-content");
-  const iframe = card.querySelector("#curriculo-iframe"); // Seleciona o iframe
+  const iframe = card.querySelector("#curriculo-iframe");
 
   if (title) {
     title.addEventListener("click", () => {
       card.classList.toggle("expanded");
 
-      // Carrega o iframe somente quando o card for aberto
-      if (card.classList.contains("expanded") && iframe && !iframe.src) {
-        iframe.src = "https://clinical-pearl.vercel.app/";
+      if (card.classList.contains("expanded")) {
+        if (iframe && !iframe.contentWindow.document.body) {
+          iframe.src = "https://clinical-pearl.vercel.app/";
+        }
+
+        // Ajuste para a altura do iframe
+        setTimeout(() => {
+          if (iframe && iframe.contentWindow.document.body) {
+            iframe.style.height = `${iframe.contentWindow.document.body.scrollHeight + 25}px`;
+          }
+        }, 500); // Aumentei o tempo para aguardar o iframe carregar
+
       }
     });
   }
+});
+
+/********************************************************
+ * BOTÃO VOLTAR PARA O TOPO
+ ********************************************************/
+const backToTopButton = document.getElementById("back-to-top");
+
+// Mostra o botão quando o usuário rola a página para baixo
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+}
+
+// Faz a rolagem suave para o topo quando o botão é clicado
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
