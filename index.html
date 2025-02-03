@@ -207,7 +207,7 @@
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center;    /* Centraliza verticalmente */
-      transform: scale(0.70); /* Reduz ainda mais em telas menores */
+      transform: scale(0.75); /* Reduz ainda mais em telas menores */
     width: 131.33%; /* 100% / 0.75 = 133.33% */
     height: 55vh; /* Mantém a proporção */
     display: block; /* Comporta-se como um elemento de bloco */
@@ -220,18 +220,9 @@
     height: 300px;
 
 }
-    
-  
-/* Estilos específicos para o iframe (se necessário) */
-.iframe-container > div {
-    width: 600px;
-    height: 300px;
-}
-
      @media (max-width: 768px) {
   #iframe-container {
-    transform: scale(0.75); /* Reduz ainda mais em telas menores */
-    width: 133.33%; /* 100% / 0.75 = 133.33% */
+    width: 100%; /* 100% / 0.75 = 133.33% */
     height: 400px; /* Ajuste a altura conforme necessário */
     
 #onboarding-iframe {
