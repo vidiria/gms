@@ -207,14 +207,17 @@
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center;    /* Centraliza verticalmente */
-  width: 100%;           /* Ocupa toda a largura disponível */
-  height: 55vh;          /* Ocupa toda a altura da viewport (opcional, se quiser centralizar em relação à altura da janela) */
+    width: 75%; /* Largura do iframe é 75% do container pai */
+    height: auto; /* Mantém a proporção */
+    display: block; /* Comporta-se como um elemento de bloco */
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 /* Estilos específicos para o iframe (se necessário) */
 #iframe-container > div {
     width: 600px;
     height: 300px;
+
 }
 
      @media (max-width: 768px) {
@@ -421,7 +424,7 @@
         <h3 class="mt-1 text-white font-serif md:text-xl md:max-w-3xl md:mx-auto">
             CRM 218133/SP
        </h3><div class="iframe-container">
- <div data-respondi-container="" data-respondi-mode="regular" data-respondi-src="https://form.respondi.app/HKhSD0nd" data-respondi-width="600px" data-respondi-height="290px"></div><script>const bodyScript=document.querySelector('body'),hasScript=document.querySelector('#respondi_src');if(!hasScript){const script=document.createElement('script');script.setAttribute("async", "");document.body.appendChild(script),script.id='respondi_src',script.src='https://embed.respondi.app/embed.js';}</script></div></section>
+ <div data-respondi-container="" data-respondi-mode="regular" data-respondi-src="https://form.respondi.app/HKhSD0nd" data-respondi-width="600px" data-respondi-height="290px" frameborder="0"></div><script>const bodyScript=document.querySelector('body'),hasScript=document.querySelector('#respondi_src');if(!hasScript){const script=document.createElement('script');script.setAttribute("async", "");document.body.appendChild(script),script.id='respondi_src',script.src='https://embed.respondi.app/embed.js';}</script></div></section>
 
  <!-- SEÇÃO SOBRE (SEM MODAIS E CAL.COM) -->
 <section id="sobre" class="py-16 px-4 bg-quadriculado">
