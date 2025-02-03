@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Gustavo Mendes - Psiquiatra Especialista em Autismo</title>
+<script src="https://cdn.tailwindcss.com"></script>  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head><style>
+/* Paleta de Cores Premium */
+:root {
+  --blue-royal: #1e3a8a;
+  --green-soft: #34d399;
+  --white: #ffffff;
+  --gray-dark: #1f2937;
+  --blue-light: #dbeafe;
+  --green-light: #d1fae5;
+  --base-font-size: 16px;
+  --base-line-height: 1.5;
+}
+
+/* Reset e configurações globais */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  color: var(--gray-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Header */
+header {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--gray-dark);
+  font-weight: 600;
+}
+
+header a:hover {
+  color: var(--blue-royal);
+}
+
+header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero Section */
+#hero {
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(219, 234, 254, 0.1), rgba(219, 234, 254, 0.2));
+  z-index: 0;
+}
+
+#hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+#hero h1 {
+  margin-bottom: 1rem;
+  color: var(--gray-dark);
+}
+
+#hero p {
+  font-size: 1.2rem;
+  color: var(--gray-dark);
+  margin-bottom: 2rem;
+}
+
+#hero img {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Sobre Section */
+#sobre {
+  background-color: var(--blue-light);
+  padding: 4rem 0;
+}
+
+#sobre h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gray-dark);
+}
+
+#sobre img {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+#sobre p {
+  font-size: 1.1rem;
+  color: var(--gray-dark);
+  margin-bottom: 1rem;
+}
+
+/* Atendimento Section */
+#atendimento {
+  padding: 4rem 0;
+}
+
+#atendimento h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gray-dark);
+}
+
+#atendimento .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+#atendimento .bg-white {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+#atendimento img {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+}
+
+#atendimento h3 {
+  margin-bottom: 0.5rem;
+  color: var(--gray-dark);
+}
+
+#atendimento p {
+  color: var(--gray-dark);
+  font-size: 1rem;
+}
+
+/* Beneficios Section */
+#beneficios {
+  background-color: var(--blue-light);
+  padding: 4rem 0;
+}
+
+#beneficios h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gray-dark);
+}
+
+#beneficios .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+#beneficios .bg-white {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+#beneficios h3 {
+  margin-bottom: 1rem;
+  color: var(--gray-dark);
+}
+
+#beneficios li {
+  margin-bottom: 0.5rem;
+  color: var(--gray-dark);
+  font-size: 1.1rem;
+}
+
+/* Contato Section */
+#contato {
+  padding: 4rem 0;
+}
+
+#contato h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gray-dark);
+}
+
+#contato .bg-white {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+#contato form {
+  display: flex;
+  flex-direction: column;
+}
+
+#contato label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--gray-dark);
+  font-weight: 600;
+}
+
+#contato input[type="text"],
+#contato input[type="tel"],
+#contato select,
+#contato textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#contato input[type="text"]:focus,
+#contato input[type="tel"]:focus,
+#contato select:focus,
+#contato textarea:focus {
+  border-color: var(--blue-royal);
+}
+
+#contato button[type="submit"] {
+  background-color: var(--green-soft);
+  color: var(--white);
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#contato button[type="submit"]:hover {
+  background-color: #2cbb84;
+}
+
+#contato .fixed {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#contato .fixed:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  background-color: var(--blue-light);
+  padding: 2rem 0;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--gray-dark);
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: var(--blue-royal);
+}
+
+footer .flex {
+  display: flex;
+  align-items: center;
+}
+
+footer p {
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  footer .container {
+    flex-direction: row;
+  }
+}
+
+/* Mobile Menu */
+#mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+#mobile-menu.hidden {
+  display: none;
+}
+
+#mobile-menu a {
+  display: block;
+  padding: 0.75rem;
+  text-decoration: none;
+  color: var(--gray-dark);
+}
+
+#mobile-menu a:hover {
+  background-color: var(--blue-light);
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  #hero .container {
+    display: flex;
+    align-items: center;
+  }
+
+  #hero .container div:first-child {
+    width: 50%;
+  }
+
+  #hero .container div:last-child {
+    width: 50%;
+    text-align: right;
+  }
+
+  #sobre .container {
+    display: flex;
+    align-items: center;
+  }
+
+  #sobre .container div:first-child {
+    width: 50%;
+  }
+
+  #sobre .container div:last-child {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  #beneficios .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  #beneficios .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+  
+<body class="font-sans text-gray-800">
+
+  <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-900">Dr. Gustavo Mendes</a>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#sobre" class="hover:text-blue-600">Sobre</a>
+        <a href="#atendimento" class="hover:text-blue-600">Atendimento</a>
+        <a href="#beneficios" class="hover:text-blue-600">Benefícios</a>
+        <a href="#contato" class="hover:text-blue-600">Contato</a>
+      </nav>
+      <a href="https://wa.me/SEU_NUMERO_WHATSAPP" target="_blank"
+        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-medium hidden md:inline-block">WhatsApp</a>
+      <button id="menu-button" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-100 absolute top-full left-0 w-full shadow-md">
+      <div class="flex flex-col p-4 space-y-2">
+        <a href="#sobre" class="block py-2 hover:text-blue-600">Sobre</a>
+        <a href="#atendimento" class="block py-2 hover:text-blue-600">Atendimento</a>
+        <a href="#beneficios" class="block py-2 hover:text-blue-600">Benefícios</a>
+        <a href="#contato" class="block py-2 hover:text-blue-600">Contato</a>
+        <a href="https://wa.me/SEU_NUMERO_WHATSAPP" target="_blank"
+          class="block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-medium text-center">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="hero" class="bg-gradient-to-r from-blue-100 to-blue-50 py-16 md:py-24 relative overflow-hidden">
+      <div class="container mx-auto px-4 md:flex items-center justify-between relative z-10">
+        <div class="md:w-1/2">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">Atendimento Psiquiátrico Premium em
+            Domicílio</h1>
+          <p class="text-lg text-gray-700 mb-8">Consultas de 2 horas, com foco na sua história e resultados em duas
+            semanas, no conforto do seu lar.</p>
+          <a href="#contato"
+            class="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md font-medium">Agendar
+            Consulta</a>
+        </div>
+        <div class="md:w-1/2 relative">
+          <img src="doctor.webp" alt="Dr. Gustavo Mendes"
+            class="rounded-lg shadow-lg w-full max-w-md mx-auto mt-8 md:mt-0 object-cover object-center">
+        </div>
+      </div>
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-100 to-blue-50 opacity-20"></div>
+    </section>
+
+    <section id="sobre" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Sobre o Dr. Gustavo Mendes</h2>
+        <div class="md:flex items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <img src="doctor-profile.webp" alt="Dr. Gustavo Mendes"
+              class="rounded-lg shadow-lg w-full max-w-md mx-auto object-cover object-center">
+          </div>
+          <div class="md:w-1/2 md:ml-8">
+            <p class="text-lg text-gray-700 mb-4">O Dr. Gustavo Mendes e Silva é um psiquiatra com vasta experiência em
+              autismo e neurodivergências. Sua abordagem é humanizada, focada na narrativa do paciente e com o
+              compromisso de resultados.</p>
+            <p class="text-lg text-gray-700 mb-4">Acreditamos que o atendimento psiquiátrico deve ser acolhedor e
+              adaptado às necessidades individuais, e por isso oferecemos consultas de 2 horas em domicílio, no ambiente
+              onde você se sente mais seguro.</p>
+            <p class="text-lg text-gray-700">Nosso objetivo é desmistificar a psiquiatria, oferecendo um tratamento
+              transparente, eficaz e com foco na sua história, não apenas nos sintomas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atendimento" class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Benefícios do Atendimento Domiciliar</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white shadow-md p-6 rounded-lg text-center">
+            <img src="home.svg" alt="Conforto do Lar" class="w-16 h-16 mx-auto mb-4">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Conforto e Segurança</h3>
+            <p class="text-gray-700">Atendimento no seu ambiente, sem estresse de deslocamento.</p>
+          </div>
+          <div class="bg-white shadow-md p-6 rounded-lg text-center">
+            <img src="time.svg" alt="Tempo Adequado" class="w-16 h-16 mx-auto mb-4">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Consultas de 2 Horas</h3>
+            <p class="text-gray-700">Tempo suficiente para conhecer sua história completa.</p>
+          </div>
+          <div class="bg-white shadow-md p-6 rounded-lg text-center">
+            <img src="results.svg" alt="Foco em Resultados" class="w-16 h-16 mx-auto mb-4">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Foco em Resultados</h3>
+            <p class="text-gray-700">Compromisso com resultados visíveis em duas semanas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">O Que Você Pode Esperar</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white shadow-md p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Para Famílias</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Orientação clara e objetiva.</li>
+              <li>Suporte contínuo e personalizado.</li>
+              <li>Estratégias práticas para ajudar seu familiar.</li>
+              <li>Acompanhamento do desenvolvimento e bem-estar.</li>
+            </ul>
+          </div>
+          <div class="bg-white shadow-md p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Para Pessoas Autistas</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Respeito ao seu modo de ser e suas necessidades.</li>
+              <li>Ambiente sensorial adequado e seguro.</li>
+              <li>Comunicação clara e direta.</li>
+              <li>Foco em seus objetivos e qualidade de vida.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Entre em Contato</h2>
+        <div class="bg-white shadow-md p-8 rounded-lg max-w-md mx-auto">
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="name" class="block text-gray-700 font-medium mb-1">Nome Completo</label>
+              <input type="text" id="name" name="name" required
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
+            </div>
+            <div>
+              <label for="whatsapp" class="block text-gray-700 font-medium mb-1">WhatsApp</label>
+              <input type="tel" id="whatsapp" name="whatsapp" required
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
+            </div>
+            <div>
+              <label for="best-time" class="block text-gray-700 font-medium mb-1">Melhor Horário para Contato</label>
+              <input type="text" id="best-time" name="best-time"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+                placeholder="Ex: Manhã, tarde, noite">
+            </div>
+            <div>
+              <label for="region" class="block text-gray-700 font-medium mb-1">Região da Cidade</label>
+              <select id="region" name="region" required
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500">
+                <option value="" disabled selected>Selecione sua região</option>
+                <option value="vila-olimpia">Vila Olímpia</option>
+                <option value="itaim-bibi">Itaim Bibi</option>
+                <option value="brigadeiro-faria-lima">Brigadeiro Faria Lima</option>
+                <option value="sao-paulo">Outra região de São Paulo</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-gray-700 font-medium mb-1">Mensagem (Opcional)</label>
+              <textarea id="message" name="message" rows="4"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+            <button type="submit"
+              class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md font-medium w-full">Enviar</button>
+          </form>
+          <p id="success-message" class="mt-4 text-green-600 hidden">Mensagem enviada com sucesso!</p>
+        </div>
+        <a href="https://wa.me/SEU_NUMERO_WHATSAPP" target="_blank"
+          class="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg focus:outline-none transition-transform duration-200 transform hover:scale-110">
+          <img src="whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-100 py-8 mt-16">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-600 text-center md:text-left mb-4 md:mb-0">&copy; 2024 Dr. Gustavo Mendes. Todos os direitos
+        reservados.</p>
+      <nav class="flex space-x-4">
+        <a href="#" class="text-gray-600 hover:text-gray-800">Política de Privacidade</a>
+        <a href="#" class="text-gray-600 hover:text-gray-800">Termos de Uso</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const menuButton = document.getElementById('menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+
+  menuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    successMessage.classList.remove('hidden');
+    form.reset();
+    setTimeout(() => {
+      successMessage.classList.add('hidden');
+    }, 3000);
+  });
+});
+    
+  </script>
+</body>
+
+</html>
