@@ -111,3 +111,18 @@ document.getElementById("submit-form").addEventListener("click", function(event)
         console.error('Erro:', error);
     });
 });
+
+document.getElementById("submit-form").addEventListener("click", function(event) {
+    event.preventDefault(); // Impede o envio imediato
+
+    grecaptcha.enterprise.ready(function() {
+        grecaptcha.enterprise.execute('6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ', { action: 'submit' }).then(function(token) {
+            document.getElementById("g-recaptcha-response").value = token; // Armazena o token
+            document.getElementById("form-contato").submit(); // Envia o formulário
+        }).catch(function(error) {
+            console.error("Erro ao gerar token do reCAPTCHA:", error);
+            alert("Erro na verificação. Tente novamente.");
+        });
+    });
+});
+
