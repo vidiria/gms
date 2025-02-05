@@ -86,60 +86,49 @@ backToTopButton.addEventListener("click", () => {
 });
 
 /********************************************************
- * ENVIO DO FORMULÁRIO
+/********************************************************
+ * ENVIO DO FORMULÁRIO COM reCAPTCHA
  ********************************************************/
-document.getElementById("submit-form").addEventListener("click", function(event){
-    event.preventDefault();
-    const form = document.getElementById("form-contato");
-
-    fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao enviar o formulário');
-        }
-        return response.text();
-    })
-    .then(data => {
-        alert("Mensagem enviada com sucesso!");
-        form.reset(); // Limpa o formulário
-    })
-    .catch(error => {
-        alert("Houve um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.");
-        console.error('Erro:', error);
-    });
-});
-
 document.getElementById("submit-form").addEventListener("click", function(event) {
     event.preventDefault(); // Impede o envio imediato
 
+    var form = document.getElementById("form-contato");
+    var name = document.querySelector("input[name='name']").value.trim();
+    var email = document.querySelector("input[name='email']").value.trim();
+
+    if (!name || !email) {
+        alert("Preencha todos os campos obrigatórios.");
+        return; // Impede o envio se os campos estiverem vazios
+    }
+
+    // Ativa o reCAPTCHA Enterprise
     grecaptcha.enterprise.ready(function() {
         grecaptcha.enterprise.execute('6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ', { action: 'submit' }).then(function(token) {
-            document.getElementById("g-recaptcha-response").value = token; // Armazena o token
-            document.getElementById("form-contato").submit(); // Envia o formulário
+            document.getElementById("g-recaptcha-response").value = token; // Armazena o token no formulário
+            
+            // Envia os dados do formulário com o token do reCAPTCHA
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar o formulário');
+                }
+                return response.text();
+            })
+            .then(data => {
+                alert("Mensagem enviada com sucesso!");
+                form.reset(); // Limpa o formulário após o envio
+            })
+            .catch(error => {
+                alert("Houve um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.");
+                console.error('Erro:', error);
+            });
+
         }).catch(function(error) {
             console.error("Erro ao gerar token do reCAPTCHA:", error);
             alert("Erro na verificação. Tente novamente.");
         });
     });
 });
-
-document.getElementById("submit-form").addEventListener("click", function(event) {
-    event.preventDefault(); // Evita que o formulário seja enviado direto
-
-    var name = document.querySelector("input[name='name']").value.trim();
-    var email = document.querySelector("input[name='email']").value.trim();
-
-    if (!name || !email) {
-        alert("Preencha todos os campos obrigatórios.");
-        return;
-    }
-
-    grecaptcha.execute(); // Ativa o reCAPTCHA manualmente
-});
-
-function onSubmit(token) {
-    document.getElementById("form-contato").submit();
-}
