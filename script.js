@@ -99,37 +99,6 @@ backToTopButton.addEventListener("click", () => {
     return;
   }
 
-  // Executar o reCAPTCHA
-  grecaptcha.enterprise.ready(function () {
-    grecaptcha.enterprise.execute("6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ", { action: "submit" })
-      .then(function (token) {
-        // Adicionar o token ao formulário
-        document.getElementById("g-recaptcha-response").value = token;
-
-        // Enviar o formulário usando fetch()
-        var form = document.getElementById("form-contato");
-        fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Erro ao enviar o formulário.");
-            }
-            return response.text();
-          })
-          .then((data) => {
-            alert("Mensagem enviada com sucesso!");
-            form.reset(); // Limpa o formulário após o envio bem-sucedido
-          })
-          .catch((error) => {
-            alert("Houve um erro ao enviar a mensagem. Tente novamente.");
-            console.error("Erro:", error);
-          });
-      })
-      .catch(function (error) {
-        console.error("Erro no reCAPTCHA:", error);
-        alert("Erro na verificação. Tente novamente.");
-      });
-  });
-});
+  function onSubmit(token) {
+    document.getElementById("demo-form").submit();
+  }
