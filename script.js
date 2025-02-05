@@ -91,6 +91,14 @@ backToTopButton.addEventListener("click", () => {
 document.getElementById("submit-form").addEventListener("click", function(event){
     event.preventDefault();
     const form = document.getElementById("form-contato");
+    const nome = document.getElementById("nome").value; // Adicionado
+    const email = document.getElementById("email").value; // Adicionado
+
+    // Verifica se os campos obrigatórios estão preenchidos
+    if (nome === "" || email === "") {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return; // Impede o envio do formulário
+    }
 
     fetch(form.action, {
         method: 'POST',
@@ -109,19 +117,5 @@ document.getElementById("submit-form").addEventListener("click", function(event)
     .catch(error => {
         alert("Houve um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.");
         console.error('Erro:', error);
-    });
-});
-
-document.getElementById("submit-form").addEventListener("click", function(event) {
-    event.preventDefault(); // Impede o envio imediato
-
-    grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute('6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ', { action: 'submit' }).then(function(token) {
-            document.getElementById("g-recaptcha-response").value = token; // Armazena o token
-            document.getElementById("form-contato").submit(); // Envia o formulário
-        }).catch(function(error) {
-            console.error("Erro ao gerar token do reCAPTCHA:", error);
-            alert("Erro na verificação. Tente novamente.");
-        });
     });
 });
