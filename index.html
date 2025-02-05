@@ -454,11 +454,10 @@
     class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail placeholder-gray-600 placeholder-text-base"
   ></textarea>
 
-  <!-- Campo oculto para armazenar o token do reCAPTCHA -->
   <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" />
 
   <button
-    type="button"
+    type="submit"
     id="submit-form"
     class="w-full bg-gray-700 text-white px-6 py-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-detail"
   >
@@ -466,54 +465,8 @@
   </button>
 </form>
 
-<!-- Carregando reCAPTCHA -->
 <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ"></script>
 
-<script>
-  document.getElementById("submit-form").addEventListener("click", function (event) {
-    event.preventDefault(); // Impede envio imediato
-
-    var name = document.getElementById("name").value.trim();
-    var email = document.getElementById("email").value.trim();
-
-    if (!name || !email) {
-        alert("Preencha todos os campos obrigatórios.");
-        return;
-    }
-
-    grecaptcha.enterprise.ready(function () {
-      grecaptcha.enterprise.execute("6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ", { action: "submit" })
-        .then(function (token) {
-          document.getElementById("g-recaptcha-response").value = token;
-
-          // Agora, enviamos o formulário via fetch()
-          var form = document.getElementById("form-contato");
-          fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Erro ao enviar o formulário.");
-              }
-              return response.text();
-            })
-            .then((data) => {
-              alert("Mensagem enviada com sucesso!");
-              form.reset();
-            })
-            .catch((error) => {
-              alert("Houve um erro ao enviar a mensagem. Tente novamente.");
-              console.error("Erro:", error);
-            });
-        })
-        .catch(function (error) {
-          console.error("Erro no reCAPTCHA:", error);
-          alert("Erro na verificação. Tente novamente.");
-        });
-    });
-  });
-</script>
 
       </div>
     </div>
