@@ -422,12 +422,10 @@
     </h3>
     <div class="mt-10 sm:mt-12 sm:flex sm:justify-center">
       <div class="rounded-md shadow w-full max-w-md md:w-2/3 lg:w-1/2">
-      <form
+  <form
   action="https://script.google.com/macros/s/AKfycbzAHAD2wj-Fx_bGSsQ6c0CN3M_FVd8W5NRK6exVeOwZUV5kd-enS4KlHIo5AmXgZ3_NkA/exec"
   method="POST"
   id="form-contato"
-  onsubmit="return false;"
-  class="w-full flex flex-col items-center justify-center px-4 py-3 text-base font-medium rounded-md md:py-4 md:text-lg md:px-6"
 >
   <input type="hidden" name="form-name" value="form-contato" />
   <input
@@ -450,7 +448,10 @@
     rows="3"
     class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail placeholder-gray-600 placeholder-text-base"
   ></textarea>
-        <div class="g-recaptcha" data-sitekey="6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ" data-action="LOGIN"></div> 
+
+  <!-- Campo oculto para armazenar o token do reCAPTCHA -->
+  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+
   <button
     type="submit"
     id="submit-form"
