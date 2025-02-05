@@ -123,6 +123,17 @@
     }
      
 
+    /* ===== BOTÃO AUTISMO ===== */
+    #autismo-btn {
+      position: fixed;
+      bottom: 0px; right: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font-weight: bold; z-index: 1000;
+      border-radius: 40px; /* Define bordas arredondadas para formar um círculo */
+    }
+     
+
+    
  /* ===== HERO GRADIENT (com padding generoso) ===== */
 .bg-hero-gradient {
   background-image: linear-gradient(135deg, #293f4e 0%, #3d5c6f 100%);
@@ -184,6 +195,20 @@
     }
 
     #whatsapp-btn i {
+        font-size: 20px; /* Reduz um pouco o tamanho do ícone */
+        margin-right: 8px; /* Reduz um pouco a margem do ícone */
+    }
+}
+
+     @media (max-width: 400px) {
+    #autismo-btn {
+        padding: 2px 2px; /* Reduz um pouco o padding */
+        font-size: 14px; /* Reduz um pouco o tamanho da fonte */
+        bottom: 0px; /* Aproxima um pouco da borda inferior */
+        right: 20px; /* Aproxima um pouco da borda direita */
+    }
+
+    #autismo-btn i {
         font-size: 20px; /* Reduz um pouco o tamanho do ícone */
         margin-right: 8px; /* Reduz um pouco a margem do ícone */
     }
@@ -719,7 +744,18 @@
 >
   <img src="logo-whatsapp-sem-fundo.webp" alt="WhatsApp Logo" width="64" height="64">
 </a>
+  
+/// BOTÃO AUTISMO
+<a
+  id="autismo-btn"
+  href="https://autismo.orcann.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img src="autismo.png" alt="Laço Autismo" width="64" height="64">
+</a>
 
+  
 <button id="back-to-top" title="Voltar ao Topo">
   <img src="/top.webp" alt="Voltar ao Topo">
 </button>
