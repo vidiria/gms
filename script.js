@@ -111,3 +111,7 @@ document.getElementById("submit-form").addEventListener("click", function(event)
         console.error('Erro:', error);
     });
 });
+
+  function onSubmit(token) {
+    document.getElementById("demo-form").submit();
+  }
