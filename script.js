@@ -126,3 +126,20 @@ document.getElementById("submit-form").addEventListener("click", function(event)
     });
 });
 
+document.getElementById("submit-form").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita que o formulário seja enviado direto
+
+    var name = document.querySelector("input[name='name']").value.trim();
+    var email = document.querySelector("input[name='email']").value.trim();
+
+    if (!name || !email) {
+        alert("Preencha todos os campos obrigatórios.");
+        return;
+    }
+
+    grecaptcha.execute(); // Ativa o reCAPTCHA manualmente
+});
+
+function onSubmit(token) {
+    document.getElementById("form-contato").submit();
+}
