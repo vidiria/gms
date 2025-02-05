@@ -85,48 +85,29 @@ backToTopButton.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-*/// ENVIAR FORMULARIO
+/********************************************************
+ * ENVIO DO FORMULÁRIO
+ ********************************************************/
+document.getElementById("submit-form").addEventListener("click", function(event){
+    event.preventDefault();
+    const form = document.getElementById("form-contato");
 
-document.getElementById("form-contato").addEventListener("submit", function (event) {
-    event.preventDefault(); // Agora, impede o envio padrão
-
-    var name = document.getElementById("name").value.trim();
-    var email = document.getElementById("email").value.trim();
-
-    if (!name || !email) {
-        alert("Preencha todos os campos obrigatórios.");
-        return;
-    }
-
-    grecaptcha.enterprise.ready(function () {
-      grecaptcha.enterprise.execute("6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ", { action: "submit" })
-        .then(function (token) {
-          document.getElementById("g-recaptcha-response").value = token;
-
-          // Envia o formulário
-          var form = event.target; // Referência ao formulário
-          fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Erro ao enviar o formulário.");
-              }
-              return response.text();
-            })
-            .then((data) => {
-              alert("Mensagem enviada com sucesso!");
-              form.reset();
-            })
-            .catch((error) => {
-              alert("Houve um erro ao enviar a mensagem. Tente novamente.");
-              console.error("Erro:", error);
-            });
-        })
-        .catch(function (error) {
-          console.error("Erro no reCAPTCHA:", error);
-          alert("Erro na verificação. Tente novamente.");
-        });
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao enviar o formulário');
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert("Mensagem enviada com sucesso!");
+        form.reset(); // Limpa o formulário
+    })
+    .catch(error => {
+        alert("Houve um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.");
+        console.error('Erro:', error);
     });
-  });
+});
