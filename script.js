@@ -87,7 +87,7 @@ backToTopButton.addEventListener("click", () => {
 
 /********************************************************
 /********************************************************
- * ENVIO DO FORMULÁRIO COM reCAPTCHA
+ * ENVIO DO FORMULÁRIO COM reCAPTCHA ENTERPRISE
  ********************************************************/
 document.getElementById("submit-form").addEventListener("click", function(event) {
     event.preventDefault(); // Impede o envio imediato
@@ -101,12 +101,12 @@ document.getElementById("submit-form").addEventListener("click", function(event)
         return; // Impede o envio se os campos estiverem vazios
     }
 
-    // Ativa o reCAPTCHA Enterprise
+    // Ativa o reCAPTCHA Enterprise corretamente
     grecaptcha.enterprise.ready(function() {
         grecaptcha.enterprise.execute('6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ', { action: 'submit' }).then(function(token) {
-            document.getElementById("g-recaptcha-response").value = token; // Armazena o token no formulário
-            
-            // Envia os dados do formulário com o token do reCAPTCHA
+            document.getElementById("g-recaptcha-response").value = token; // Armazena o token
+
+            // Envia os dados do formulário via fetch()
             fetch(form.action, {
                 method: 'POST',
                 body: new FormData(form)
