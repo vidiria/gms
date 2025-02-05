@@ -87,18 +87,46 @@ backToTopButton.addEventListener("click", () => {
 
 */// ENVIAR FORMULARIO
 
- document.getElementById("form-contato").addEventListener("submit", function (event) {
-  event.preventDefault(); // Impede o envio padrão do formulário
+document.getElementById("form-contato").addEventListener("submit", function (event) {
+    event.preventDefault(); // Agora, impede o envio padrão
 
-  // Validação dos campos obrigatórios
-  var name = document.querySelector("input[name='name']").value.trim();
-  var email = document.querySelector("input[name='email']").value.trim();
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
 
-  if (!name || !email) {
-    alert("Preencha todos os campos obrigatórios.");
-    return;
-  }
+    if (!name || !email) {
+        alert("Preencha todos os campos obrigatórios.");
+        return;
+    }
 
-  function onSubmit(token) {
-    document.getElementById("demo-form").submit();
-  }
+    grecaptcha.enterprise.ready(function () {
+      grecaptcha.enterprise.execute("6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ", { action: "submit" })
+        .then(function (token) {
+          document.getElementById("g-recaptcha-response").value = token;
+
+          // Envia o formulário
+          var form = event.target; // Referência ao formulário
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Erro ao enviar o formulário.");
+              }
+              return response.text();
+            })
+            .then((data) => {
+              alert("Mensagem enviada com sucesso!");
+              form.reset();
+            })
+            .catch((error) => {
+              alert("Houve um erro ao enviar a mensagem. Tente novamente.");
+              console.error("Erro:", error);
+            });
+        })
+        .catch(function (error) {
+          console.error("Erro no reCAPTCHA:", error);
+          alert("Erro na verificação. Tente novamente.");
+        });
+    });
+  });
