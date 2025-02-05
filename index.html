@@ -422,15 +422,19 @@
     </h3>
     <div class="mt-10 sm:mt-12 sm:flex sm:justify-center">
       <div class="rounded-md shadow w-full max-w-md md:w-2/3 lg:w-1/2">
- <form
+<form
   action="https://script.google.com/macros/s/AKfycbzAHAD2wj-Fx_bGSsQ6c0CN3M_FVd8W5NRK6exVeOwZUV5kd-enS4KlHIo5AmXgZ3_NkA/exec"
   method="POST"
   id="form-contato"
+  onsubmit="return validateForm();"
+  class="w-full flex flex-col items-center justify-center px-4 py-3 text-base font-medium rounded-md md:py-4 md:text-lg md:px-6"
 >
   <input type="hidden" name="form-name" value="form-contato" />
+
   <input
     type="text"
     name="name"
+    id="name"
     placeholder="Seu Nome"
     class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail placeholder-gray-600 placeholder-text-base"
     required
@@ -438,22 +442,22 @@
   <input
     type="email"
     name="email"
+    id="email"
     placeholder="Seu Email"
     class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail placeholder-gray-600 placeholder-text-base"
     required
   />
   <textarea
     name="message"
+    id="message"
     placeholder="Sua Mensagem (Opcional)"
     rows="3"
     class="flex-1 w-full mb-3 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-detail placeholder-gray-600 placeholder-text-base"
   ></textarea>
 
   <!-- reCAPTCHA -->
-  <div class="g-recaptcha" data-sitekey="6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ" data-action="submit"></div>
-
-  <!-- Campo oculto para armazenar o token -->
-  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+  <div class="g-recaptcha" data-sitekey="6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ"></div>
+  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" />
 
   <button
     type="submit"
@@ -464,8 +468,17 @@
   </button>
 </form>
 
-<!-- reCAPTCHA Script -->
-<script src="https://www.google.com/recaptcha/enterprise.js?render=6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ"></script>
+<script>
+  function validateForm() {
+    event.preventDefault(); // Impede envio automático
+    grecaptcha.ready(function () {
+      grecaptcha.execute("6Le2OM0qAAAAAJRlPYGkAATZfpslntfiNaEMJezJ", { action: "submit" }).then(function (token) {
+        document.getElementById("g-recaptcha-response").value = token;
+        document.getElementById("form-contato").submit();
+      });
+    });
+  }
+</script>
 
       </div>
     </div>
